@@ -31,10 +31,7 @@ Partial Class Form1
         Dim PlzLabel As System.Windows.Forms.Label
         Dim OrtLabel As System.Windows.Forms.Label
         Dim StrasseLabel As System.Windows.Forms.Label
-        Me.AdressenDataSet = New WindowsApplication1.adressenDataSet()
-        Me.Tbl_adressenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Tbl_adressenTableAdapter = New WindowsApplication1.adressenDataSetTableAdapters.tbl_adressenTableAdapter()
-        Me.TableAdapterManager = New WindowsApplication1.adressenDataSetTableAdapters.TableAdapterManager()
+        Dim BemerkungLabel As System.Windows.Forms.Label
         Me.Tbl_adressenBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
@@ -55,6 +52,11 @@ Partial Class Form1
         Me.PlzTextBox = New System.Windows.Forms.TextBox()
         Me.OrtTextBox = New System.Windows.Forms.TextBox()
         Me.StrasseTextBox = New System.Windows.Forms.TextBox()
+        Me.Tbl_adressenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.AdressenDataSet = New WindowsApplication1.adressenDataSet()
+        Me.Tbl_adressenTableAdapter = New WindowsApplication1.adressenDataSetTableAdapters.tbl_adressenTableAdapter()
+        Me.TableAdapterManager = New WindowsApplication1.adressenDataSetTableAdapters.TableAdapterManager()
+        Me.BemerkungTextBox = New System.Windows.Forms.TextBox()
         IDLabel = New System.Windows.Forms.Label()
         AnredeLabel = New System.Windows.Forms.Label()
         VornameLabel = New System.Windows.Forms.Label()
@@ -62,31 +64,12 @@ Partial Class Form1
         PlzLabel = New System.Windows.Forms.Label()
         OrtLabel = New System.Windows.Forms.Label()
         StrasseLabel = New System.Windows.Forms.Label()
-        CType(Me.AdressenDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Tbl_adressenBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        BemerkungLabel = New System.Windows.Forms.Label()
         CType(Me.Tbl_adressenBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tbl_adressenBindingNavigator.SuspendLayout()
+        CType(Me.Tbl_adressenBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AdressenDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'AdressenDataSet
-        '
-        Me.AdressenDataSet.DataSetName = "adressenDataSet"
-        Me.AdressenDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Tbl_adressenBindingSource
-        '
-        Me.Tbl_adressenBindingSource.DataMember = "tbl_adressen"
-        Me.Tbl_adressenBindingSource.DataSource = Me.AdressenDataSet
-        '
-        'Tbl_adressenTableAdapter
-        '
-        Me.Tbl_adressenTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.tbl_adressenTableAdapter = Me.Tbl_adressenTableAdapter
-        Me.TableAdapterManager.UpdateOrder = WindowsApplication1.adressenDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'Tbl_adressenBindingNavigator
         '
@@ -141,14 +124,14 @@ Partial Class Form1
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(44, 15)
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(44, 22)
         Me.BindingNavigatorCountItem.Text = "von {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Die Gesamtanzahl der Elemente."
         '
         'BindingNavigatorSeparator1
         '
         Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 6)
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
         '
         'BindingNavigatorMoveNextItem
         '
@@ -156,7 +139,7 @@ Partial Class Form1
         Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
         Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 20)
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveNextItem.Text = "Nächste verschieben"
         '
         'BindingNavigatorMoveLastItem
@@ -165,13 +148,13 @@ Partial Class Form1
         Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
         Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 20)
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveLastItem.Text = "Letzte verschieben"
         '
         'BindingNavigatorSeparator2
         '
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 6)
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
         'BindingNavigatorAddNewItem
         '
@@ -188,7 +171,7 @@ Partial Class Form1
         Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
         Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 20)
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorDeleteItem.Text = "Löschen"
         '
         'Tbl_adressenBindingNavigatorSaveItem
@@ -196,7 +179,7 @@ Partial Class Form1
         Me.Tbl_adressenBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.Tbl_adressenBindingNavigatorSaveItem.Image = CType(resources.GetObject("Tbl_adressenBindingNavigatorSaveItem.Image"), System.Drawing.Image)
         Me.Tbl_adressenBindingNavigatorSaveItem.Name = "Tbl_adressenBindingNavigatorSaveItem"
-        Me.Tbl_adressenBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 23)
+        Me.Tbl_adressenBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
         Me.Tbl_adressenBindingNavigatorSaveItem.Text = "Daten speichern"
         '
         'IDLabel
@@ -318,11 +301,50 @@ Partial Class Form1
         Me.StrasseTextBox.Size = New System.Drawing.Size(100, 20)
         Me.StrasseTextBox.TabIndex = 14
         '
+        'Tbl_adressenBindingSource
+        '
+        Me.Tbl_adressenBindingSource.DataMember = "tbl_adressen"
+        Me.Tbl_adressenBindingSource.DataSource = Me.AdressenDataSet
+        '
+        'AdressenDataSet
+        '
+        Me.AdressenDataSet.DataSetName = "adressenDataSet"
+        Me.AdressenDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Tbl_adressenTableAdapter
+        '
+        Me.Tbl_adressenTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.tbl_adressenTableAdapter = Me.Tbl_adressenTableAdapter
+        Me.TableAdapterManager.UpdateOrder = WindowsApplication1.adressenDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'BemerkungLabel
+        '
+        BemerkungLabel.AutoSize = True
+        BemerkungLabel.Location = New System.Drawing.Point(28, 238)
+        BemerkungLabel.Name = "BemerkungLabel"
+        BemerkungLabel.Size = New System.Drawing.Size(64, 13)
+        BemerkungLabel.TabIndex = 15
+        BemerkungLabel.Text = "Bemerkung:"
+        '
+        'BemerkungTextBox
+        '
+        Me.BemerkungTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_adressenBindingSource, "Bemerkung", True))
+        Me.BemerkungTextBox.Location = New System.Drawing.Point(94, 231)
+        Me.BemerkungTextBox.Name = "BemerkungTextBox"
+        Me.BemerkungTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.BemerkungTextBox.TabIndex = 16
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(329, 364)
+        Me.Controls.Add(BemerkungLabel)
+        Me.Controls.Add(Me.BemerkungTextBox)
         Me.Controls.Add(IDLabel)
         Me.Controls.Add(Me.IDTextBox)
         Me.Controls.Add(AnredeLabel)
@@ -340,11 +362,11 @@ Partial Class Form1
         Me.Controls.Add(Me.Tbl_adressenBindingNavigator)
         Me.Name = "Form1"
         Me.Text = "Form1"
-        CType(Me.AdressenDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Tbl_adressenBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Tbl_adressenBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Tbl_adressenBindingNavigator.ResumeLayout(False)
         Me.Tbl_adressenBindingNavigator.PerformLayout()
+        CType(Me.Tbl_adressenBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AdressenDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -373,5 +395,6 @@ Partial Class Form1
     Friend WithEvents PlzTextBox As System.Windows.Forms.TextBox
     Friend WithEvents OrtTextBox As System.Windows.Forms.TextBox
     Friend WithEvents StrasseTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents BemerkungTextBox As System.Windows.Forms.TextBox
 
 End Class

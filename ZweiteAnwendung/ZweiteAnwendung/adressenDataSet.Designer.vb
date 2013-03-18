@@ -297,6 +297,8 @@ Partial Public Class adressenDataSet
         
         Private columnstrasse As Global.System.Data.DataColumn
         
+        Private columnBemerkung As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -389,6 +391,14 @@ Partial Public Class adressenDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property BemerkungColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBemerkung
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -425,9 +435,9 @@ Partial Public Class adressenDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Addtbl_adressenRow(ByVal anrede As String, ByVal vorname As String, ByVal nachname As String, ByVal plz As String, ByVal Ort As String, ByVal strasse As String) As tbl_adressenRow
+        Public Overloads Function Addtbl_adressenRow(ByVal anrede As String, ByVal vorname As String, ByVal nachname As String, ByVal plz As String, ByVal Ort As String, ByVal strasse As String, ByVal Bemerkung As String) As tbl_adressenRow
             Dim rowtbl_adressenRow As tbl_adressenRow = CType(Me.NewRow,tbl_adressenRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, anrede, vorname, nachname, plz, Ort, strasse}
+            Dim columnValuesArray() As Object = New Object() {Nothing, anrede, vorname, nachname, plz, Ort, strasse, Bemerkung}
             rowtbl_adressenRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowtbl_adressenRow)
             Return rowtbl_adressenRow
@@ -463,6 +473,7 @@ Partial Public Class adressenDataSet
             Me.columnplz = MyBase.Columns("plz")
             Me.columnOrt = MyBase.Columns("Ort")
             Me.columnstrasse = MyBase.Columns("strasse")
+            Me.columnBemerkung = MyBase.Columns("Bemerkung")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -482,6 +493,8 @@ Partial Public Class adressenDataSet
             MyBase.Columns.Add(Me.columnOrt)
             Me.columnstrasse = New Global.System.Data.DataColumn("strasse", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnstrasse)
+            Me.columnBemerkung = New Global.System.Data.DataColumn("Bemerkung", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBemerkung)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
@@ -494,6 +507,7 @@ Partial Public Class adressenDataSet
             Me.columnplz.MaxLength = 255
             Me.columnOrt.MaxLength = 255
             Me.columnstrasse.MaxLength = 255
+            Me.columnBemerkung.MaxLength = 536870910
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -741,6 +755,21 @@ Partial Public Class adressenDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Bemerkung() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabletbl_adressen.BemerkungColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("Der Wert für Spalte Bemerkung in Tabelle tbl_adressen ist DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletbl_adressen.BemerkungColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsanredeNull() As Boolean
             Return Me.IsNull(Me.tabletbl_adressen.anredeColumn)
         End Function
@@ -809,6 +838,18 @@ Partial Public Class adressenDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetstrasseNull()
             Me(Me.tabletbl_adressen.strasseColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsBemerkungNull() As Boolean
+            Return Me.IsNull(Me.tabletbl_adressen.BemerkungColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetBemerkungNull()
+            Me(Me.tabletbl_adressen.BemerkungColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -985,6 +1026,7 @@ Namespace adressenDataSetTableAdapters
             tableMapping.ColumnMappings.Add("plz", "plz")
             tableMapping.ColumnMappings.Add("Ort", "Ort")
             tableMapping.ColumnMappings.Add("strasse", "strasse")
+            tableMapping.ColumnMappings.Add("Bemerkung", "Bemerkung")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -1010,7 +1052,7 @@ Namespace adressenDataSetTableAdapters
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `tbl_adressen` (`anrede`, `vorname`, `nachname`, `plz`, `Ort`, `stras"& _ 
-                "se`) VALUES (?, ?, ?, ?, ?, ?)"
+                "se`, `Bemerkung`) VALUES (?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("anrede", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "anrede", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("vorname", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "vorname", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -1018,14 +1060,15 @@ Namespace adressenDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("plz", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "plz", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Ort", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Ort", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("strasse", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "strasse", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Bemerkung", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Bemerkung", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `tbl_adressen` SET `anrede` = ?, `vorname` = ?, `nachname` = ?, `plz` = ?,"& _ 
-                " `Ort` = ?, `strasse` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `anrede` IS NULL) OR"& _ 
-                " (`anrede` = ?)) AND ((? = 1 AND `vorname` IS NULL) OR (`vorname` = ?)) AND ((? "& _ 
-                "= 1 AND `nachname` IS NULL) OR (`nachname` = ?)) AND ((? = 1 AND `plz` IS NULL) "& _ 
-                "OR (`plz` = ?)) AND ((? = 1 AND `Ort` IS NULL) OR (`Ort` = ?)) AND ((? = 1 AND `"& _ 
-                "strasse` IS NULL) OR (`strasse` = ?)))"
+                " `Ort` = ?, `strasse` = ?, `Bemerkung` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `an"& _ 
+                "rede` IS NULL) OR (`anrede` = ?)) AND ((? = 1 AND `vorname` IS NULL) OR (`vornam"& _ 
+                "e` = ?)) AND ((? = 1 AND `nachname` IS NULL) OR (`nachname` = ?)) AND ((? = 1 AN"& _ 
+                "D `plz` IS NULL) OR (`plz` = ?)) AND ((? = 1 AND `Ort` IS NULL) OR (`Ort` = ?)) "& _ 
+                "AND ((? = 1 AND `strasse` IS NULL) OR (`strasse` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("anrede", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "anrede", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("vorname", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "vorname", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -1033,6 +1076,7 @@ Namespace adressenDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("plz", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "plz", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Ort", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Ort", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("strasse", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "strasse", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Bemerkung", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Bemerkung", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_anrede", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "anrede", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_anrede", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "anrede", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -1061,7 +1105,8 @@ Namespace adressenDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, anrede, vorname, nachname, plz, Ort, strasse FROM tbl_adressen"
+            Me._commandCollection(0).CommandText = "SELECT ID, anrede, vorname, nachname, plz, Ort, strasse, Bemerkung FROM tbl_adres"& _ 
+                "sen"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -1184,7 +1229,7 @@ Namespace adressenDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal anrede As String, ByVal vorname As String, ByVal nachname As String, ByVal plz As String, ByVal Ort As String, ByVal strasse As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal anrede As String, ByVal vorname As String, ByVal nachname As String, ByVal plz As String, ByVal Ort As String, ByVal strasse As String, ByVal Bemerkung As String) As Integer
             If (anrede Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -1215,6 +1260,11 @@ Namespace adressenDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(5).Value = CType(strasse,String)
             End If
+            If (Bemerkung Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(Bemerkung,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -1234,7 +1284,7 @@ Namespace adressenDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal anrede As String, ByVal vorname As String, ByVal nachname As String, ByVal plz As String, ByVal Ort As String, ByVal strasse As String, ByVal Original_ID As Integer, ByVal Original_anrede As String, ByVal Original_vorname As String, ByVal Original_nachname As String, ByVal Original_plz As String, ByVal Original_Ort As String, ByVal Original_strasse As String) As Integer
+        Public Overloads Overridable Function Update(ByVal anrede As String, ByVal vorname As String, ByVal nachname As String, ByVal plz As String, ByVal Ort As String, ByVal strasse As String, ByVal Bemerkung As String, ByVal Original_ID As Integer, ByVal Original_anrede As String, ByVal Original_vorname As String, ByVal Original_nachname As String, ByVal Original_plz As String, ByVal Original_Ort As String, ByVal Original_strasse As String) As Integer
             If (anrede Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -1265,48 +1315,53 @@ Namespace adressenDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(5).Value = CType(strasse,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_ID,Integer)
-            If (Original_anrede Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            If (Bemerkung Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_anrede,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Bemerkung,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_ID,Integer)
+            If (Original_anrede Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_anrede,String)
             End If
             If (Original_vorname Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_vorname,String)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_vorname,String)
             End If
             If (Original_nachname Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_nachname,String)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_nachname,String)
             End If
             If (Original_plz Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_plz,String)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_plz,String)
             End If
             If (Original_Ort Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Ort,String)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Ort,String)
             End If
             If (Original_strasse Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_strasse,String)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_strasse,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
