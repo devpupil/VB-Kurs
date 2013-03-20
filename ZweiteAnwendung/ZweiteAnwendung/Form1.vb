@@ -21,4 +21,8 @@
         Me.TableAdapterManager.UpdateAll(Me.AdressenDataSet)
 
     End Sub
+
+    Private Sub Tbl_adressenBindingSource_CurrentChanged(sender As Object, e As EventArgs) Handles Tbl_adressenBindingSource.CurrentChanged
+
+    End Sub
 End Class

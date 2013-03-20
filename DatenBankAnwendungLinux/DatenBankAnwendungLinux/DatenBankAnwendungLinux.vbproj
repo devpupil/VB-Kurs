@@ -4,14 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C6ED0AF1-AD8C-47B8-9F1F-6AD18DA96CDA}</ProjectGuid>
+    <ProjectGuid>{C17F9F48-A5BF-4651-918A-65ED71F08557}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <StartupObject>WindowsApplication1.My.MyApplication</StartupObject>
     <RootNamespace>WindowsApplication1</RootNamespace>
-    <AssemblyName>ZweiteAnwendung</AssemblyName>
+    <AssemblyName>DatenBankAnwendungLinux</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -21,8 +21,9 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>ZweiteAnwendung.xml</DocumentationFile>
+    <DocumentationFile>DatenBankAnwendungLinux.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,8 +32,9 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>ZweiteAnwendung.xml</DocumentationFile>
+    <DocumentationFile>DatenBankAnwendungLinux.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -49,13 +51,11 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -66,15 +66,12 @@
     <Import Include="System.Drawing" />
     <Import Include="System.Diagnostics" />
     <Import Include="System.Windows.Forms" />
-    <Import Include="System.Linq" />
-    <Import Include="System.Xml.Linq" />
-    <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adressenDataSet.Designer.vb">
+    <Compile Include="AdressenDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>adressenDataSet.xsd</DependentUpon>
+      <DependentUpon>AdressenDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
@@ -111,17 +108,18 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="adressenDataSet.xsc">
-      <DependentUpon>adressenDataSet.xsd</DependentUpon>
+    <None Include="AdressenDataSet.xsc">
+      <DependentUpon>AdressenDataSet.xsd</DependentUpon>
     </None>
-    <None Include="adressenDataSet.xsd">
+    <None Include="AdressenDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>adressenDataSet.Designer.vb</LastGenOutput>
+      <LastGenOutput>AdressenDataSet.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="adressenDataSet.xss">
-      <DependentUpon>adressenDataSet.xsd</DependentUpon>
+    <None Include="AdressenDataSet.xss">
+      <DependentUpon>AdressenDataSet.xsd</DependentUpon>
     </None>
+    <None Include="app.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -131,10 +129,9 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="adressen.accdb">
+    <Content Include="Adressen.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
