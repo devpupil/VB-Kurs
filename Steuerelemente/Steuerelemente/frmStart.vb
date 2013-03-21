@@ -15,4 +15,8 @@
     Private Sub btnPanelMove_Click(sender As Object, e As EventArgs) Handles btnPanelMove.Click
         frmPanel.ShowDialog()
     End Sub
+
+    Private Sub btnZeitgeber_Click(sender As Object, e As EventArgs) Handles btnZeitgeber.Click
+        frmZeit.ShowDialog()
+    End Sub
 End Class

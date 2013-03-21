@@ -70,6 +70,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmZeit.Designer.vb">
+      <DependentUpon>frmZeit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmZeit.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmSource.Designer.vb">
       <DependentUpon>frmSource.vb</DependentUpon>
     </Compile>
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmWerte.resx">
       <DependentUpon>frmWerte.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmZeit.resx">
+      <DependentUpon>frmZeit.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

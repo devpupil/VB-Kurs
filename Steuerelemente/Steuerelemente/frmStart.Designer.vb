@@ -26,6 +26,7 @@ Partial Class frmStart
         Me.btnClose = New System.Windows.Forms.Button()
         Me.btnWerte = New System.Windows.Forms.Button()
         Me.btnPanelMove = New System.Windows.Forms.Button()
+        Me.btnZeitgeber = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnSteuerElemente
@@ -64,11 +65,21 @@ Partial Class frmStart
         Me.btnPanelMove.Text = "Panel Bewegen"
         Me.btnPanelMove.UseVisualStyleBackColor = True
         '
+        'btnZeitgeber
+        '
+        Me.btnZeitgeber.Location = New System.Drawing.Point(21, 164)
+        Me.btnZeitgeber.Name = "btnZeitgeber"
+        Me.btnZeitgeber.Size = New System.Drawing.Size(112, 50)
+        Me.btnZeitgeber.TabIndex = 4
+        Me.btnZeitgeber.Text = "Zeitgeber"
+        Me.btnZeitgeber.UseVisualStyleBackColor = True
+        '
         'frmStart
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(185, 481)
+        Me.Controls.Add(Me.btnZeitgeber)
         Me.Controls.Add(Me.btnPanelMove)
         Me.Controls.Add(Me.btnWerte)
         Me.Controls.Add(Me.btnClose)
@@ -82,4 +93,5 @@ Partial Class frmStart
     Friend WithEvents btnClose As System.Windows.Forms.Button
     Friend WithEvents btnWerte As System.Windows.Forms.Button
     Friend WithEvents btnPanelMove As System.Windows.Forms.Button
+    Friend WithEvents btnZeitgeber As System.Windows.Forms.Button
 End Class

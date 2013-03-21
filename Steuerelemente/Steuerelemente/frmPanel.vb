@@ -21,7 +21,8 @@
     End Sub
 
     Private Sub btnSource_Click(sender As Object, e As EventArgs) Handles btnSource.Click
-        frmSource.txtSource.Text = "Hier soll der Source Code stehen   "
+        frmSource.txtSource.Text = "Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click Me.Close() End Sub "
+
         frmSource.ShowDialog()
     End Sub
 End Class
