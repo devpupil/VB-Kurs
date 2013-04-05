@@ -23,51 +23,51 @@ Partial Class sqlitetutorial
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(sqlitetutorial))
-        Me.btn_createdb = New System.Windows.Forms.Button
-        Me.btn_tables_create = New System.Windows.Forms.Button
-        Me.btn_insert = New System.Windows.Forms.Button
-        Me.btn_delete = New System.Windows.Forms.Button
-        Me.txt_tables_name = New System.Windows.Forms.TextBox
-        Me.btn_insert_select = New System.Windows.Forms.Button
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.txt_insert_title = New System.Windows.Forms.TextBox
-        Me.txt_insert_description = New System.Windows.Forms.TextBox
-        Me.pic_viewimage = New System.Windows.Forms.PictureBox
-        Me.btn_insertimage = New System.Windows.Forms.Button
-        Me.btn_updateimage = New System.Windows.Forms.Button
-        Me.btn_viewimage = New System.Windows.Forms.Button
-        Me.tab_container = New System.Windows.Forms.TabControl
-        Me.TabPage1 = New System.Windows.Forms.TabPage
-        Me.Label9 = New System.Windows.Forms.Label
-        Me.Label8 = New System.Windows.Forms.Label
-        Me.Label4 = New System.Windows.Forms.Label
-        Me.Label3 = New System.Windows.Forms.Label
-        Me.txt_dbpath = New System.Windows.Forms.TextBox
-        Me.btn_opendb = New System.Windows.Forms.Button
-        Me.TabPage2 = New System.Windows.Forms.TabPage
-        Me.btn_tables_delete = New System.Windows.Forms.Button
-        Me.lst_tables = New System.Windows.Forms.ListBox
-        Me.TabPage3 = New System.Windows.Forms.TabPage
-        Me.cmb_insert_tables = New System.Windows.Forms.ComboBox
-        Me.pic_insert_image = New System.Windows.Forms.PictureBox
-        Me.TabPage4 = New System.Windows.Forms.TabPage
-        Me.btn_update_select = New System.Windows.Forms.Button
-        Me.cmb_update_records = New System.Windows.Forms.ComboBox
-        Me.pic_update_image = New System.Windows.Forms.PictureBox
-        Me.txt_update_description = New System.Windows.Forms.TextBox
-        Me.txt_update_title = New System.Windows.Forms.TextBox
-        Me.Label5 = New System.Windows.Forms.Label
-        Me.Label7 = New System.Windows.Forms.Label
-        Me.btn_update = New System.Windows.Forms.Button
-        Me.cmb_update_tables = New System.Windows.Forms.ComboBox
-        Me.TabPage5 = New System.Windows.Forms.TabPage
-        Me.cmb_delete_tables = New System.Windows.Forms.ComboBox
-        Me.lst_delete_records = New System.Windows.Forms.ListBox
-        Me.TabPage6 = New System.Windows.Forms.TabPage
-        Me.TabPage7 = New System.Windows.Forms.TabPage
-        Me.Label6 = New System.Windows.Forms.Label
-        Me.Label10 = New System.Windows.Forms.Label
+        Me.btn_createdb = New System.Windows.Forms.Button()
+        Me.btn_tables_create = New System.Windows.Forms.Button()
+        Me.btn_insert = New System.Windows.Forms.Button()
+        Me.btn_delete = New System.Windows.Forms.Button()
+        Me.txt_tables_name = New System.Windows.Forms.TextBox()
+        Me.btn_insert_select = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txt_insert_title = New System.Windows.Forms.TextBox()
+        Me.txt_insert_description = New System.Windows.Forms.TextBox()
+        Me.pic_viewimage = New System.Windows.Forms.PictureBox()
+        Me.btn_insertimage = New System.Windows.Forms.Button()
+        Me.btn_updateimage = New System.Windows.Forms.Button()
+        Me.btn_viewimage = New System.Windows.Forms.Button()
+        Me.tab_container = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txt_dbpath = New System.Windows.Forms.TextBox()
+        Me.btn_opendb = New System.Windows.Forms.Button()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.btn_tables_delete = New System.Windows.Forms.Button()
+        Me.lst_tables = New System.Windows.Forms.ListBox()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.cmb_insert_tables = New System.Windows.Forms.ComboBox()
+        Me.pic_insert_image = New System.Windows.Forms.PictureBox()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.btn_update_select = New System.Windows.Forms.Button()
+        Me.cmb_update_records = New System.Windows.Forms.ComboBox()
+        Me.pic_update_image = New System.Windows.Forms.PictureBox()
+        Me.txt_update_description = New System.Windows.Forms.TextBox()
+        Me.txt_update_title = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.btn_update = New System.Windows.Forms.Button()
+        Me.cmb_update_tables = New System.Windows.Forms.ComboBox()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.cmb_delete_tables = New System.Windows.Forms.ComboBox()
+        Me.lst_delete_records = New System.Windows.Forms.ListBox()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.pic_viewimage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tab_container.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -214,7 +214,7 @@ Partial Class sqlitetutorial
         Me.tab_container.Controls.Add(Me.TabPage5)
         Me.tab_container.Controls.Add(Me.TabPage6)
         Me.tab_container.Controls.Add(Me.TabPage7)
-        Me.tab_container.Location = New System.Drawing.Point(12, 12)
+        Me.tab_container.Location = New System.Drawing.Point(22, 12)
         Me.tab_container.Name = "tab_container"
         Me.tab_container.SelectedIndex = 0
         Me.tab_container.Size = New System.Drawing.Size(400, 300)
@@ -237,6 +237,15 @@ Partial Class sqlitetutorial
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Select DB"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(3, 257)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(271, 13)
+        Me.Label10.TabIndex = 14
+        Me.Label10.Text = "*All image BLOBs are converted to .png for consistancy."
         '
         'Label9
         '
@@ -520,15 +529,6 @@ Partial Class sqlitetutorial
         Me.Label6.TabIndex = 26
         Me.Label6.Text = "By, Templarian"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(3, 257)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(271, 13)
-        Me.Label10.TabIndex = 14
-        Me.Label10.Text = "*All image BLOBs are converted to .png for consistancy."
         '
         'sqlitetutorial
         '
