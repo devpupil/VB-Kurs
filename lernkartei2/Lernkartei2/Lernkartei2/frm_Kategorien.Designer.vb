@@ -23,32 +23,32 @@ Partial Class frm_Kategorien
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_Kategorien))
         Dim IDLabel As System.Windows.Forms.Label
         Dim KategorieNameLabel As System.Windows.Forms.Label
         Dim KategorieBeschreibungLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_Kategorien))
         Me.Lernkartei2DataSet = New Lernkartei2.lernkartei2DataSet()
         Me.Tbl_kategorieBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Tbl_kategorieTableAdapter = New Lernkartei2.lernkartei2DataSetTableAdapters.tbl_kategorieTableAdapter()
         Me.TableAdapterManager = New Lernkartei2.lernkartei2DataSetTableAdapters.TableAdapterManager()
         Me.Tbl_kategorieBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
-        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.Tbl_kategorieBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.IDTextBox = New System.Windows.Forms.TextBox()
         Me.KategorieNameTextBox = New System.Windows.Forms.TextBox()
         Me.KategorieBeschreibungTextBox = New System.Windows.Forms.TextBox()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         IDLabel = New System.Windows.Forms.Label()
         KategorieNameLabel = New System.Windows.Forms.Label()
         KategorieBeschreibungLabel = New System.Windows.Forms.Label()
@@ -57,6 +57,33 @@ Partial Class frm_Kategorien
         CType(Me.Tbl_kategorieBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tbl_kategorieBindingNavigator.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'IDLabel
+        '
+        IDLabel.AutoSize = True
+        IDLabel.Location = New System.Drawing.Point(19, 46)
+        IDLabel.Name = "IDLabel"
+        IDLabel.Size = New System.Drawing.Size(21, 13)
+        IDLabel.TabIndex = 1
+        IDLabel.Text = "ID:"
+        '
+        'KategorieNameLabel
+        '
+        KategorieNameLabel.AutoSize = True
+        KategorieNameLabel.Location = New System.Drawing.Point(19, 72)
+        KategorieNameLabel.Name = "KategorieNameLabel"
+        KategorieNameLabel.Size = New System.Drawing.Size(85, 13)
+        KategorieNameLabel.TabIndex = 3
+        KategorieNameLabel.Text = "kategorie Name:"
+        '
+        'KategorieBeschreibungLabel
+        '
+        KategorieBeschreibungLabel.AutoSize = True
+        KategorieBeschreibungLabel.Location = New System.Drawing.Point(19, 98)
+        KategorieBeschreibungLabel.Name = "KategorieBeschreibungLabel"
+        KategorieBeschreibungLabel.Size = New System.Drawing.Size(122, 13)
+        KategorieBeschreibungLabel.TabIndex = 5
+        KategorieBeschreibungLabel.Text = "kategorie Beschreibung:"
         '
         'Lernkartei2DataSet
         '
@@ -97,6 +124,31 @@ Partial Class frm_Kategorien
         Me.Tbl_kategorieBindingNavigator.TabIndex = 0
         Me.Tbl_kategorieBindingNavigator.Text = "BindingNavigator1"
         '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem.Text = "Neu hinzufügen"
+        '
+        'BindingNavigatorCountItem
+        '
+        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(44, 22)
+        Me.BindingNavigatorCountItem.Text = "von {0}"
+        Me.BindingNavigatorCountItem.ToolTipText = "Die Gesamtanzahl der Elemente."
+        '
+        'BindingNavigatorDeleteItem
+        '
+        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem.Text = "Löschen"
+        '
         'BindingNavigatorMoveFirstItem
         '
         Me.BindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -129,17 +181,10 @@ Partial Class frm_Kategorien
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Aktuelle Position"
         '
-        'BindingNavigatorCountItem
-        '
-        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(44, 15)
-        Me.BindingNavigatorCountItem.Text = "von {0}"
-        Me.BindingNavigatorCountItem.ToolTipText = "Die Gesamtanzahl der Elemente."
-        '
         'BindingNavigatorSeparator1
         '
-        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 6)
+        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
         '
         'BindingNavigatorMoveNextItem
         '
@@ -147,7 +192,7 @@ Partial Class frm_Kategorien
         Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
         Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 20)
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveNextItem.Text = "Nächste verschieben"
         '
         'BindingNavigatorMoveLastItem
@@ -156,91 +201,21 @@ Partial Class frm_Kategorien
         Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
         Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 20)
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveLastItem.Text = "Letzte verschieben"
         '
         'BindingNavigatorSeparator2
         '
-        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 6)
-        '
-        'BindingNavigatorAddNewItem
-        '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorAddNewItem.Text = "Neu hinzufügen"
-        '
-        'BindingNavigatorDeleteItem
-        '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 20)
-        Me.BindingNavigatorDeleteItem.Text = "Löschen"
+        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
         'Tbl_kategorieBindingNavigatorSaveItem
         '
         Me.Tbl_kategorieBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.Tbl_kategorieBindingNavigatorSaveItem.Image = CType(resources.GetObject("Tbl_kategorieBindingNavigatorSaveItem.Image"), System.Drawing.Image)
         Me.Tbl_kategorieBindingNavigatorSaveItem.Name = "Tbl_kategorieBindingNavigatorSaveItem"
-        Me.Tbl_kategorieBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 23)
+        Me.Tbl_kategorieBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
         Me.Tbl_kategorieBindingNavigatorSaveItem.Text = "Daten speichern"
-        '
-        'IDLabel
-        '
-        IDLabel.AutoSize = True
-        IDLabel.Location = New System.Drawing.Point(19, 46)
-        IDLabel.Name = "IDLabel"
-        IDLabel.Size = New System.Drawing.Size(21, 13)
-        IDLabel.TabIndex = 1
-        IDLabel.Text = "ID:"
-        '
-        'IDTextBox
-        '
-        Me.IDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_kategorieBindingSource, "ID", True))
-        Me.IDTextBox.Location = New System.Drawing.Point(46, 43)
-        Me.IDTextBox.Name = "IDTextBox"
-        Me.IDTextBox.Size = New System.Drawing.Size(25, 20)
-        Me.IDTextBox.TabIndex = 2
-        '
-        'KategorieNameLabel
-        '
-        KategorieNameLabel.AutoSize = True
-        KategorieNameLabel.Location = New System.Drawing.Point(19, 72)
-        KategorieNameLabel.Name = "KategorieNameLabel"
-        KategorieNameLabel.Size = New System.Drawing.Size(85, 13)
-        KategorieNameLabel.TabIndex = 3
-        KategorieNameLabel.Text = "kategorie Name:"
-        '
-        'KategorieNameTextBox
-        '
-        Me.KategorieNameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_kategorieBindingSource, "kategorieName", True))
-        Me.KategorieNameTextBox.Location = New System.Drawing.Point(147, 69)
-        Me.KategorieNameTextBox.Name = "KategorieNameTextBox"
-        Me.KategorieNameTextBox.Size = New System.Drawing.Size(300, 20)
-        Me.KategorieNameTextBox.TabIndex = 4
-        '
-        'KategorieBeschreibungLabel
-        '
-        KategorieBeschreibungLabel.AutoSize = True
-        KategorieBeschreibungLabel.Location = New System.Drawing.Point(19, 98)
-        KategorieBeschreibungLabel.Name = "KategorieBeschreibungLabel"
-        KategorieBeschreibungLabel.Size = New System.Drawing.Size(122, 13)
-        KategorieBeschreibungLabel.TabIndex = 5
-        KategorieBeschreibungLabel.Text = "kategorie Beschreibung:"
-        '
-        'KategorieBeschreibungTextBox
-        '
-        Me.KategorieBeschreibungTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_kategorieBindingSource, "kategorieBeschreibung", True))
-        Me.KategorieBeschreibungTextBox.Location = New System.Drawing.Point(147, 95)
-        Me.KategorieBeschreibungTextBox.Multiline = True
-        Me.KategorieBeschreibungTextBox.Name = "KategorieBeschreibungTextBox"
-        Me.KategorieBeschreibungTextBox.Size = New System.Drawing.Size(300, 81)
-        Me.KategorieBeschreibungTextBox.TabIndex = 6
         '
         'ToolStripButton1
         '
@@ -260,10 +235,36 @@ Partial Class frm_Kategorien
         Me.ToolStripButton2.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton2.Text = "ToolStripButton2"
         '
+        'IDTextBox
+        '
+        Me.IDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_kategorieBindingSource, "ID", True))
+        Me.IDTextBox.Location = New System.Drawing.Point(46, 43)
+        Me.IDTextBox.Name = "IDTextBox"
+        Me.IDTextBox.Size = New System.Drawing.Size(25, 20)
+        Me.IDTextBox.TabIndex = 2
+        '
+        'KategorieNameTextBox
+        '
+        Me.KategorieNameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_kategorieBindingSource, "kategorieName", True))
+        Me.KategorieNameTextBox.Location = New System.Drawing.Point(147, 69)
+        Me.KategorieNameTextBox.Name = "KategorieNameTextBox"
+        Me.KategorieNameTextBox.Size = New System.Drawing.Size(300, 20)
+        Me.KategorieNameTextBox.TabIndex = 4
+        '
+        'KategorieBeschreibungTextBox
+        '
+        Me.KategorieBeschreibungTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_kategorieBindingSource, "kategorieBeschreibung", True))
+        Me.KategorieBeschreibungTextBox.Location = New System.Drawing.Point(147, 95)
+        Me.KategorieBeschreibungTextBox.Multiline = True
+        Me.KategorieBeschreibungTextBox.Name = "KategorieBeschreibungTextBox"
+        Me.KategorieBeschreibungTextBox.Size = New System.Drawing.Size(300, 81)
+        Me.KategorieBeschreibungTextBox.TabIndex = 6
+        '
         'frm_Kategorien
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.Info
         Me.ClientSize = New System.Drawing.Size(499, 276)
         Me.Controls.Add(IDLabel)
         Me.Controls.Add(Me.IDTextBox)
