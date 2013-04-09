@@ -25,6 +25,7 @@ Partial Class frmTutorial
         Me.btn_createdb = New System.Windows.Forms.Button()
         Me.btn_createtables = New System.Windows.Forms.Button()
         Me.btn_osversion = New System.Windows.Forms.Button()
+        Me.btn_dbtest = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btn_createdb
@@ -54,11 +55,21 @@ Partial Class frmTutorial
         Me.btn_osversion.Text = "OS Version"
         Me.btn_osversion.UseVisualStyleBackColor = True
         '
+        'btn_dbtest
+        '
+        Me.btn_dbtest.Location = New System.Drawing.Point(361, 12)
+        Me.btn_dbtest.Name = "btn_dbtest"
+        Me.btn_dbtest.Size = New System.Drawing.Size(180, 87)
+        Me.btn_dbtest.TabIndex = 3
+        Me.btn_dbtest.Text = "Datenbanktest"
+        Me.btn_dbtest.UseVisualStyleBackColor = True
+        '
         'frmTutorial
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(563, 370)
+        Me.ClientSize = New System.Drawing.Size(712, 390)
+        Me.Controls.Add(Me.btn_dbtest)
         Me.Controls.Add(Me.btn_osversion)
         Me.Controls.Add(Me.btn_createtables)
         Me.Controls.Add(Me.btn_createdb)
@@ -70,5 +81,6 @@ Partial Class frmTutorial
     Friend WithEvents btn_createdb As System.Windows.Forms.Button
     Friend WithEvents btn_createtables As System.Windows.Forms.Button
     Friend WithEvents btn_osversion As System.Windows.Forms.Button
+    Friend WithEvents btn_dbtest As System.Windows.Forms.Button
 
 End Class

@@ -92,6 +92,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmDBFuel.Designer.vb">
+      <DependentUpon>frmDBFuel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDBFuel.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="mod_osversion.vb" />
     <Compile Include="frmTutorial.vb">
       <SubType>Form</SubType>
@@ -119,6 +125,9 @@
     <Compile Include="Settings.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmDBFuel.resx">
+      <DependentUpon>frmDBFuel.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTutorial.resx">
       <DependentUpon>frmTutorial.vb</DependentUpon>
     </EmbeddedResource>

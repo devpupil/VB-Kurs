@@ -45,7 +45,40 @@
         MessageBox.Show(GetOSVersion)
     End Sub
 
-    Private Sub frmTutorial_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    Private Sub btn_dbtest_Click(sender As Object, e As EventArgs) Handles btn_dbtest.Click
+        Dim f As New OpenFileDialog
+        Dim zaehler As Integer
+        f.Filter = "SQLite 3 (*.db3) |*.db3|All Files|*.*"
+
+        If f.ShowDialog = Windows.Forms.DialogResult.OK Then
+            Dim SQLconnect As New SQLiteConnection
+            Dim SQLcommand As SQLiteCommand
+            SQLconnect.ConnectionString = "Data Source=" & f.FileName & ";"
+            SQLconnect.Open()
+
+            SQLcommand = SQLconnect.CreateCommand
+
+            ' Zaehler einlesen um die Datenbank zu füllen
+            frmDBFuel.ShowDialog()
+
+            If frmDBFuel.DialogResult = Windows.Forms.DialogResult.OK Then
+
+                zaehler = Int(frmDBFuel.txt_datasets)
+                ' SQL Query um die Tabellen mit einer bestimmten Anzahl an Datensätzen zu füllen
+                SQLcommand.CommandText = ""
+                SQLcommand.ExecuteNonQuery()
+            Else
+                MsgBox("Keinen Zähler eingegeben")
+            End If
+            SQLcommand.Dispose()
+            SQLconnect.Close()
+        Else
+            MsgBox("Abrechen gedrückt")
+        End If
+
+
+
 
     End Sub
 End Class
