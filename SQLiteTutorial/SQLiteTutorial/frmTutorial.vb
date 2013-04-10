@@ -60,14 +60,23 @@
             SQLcommand = SQLconnect.CreateCommand
 
             ' Zaehler einlesen um die Datenbank zu füllen
+            frmDBFuel.txt_datasets.Focus()
+            frmDBFuel.txt_datasets.SelectAll()
             frmDBFuel.ShowDialog()
 
             If frmDBFuel.DialogResult = Windows.Forms.DialogResult.OK Then
 
-                zaehler = Int(frmDBFuel.txt_datasets)
+                zaehler = Int(frmDBFuel.txt_datasets.Text)
                 ' SQL Query um die Tabellen mit einer bestimmten Anzahl an Datensätzen zu füllen
-                SQLcommand.CommandText = ""
-                SQLcommand.ExecuteNonQuery()
+
+                For i As Integer = 0 To zaehler
+                    ' SQL Query String
+                    Dim sqlquery As String = "INSERT INTO tbl_adressen (vorname, nachname, strasse, plz, ort) VALUES('Max" & i & "','Muster" & i & "','Strasse" & i & "','11111','Musterstadt" & i & "');"
+
+                    SQLcommand.CommandText = sqlquery
+                    SQLcommand.ExecuteNonQuery()
+                Next
+                MsgBox(zaehler & " Datensätze gespeichert")
             Else
                 MsgBox("Keinen Zähler eingegeben")
             End If
@@ -76,9 +85,5 @@
         Else
             MsgBox("Abrechen gedrückt")
         End If
-
-
-
-
     End Sub
 End Class
