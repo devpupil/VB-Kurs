@@ -4,23 +4,23 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E1DB12DB-FB94-452D-ABFF-3C792845BF98}</ProjectGuid>
+    <ProjectGuid>{F0E031AA-E899-45CA-BDAE-724E160C8FC9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>NeuerSQLiteTEST.My.MyApplication</StartupObject>
-    <RootNamespace>NeuerSQLiteTEST</RootNamespace>
-    <AssemblyName>NeuerSQLiteTEST1</AssemblyName>
+    <StartupObject>KaffeineErsatz.My.MyApplication</StartupObject>
+    <RootNamespace>KaffeineErsatz</RootNamespace>
+    <AssemblyName>KaffeineErsatz</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>NeuerSQLiteTEST1.xml</DocumentationFile>
+    <DocumentationFile>KaffeineErsatz.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -30,7 +30,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>NeuerSQLiteTEST1.xml</DocumentationFile>
+    <DocumentationFile>KaffeineErsatz.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -48,10 +48,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Bibliotheken\System.Data.SQLite.dll</HintPath>
-    </Reference>
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -71,20 +67,13 @@
     <Import Include="System.Windows.Forms" />
     <Import Include="System.Linq" />
     <Import Include="System.Xml.Linq" />
-    <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmDBFuel.Designer.vb">
-      <DependentUpon>frmDBFuel.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmDBFuel.vb">
+    <Compile Include="frm_Begruessung.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSQLiteTEST.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSQLiteTEST.Designer.vb">
-      <DependentUpon>frmSQLiteTEST.vb</DependentUpon>
+    <Compile Include="frm_Begruessung.Designer.vb">
+      <DependentUpon>frm_Begruessung.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -104,11 +93,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmDBFuel.resx">
-      <DependentUpon>frmDBFuel.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSQLiteTEST.resx">
-      <DependentUpon>frmSQLiteTEST.vb</DependentUpon>
+    <EmbeddedResource Include="frm_Begruessung.resx">
+      <DependentUpon>frm_Begruessung.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -127,13 +113,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="x86\SQLite.Interop.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
