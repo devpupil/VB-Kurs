@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{53D144EE-5C99-436A-9021-A15710F97A1F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>SQLiteDiverseTest.My.MyApplication</StartupObject>
+    <StartupObject>SQLiteDiverseTest.mod_main</StartupObject>
     <RootNamespace>SQLiteDiverseTest</RootNamespace>
     <AssemblyName>SQLiteDiverseTest</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>WindowsForms</MyType>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -82,6 +82,19 @@
       <DependentUpon>frmDatenZugriff.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm_database.Designer.vb">
+      <DependentUpon>frm_database.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_database.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIParent1.Designer.vb">
+      <DependentUpon>MDIParent1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MDIParent1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mod_main.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -101,6 +114,12 @@
   <ItemGroup>
     <EmbeddedResource Include="frmDatenZugriff.resx">
       <DependentUpon>frmDatenZugriff.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_database.resx">
+      <DependentUpon>frm_database.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIParent1.resx">
+      <DependentUpon>MDIParent1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

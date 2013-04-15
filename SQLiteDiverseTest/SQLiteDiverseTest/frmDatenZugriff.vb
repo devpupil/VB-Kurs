@@ -8,7 +8,8 @@
 
         con.ConnectionString = "Data Source=kunden.db3"
         cmd.Connection = con
-        cmd.CommandText = "SELECT * FROM tbl_adressen"
+        'cmd.CommandText = "SELECT * FROM tbl_adressen"
+        cmd.CommandText = "SELECT tbl_adressen.vorname, tbl_ort.plz, tbl_ort.ort, tbl_adressen.nachname, tbl_adressen.strasse, tbl_adressen.id_ort FROM tbl_ort INNER JOIN tbl_adressen ON tbl_ort.[id] = tbl_adressen.[id_ort]"
 
         Try
             con.Open()
@@ -61,7 +62,8 @@
 
         con.ConnectionString = "Data Source=kunden.db3"
         cmd.Connection = con
-        cmd.CommandText = "SELECT * FROM tbl_adressen where ort = '" & selOrt & "'"
+        'cmd.CommandText = "SELECT * FROM tbl_adressen where ort = '" & selOrt & "'"
+        cmd.CommandText = "SELECT tbl_adressen.vorname, tbl_ort.plz, tbl_ort.ort, tbl_adressen.nachname, tbl_adressen.strasse, tbl_adressen.id_ort FROM tbl_ort INNER JOIN tbl_adressen ON tbl_ort.[id] = tbl_adressen.[id_ort] where tbl_ort.ort = '" & selOrt & "'"
 
         Try
             con.Open()
