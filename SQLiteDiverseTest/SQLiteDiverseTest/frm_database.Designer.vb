@@ -24,7 +24,10 @@ Partial Class frm_database
     Private Sub InitializeComponent()
         Me.lbl_databaseCurrent = New System.Windows.Forms.Label()
         Me.btn_changeDB = New System.Windows.Forms.Button()
-        Me.lstTables = New System.Windows.Forms.ListBox()
+        Me.dbTableGrid = New System.Windows.Forms.DataGridView()
+        Me.panDBTable = New System.Windows.Forms.Panel()
+        CType(Me.dbTableGrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panDBTable.SuspendLayout()
         Me.SuspendLayout()
         '
         'lbl_databaseCurrent
@@ -46,29 +49,40 @@ Partial Class frm_database
         Me.btn_changeDB.Text = "Datenbank auwählen"
         Me.btn_changeDB.UseVisualStyleBackColor = True
         '
-        'lstTables
+        'dbTableGrid
         '
-        Me.lstTables.FormattingEnabled = True
-        Me.lstTables.Location = New System.Drawing.Point(29, 57)
-        Me.lstTables.Name = "lstTables"
-        Me.lstTables.Size = New System.Drawing.Size(643, 56)
-        Me.lstTables.TabIndex = 3
+        Me.dbTableGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dbTableGrid.Location = New System.Drawing.Point(13, 19)
+        Me.dbTableGrid.Name = "dbTableGrid"
+        Me.dbTableGrid.Size = New System.Drawing.Size(237, 231)
+        Me.dbTableGrid.TabIndex = 3
+        '
+        'panDBTable
+        '
+        Me.panDBTable.Controls.Add(Me.dbTableGrid)
+        Me.panDBTable.Location = New System.Drawing.Point(29, 80)
+        Me.panDBTable.Name = "panDBTable"
+        Me.panDBTable.Size = New System.Drawing.Size(289, 272)
+        Me.panDBTable.TabIndex = 4
         '
         'frm_database
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(754, 696)
-        Me.Controls.Add(Me.lstTables)
+        Me.Controls.Add(Me.panDBTable)
         Me.Controls.Add(Me.btn_changeDB)
         Me.Controls.Add(Me.lbl_databaseCurrent)
         Me.Name = "frm_database"
         Me.Text = "frm_database"
+        CType(Me.dbTableGrid, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.panDBTable.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents lbl_databaseCurrent As System.Windows.Forms.Label
     Friend WithEvents btn_changeDB As System.Windows.Forms.Button
-    Friend WithEvents lstTables As System.Windows.Forms.ListBox
+    Friend WithEvents dbTableGrid As System.Windows.Forms.DataGridView
+    Friend WithEvents panDBTable As System.Windows.Forms.Panel
 End Class
