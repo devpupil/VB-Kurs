@@ -90,4 +90,10 @@ Public Class MDIParent1
         frm_database.WindowState = FormWindowState.Maximized
         frm_database.Show()
     End Sub
+
+    Private Sub TabellenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TabellenToolStripMenuItem.Click
+        frmDatenZugriff.MdiParent = Me
+        frmDatenZugriff.WindowState = FormWindowState.Maximized
+        frmDatenZugriff.Show()
+    End Sub
 End Class

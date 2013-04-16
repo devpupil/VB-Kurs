@@ -52,6 +52,7 @@ Partial Class MDIParent1
         Me.StatusBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DatenbankToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowsMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewWindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CascadeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -77,7 +78,7 @@ Partial Class MDIParent1
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.DatenbankToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TabellenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -274,7 +275,7 @@ Partial Class MDIParent1
         '
         'ToolsMenu
         '
-        Me.ToolsMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem, Me.DatenbankToolStripMenuItem})
+        Me.ToolsMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem, Me.DatenbankToolStripMenuItem, Me.TabellenToolStripMenuItem})
         Me.ToolsMenu.Name = "ToolsMenu"
         Me.ToolsMenu.Size = New System.Drawing.Size(48, 20)
         Me.ToolsMenu.Text = "&Tools"
@@ -284,6 +285,12 @@ Partial Class MDIParent1
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
         Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.OptionsToolStripMenuItem.Text = "&Optionen"
+        '
+        'DatenbankToolStripMenuItem
+        '
+        Me.DatenbankToolStripMenuItem.Name = "DatenbankToolStripMenuItem"
+        Me.DatenbankToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DatenbankToolStripMenuItem.Text = "Datenbank"
         '
         'WindowsMenu
         '
@@ -457,11 +464,11 @@ Partial Class MDIParent1
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
         '
-        'DatenbankToolStripMenuItem
+        'TabellenToolStripMenuItem
         '
-        Me.DatenbankToolStripMenuItem.Name = "DatenbankToolStripMenuItem"
-        Me.DatenbankToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DatenbankToolStripMenuItem.Text = "Datenbank"
+        Me.TabellenToolStripMenuItem.Name = "TabellenToolStripMenuItem"
+        Me.TabellenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.TabellenToolStripMenuItem.Text = "Tabellen"
         '
         'MDIParent1
         '
@@ -538,5 +545,6 @@ Partial Class MDIParent1
     Friend WithEvents StatusBarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolsMenu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DatenbankToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents TabellenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

@@ -5,52 +5,58 @@
         Dim cmd As New SQLiteCommand
         Dim reader As SQLiteDataReader
 
+        If My.Settings.DBPath <> "" Then
+            'con.ConnectionString = "Data Source=kunden.db3"
+            con.ConnectionString = My.Settings.DBPath
+            cmd.Connection = con
+            'cmd.CommandText = "SELECT * FROM tbl_adressen"
+            cmd.CommandText = "SELECT tbl_adressen.vorname, tbl_ort.plz, tbl_ort.ort, tbl_adressen.nachname, tbl_adressen.strasse, tbl_adressen.id_ort FROM tbl_ort INNER JOIN tbl_adressen ON tbl_ort.[id] = tbl_adressen.[id_ort]"
 
-        con.ConnectionString = "Data Source=kunden.db3"
-        cmd.Connection = con
-        'cmd.CommandText = "SELECT * FROM tbl_adressen"
-        cmd.CommandText = "SELECT tbl_adressen.vorname, tbl_ort.plz, tbl_ort.ort, tbl_adressen.nachname, tbl_adressen.strasse, tbl_adressen.id_ort FROM tbl_ort INNER JOIN tbl_adressen ON tbl_ort.[id] = tbl_adressen.[id_ort]"
+            Try
+                con.Open()
+                reader = cmd.ExecuteReader()
+                listBoxAlle.Items.Clear()
 
-        Try
-            con.Open()
-            reader = cmd.ExecuteReader()
-            listBoxAlle.Items.Clear()
+                listBoxAlle.Items.Add("Vorname # Nachname # Strasse # PLZ # Ort")
 
-            listBoxAlle.Items.Add("Vorname # Nachname # Strasse # PLZ # Ort")
+                Do While reader.Read()
+                    listBoxAlle.Items.Add(
+                        reader("vorname") & " # " &
+                        reader("nachname") & " # " &
+                        reader("strasse") & " # " &
+                        reader("plz") & " # " &
+                        reader("ort"))
+                Loop
+                reader.Close()
+                con.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
 
-            Do While reader.Read()
-                listBoxAlle.Items.Add(
-                    reader("vorname") & " # " &
-                    reader("nachname") & " # " &
-                    reader("strasse") & " # " &
-                    reader("plz") & " # " &
-                    reader("ort"))
-            Loop
-            reader.Close()
-            con.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-
-        End Try
+            End Try
+        End If
     End Sub
 
     Private Sub frmDatenZugriff_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim connString As String = "Data Source=kunden.db3"
-        Dim conn As New SQLiteConnection(connString)
+        If My.Settings.DBPath <> "" Then
 
-        Dim strSQL As String = "SELECT * FROM tbl_ort"
-        Dim da As New SQLiteDataAdapter(strSQL, conn)
-        Dim ds As New DataSet
+            'Dim connString As String = "Data Source=kunden.db3"
+            Dim connString As String = My.Settings.DBPath
+            Dim conn As New SQLiteConnection(connString)
 
-        da.Fill(ds, "tbl_ort")
+            Dim strSQL As String = "SELECT * FROM tbl_ort"
+            Dim da As New SQLiteDataAdapter(strSQL, conn)
+            Dim ds As New DataSet
 
-        With cmbOrt
-            .DataSource = ds.Tables("tbl_ort")
-            .DisplayMember = "ort"
-            .ValueMember = "id"
-            .SelectedIndex = 0
+            da.Fill(ds, "tbl_ort")
 
-        End With
+            With cmbOrt
+                .DataSource = ds.Tables("tbl_ort")
+                .DisplayMember = "ort"
+                .ValueMember = "id"
+                .SelectedIndex = 0
+
+            End With
+        End If
     End Sub
 
     Private Sub btnAuswahl_Click(sender As Object, e As EventArgs) Handles btnAuswahl.Click
@@ -60,31 +66,35 @@
 
         Dim selOrt As String = cmbOrt.Text
 
-        con.ConnectionString = "Data Source=kunden.db3"
-        cmd.Connection = con
-        'cmd.CommandText = "SELECT * FROM tbl_adressen where ort = '" & selOrt & "'"
-        cmd.CommandText = "SELECT tbl_adressen.vorname, tbl_ort.plz, tbl_ort.ort, tbl_adressen.nachname, tbl_adressen.strasse, tbl_adressen.id_ort FROM tbl_ort INNER JOIN tbl_adressen ON tbl_ort.[id] = tbl_adressen.[id_ort] where tbl_ort.ort = '" & selOrt & "'"
+        If My.Settings.DBPath <> "" Then
 
-        Try
-            con.Open()
-            reader = cmd.ExecuteReader()
-            ListBoxFilter.Items.Clear()
+            'con.ConnectionString = "Data Source=kunden.db3"
+            con.ConnectionString = My.Settings.DBPath
+            cmd.Connection = con
+            'cmd.CommandText = "SELECT * FROM tbl_adressen where ort = '" & selOrt & "'"
+            cmd.CommandText = "SELECT tbl_adressen.vorname, tbl_ort.plz, tbl_ort.ort, tbl_adressen.nachname, tbl_adressen.strasse, tbl_adressen.id_ort FROM tbl_ort INNER JOIN tbl_adressen ON tbl_ort.[id] = tbl_adressen.[id_ort] where tbl_ort.ort = '" & selOrt & "'"
 
-            ListBoxFilter.Items.Add("Vorname # Nachname # Strasse # PLZ # Ort")
+            Try
+                con.Open()
+                reader = cmd.ExecuteReader()
+                ListBoxFilter.Items.Clear()
 
-            Do While reader.Read()
-                ListBoxFilter.Items.Add(
-                    reader("vorname") & " # " &
-                    reader("nachname") & " # " &
-                    reader("strasse") & " # " &
-                    reader("plz") & " # " &
-                    reader("ort"))
-            Loop
-            reader.Close()
-            con.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
+                ListBoxFilter.Items.Add("Vorname # Nachname # Strasse # PLZ # Ort")
 
-        End Try
+                Do While reader.Read()
+                    ListBoxFilter.Items.Add(
+                        reader("vorname") & " # " &
+                        reader("nachname") & " # " &
+                        reader("strasse") & " # " &
+                        reader("plz") & " # " &
+                        reader("ort"))
+                Loop
+                reader.Close()
+                con.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+
+            End Try
+        End If
     End Sub
 End Class
