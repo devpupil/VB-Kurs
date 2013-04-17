@@ -237,6 +237,24 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Abf_AktiveKatTableAdapter" GeneratorDataComponentClassName="Abf_AktiveKatTableAdapter" Name="Abf_AktiveKat" UserDataComponentName="Abf_AktiveKatTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="lernkartei2ConnectionString (MySettings)" DbObjectName="Abf_AktiveKat" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT cat_id, kategorieName, kategorieBeschreibung FROM Abf_AktiveKat</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="cat_id" DataSetColumn="cat_id" />
+              <Mapping SourceColumn="kategorieName" DataSetColumn="kategorieName" />
+              <Mapping SourceColumn="kategorieBeschreibung" DataSetColumn="kategorieBeschreibung" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -245,7 +263,7 @@
   <xs:element name="lernkartei2DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="lernkartei2DataSet" msprop:Generator_UserDSName="lernkartei2DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="tbl_Fragen" msprop:Generator_TableClassName="tbl_FragenDataTable" msprop:Generator_TableVarName="tabletbl_Fragen" msprop:Generator_TablePropName="tbl_Fragen" msprop:Generator_RowDeletingName="tbl_FragenRowDeleting" msprop:Generator_RowChangingName="tbl_FragenRowChanging" msprop:Generator_RowEvHandlerName="tbl_FragenRowChangeEventHandler" msprop:Generator_RowDeletedName="tbl_FragenRowDeleted" msprop:Generator_UserTableName="tbl_Fragen" msprop:Generator_RowChangedName="tbl_FragenRowChanged" msprop:Generator_RowEvArgName="tbl_FragenRowChangeEvent" msprop:Generator_RowClassName="tbl_FragenRow">
+        <xs:element name="tbl_Fragen" msprop:Generator_TableClassName="tbl_FragenDataTable" msprop:Generator_TableVarName="tabletbl_Fragen" msprop:Generator_RowChangedName="tbl_FragenRowChanged" msprop:Generator_TablePropName="tbl_Fragen" msprop:Generator_RowDeletingName="tbl_FragenRowDeleting" msprop:Generator_RowChangingName="tbl_FragenRowChanging" msprop:Generator_RowEvHandlerName="tbl_FragenRowChangeEventHandler" msprop:Generator_RowDeletedName="tbl_FragenRowDeleted" msprop:Generator_RowClassName="tbl_FragenRow" msprop:Generator_UserTableName="tbl_Fragen" msprop:Generator_RowEvArgName="tbl_FragenRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -328,10 +346,31 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tbl_kategorie" msprop:Generator_TableClassName="tbl_kategorieDataTable" msprop:Generator_TableVarName="tabletbl_kategorie" msprop:Generator_TablePropName="tbl_kategorie" msprop:Generator_RowDeletingName="tbl_kategorieRowDeleting" msprop:Generator_RowChangingName="tbl_kategorieRowChanging" msprop:Generator_RowEvHandlerName="tbl_kategorieRowChangeEventHandler" msprop:Generator_RowDeletedName="tbl_kategorieRowDeleted" msprop:Generator_UserTableName="tbl_kategorie" msprop:Generator_RowChangedName="tbl_kategorieRowChanged" msprop:Generator_RowEvArgName="tbl_kategorieRowChangeEvent" msprop:Generator_RowClassName="tbl_kategorieRow">
+        <xs:element name="tbl_kategorie" msprop:Generator_TableClassName="tbl_kategorieDataTable" msprop:Generator_TableVarName="tabletbl_kategorie" msprop:Generator_RowChangedName="tbl_kategorieRowChanged" msprop:Generator_TablePropName="tbl_kategorie" msprop:Generator_RowDeletingName="tbl_kategorieRowDeleting" msprop:Generator_RowChangingName="tbl_kategorieRowChanging" msprop:Generator_RowEvHandlerName="tbl_kategorieRowChangeEventHandler" msprop:Generator_RowDeletedName="tbl_kategorieRowDeleted" msprop:Generator_RowClassName="tbl_kategorieRow" msprop:Generator_UserTableName="tbl_kategorie" msprop:Generator_RowEvArgName="tbl_kategorieRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="kategorieName" msprop:Generator_ColumnVarNameInTable="columnkategorieName" msprop:Generator_ColumnPropNameInRow="kategorieName" msprop:Generator_ColumnPropNameInTable="kategorieNameColumn" msprop:Generator_UserColumnName="kategorieName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kategorieBeschreibung" msprop:Generator_ColumnVarNameInTable="columnkategorieBeschreibung" msprop:Generator_ColumnPropNameInRow="kategorieBeschreibung" msprop:Generator_ColumnPropNameInTable="kategorieBeschreibungColumn" msprop:Generator_UserColumnName="kategorieBeschreibung" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="536870910" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Abf_AktiveKat" msprop:Generator_TableClassName="Abf_AktiveKatDataTable" msprop:Generator_TableVarName="tableAbf_AktiveKat" msprop:Generator_TablePropName="Abf_AktiveKat" msprop:Generator_RowDeletingName="Abf_AktiveKatRowDeleting" msprop:Generator_RowChangingName="Abf_AktiveKatRowChanging" msprop:Generator_RowEvHandlerName="Abf_AktiveKatRowChangeEventHandler" msprop:Generator_RowDeletedName="Abf_AktiveKatRowDeleted" msprop:Generator_UserTableName="Abf_AktiveKat" msprop:Generator_RowChangedName="Abf_AktiveKatRowChanged" msprop:Generator_RowEvArgName="Abf_AktiveKatRowChangeEvent" msprop:Generator_RowClassName="Abf_AktiveKatRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cat_id" msprop:Generator_ColumnVarNameInTable="columncat_id" msprop:Generator_ColumnPropNameInRow="cat_id" msprop:Generator_ColumnPropNameInTable="cat_idColumn" msprop:Generator_UserColumnName="cat_id" type="xs:int" minOccurs="0" />
               <xs:element name="kategorieName" msprop:Generator_ColumnVarNameInTable="columnkategorieName" msprop:Generator_ColumnPropNameInRow="kategorieName" msprop:Generator_ColumnPropNameInTable="kategorieNameColumn" msprop:Generator_UserColumnName="kategorieName" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">

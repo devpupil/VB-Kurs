@@ -107,6 +107,18 @@
     <Compile Include="frm_Kategorien.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm_KategorieWahl.Designer.vb">
+      <DependentUpon>frm_KategorieWahl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_KategorieWahl.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Lernen.Designer.vb">
+      <DependentUpon>frm_Lernen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Lernen.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="lernkartei2DataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -150,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Kategorien.resx">
       <DependentUpon>frm_Kategorien.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_KategorieWahl.resx">
+      <DependentUpon>frm_KategorieWahl.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDIMain.resx">
       <DependentUpon>MDIMain.vb</DependentUpon>

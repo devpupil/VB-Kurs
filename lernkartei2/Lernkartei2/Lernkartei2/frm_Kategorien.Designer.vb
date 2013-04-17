@@ -72,18 +72,18 @@ Partial Class frm_Kategorien
         KategorieNameLabel.AutoSize = True
         KategorieNameLabel.Location = New System.Drawing.Point(19, 72)
         KategorieNameLabel.Name = "KategorieNameLabel"
-        KategorieNameLabel.Size = New System.Drawing.Size(85, 13)
+        KategorieNameLabel.Size = New System.Drawing.Size(86, 13)
         KategorieNameLabel.TabIndex = 3
-        KategorieNameLabel.Text = "kategorie Name:"
+        KategorieNameLabel.Text = "Kategorie Name:"
         '
         'KategorieBeschreibungLabel
         '
         KategorieBeschreibungLabel.AutoSize = True
         KategorieBeschreibungLabel.Location = New System.Drawing.Point(19, 98)
         KategorieBeschreibungLabel.Name = "KategorieBeschreibungLabel"
-        KategorieBeschreibungLabel.Size = New System.Drawing.Size(122, 13)
+        KategorieBeschreibungLabel.Size = New System.Drawing.Size(123, 13)
         KategorieBeschreibungLabel.TabIndex = 5
-        KategorieBeschreibungLabel.Text = "kategorie Beschreibung:"
+        KategorieBeschreibungLabel.Text = "Kategorie Beschreibung:"
         '
         'Lernkartei2DataSet
         '

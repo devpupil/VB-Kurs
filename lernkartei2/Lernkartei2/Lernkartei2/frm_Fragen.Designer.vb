@@ -23,7 +23,6 @@ Partial Class frm_Fragen
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_Fragen))
         Dim IDLabel As System.Windows.Forms.Label
         Dim Cat_idLabel As System.Windows.Forms.Label
         Dim FrageLabel As System.Windows.Forms.Label
@@ -35,23 +34,27 @@ Partial Class frm_Fragen
         Dim Mc_anwort5Label As System.Windows.Forms.Label
         Dim PunkteLabel As System.Windows.Forms.Label
         Dim ThemenlinkLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_Fragen))
         Me.Lernkartei2DataSet = New Lernkartei2.lernkartei2DataSet()
         Me.Tbl_FragenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Tbl_FragenTableAdapter = New Lernkartei2.lernkartei2DataSetTableAdapters.tbl_FragenTableAdapter()
         Me.TableAdapterManager = New Lernkartei2.lernkartei2DataSetTableAdapters.TableAdapterManager()
         Me.Tbl_FragenBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
-        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.Tbl_FragenBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
+        Me.btnFragenFilter = New System.Windows.Forms.ToolStripButton()
+        Me.btnFragenFilterLoeschen = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.IDTextBox = New System.Windows.Forms.TextBox()
         Me.Cat_idTextBox = New System.Windows.Forms.TextBox()
         Me.FrageTextBox = New System.Windows.Forms.TextBox()
@@ -69,6 +72,11 @@ Partial Class frm_Fragen
         Me.PunkteTextBox = New System.Windows.Forms.TextBox()
         Me.ThemenlinkTextBox = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Cat_idComboBox = New System.Windows.Forms.ComboBox()
+        Me.TblkategorieBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Tbl_kategorieTableAdapter = New Lernkartei2.lernkartei2DataSetTableAdapters.tbl_kategorieTableAdapter()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.TblkategorieBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         IDLabel = New System.Windows.Forms.Label()
         Cat_idLabel = New System.Windows.Forms.Label()
         FrageLabel = New System.Windows.Forms.Label()
@@ -85,7 +93,108 @@ Partial Class frm_Fragen
         CType(Me.Tbl_FragenBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tbl_FragenBindingNavigator.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.TblkategorieBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TblkategorieBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'IDLabel
+        '
+        IDLabel.AutoSize = True
+        IDLabel.Location = New System.Drawing.Point(606, 31)
+        IDLabel.Name = "IDLabel"
+        IDLabel.Size = New System.Drawing.Size(21, 13)
+        IDLabel.TabIndex = 1
+        IDLabel.Text = "ID:"
+        '
+        'Cat_idLabel
+        '
+        Cat_idLabel.AutoSize = True
+        Cat_idLabel.Location = New System.Drawing.Point(30, 31)
+        Cat_idLabel.Name = "Cat_idLabel"
+        Cat_idLabel.Size = New System.Drawing.Size(36, 13)
+        Cat_idLabel.TabIndex = 3
+        Cat_idLabel.Text = "cat id:"
+        '
+        'FrageLabel
+        '
+        FrageLabel.AutoSize = True
+        FrageLabel.Location = New System.Drawing.Point(30, 69)
+        FrageLabel.Name = "FrageLabel"
+        FrageLabel.Size = New System.Drawing.Size(37, 13)
+        FrageLabel.TabIndex = 5
+        FrageLabel.Text = "Frage:"
+        '
+        'AntwortFreiLabel
+        '
+        AntwortFreiLabel.AutoSize = True
+        AntwortFreiLabel.Location = New System.Drawing.Point(30, 133)
+        AntwortFreiLabel.Name = "AntwortFreiLabel"
+        AntwortFreiLabel.Size = New System.Drawing.Size(65, 13)
+        AntwortFreiLabel.TabIndex = 7
+        AntwortFreiLabel.Text = "antwort Frei:"
+        '
+        'Mc_anwort1Label
+        '
+        Mc_anwort1Label.AutoSize = True
+        Mc_anwort1Label.Location = New System.Drawing.Point(3, 39)
+        Mc_anwort1Label.Name = "Mc_anwort1Label"
+        Mc_anwort1Label.Size = New System.Drawing.Size(65, 13)
+        Mc_anwort1Label.TabIndex = 11
+        Mc_anwort1Label.Text = "mc anwort1:"
+        '
+        'Mc_anwort2Label
+        '
+        Mc_anwort2Label.AutoSize = True
+        Mc_anwort2Label.Location = New System.Drawing.Point(3, 78)
+        Mc_anwort2Label.Name = "Mc_anwort2Label"
+        Mc_anwort2Label.Size = New System.Drawing.Size(65, 13)
+        Mc_anwort2Label.TabIndex = 13
+        Mc_anwort2Label.Text = "mc anwort2:"
+        '
+        'Mc_anwort3Label
+        '
+        Mc_anwort3Label.AutoSize = True
+        Mc_anwort3Label.Location = New System.Drawing.Point(3, 117)
+        Mc_anwort3Label.Name = "Mc_anwort3Label"
+        Mc_anwort3Label.Size = New System.Drawing.Size(65, 13)
+        Mc_anwort3Label.TabIndex = 15
+        Mc_anwort3Label.Text = "mc anwort3:"
+        '
+        'Mc_anwort4Label
+        '
+        Mc_anwort4Label.AutoSize = True
+        Mc_anwort4Label.Location = New System.Drawing.Point(3, 156)
+        Mc_anwort4Label.Name = "Mc_anwort4Label"
+        Mc_anwort4Label.Size = New System.Drawing.Size(65, 13)
+        Mc_anwort4Label.TabIndex = 17
+        Mc_anwort4Label.Text = "mc anwort4:"
+        '
+        'Mc_anwort5Label
+        '
+        Mc_anwort5Label.AutoSize = True
+        Mc_anwort5Label.Location = New System.Drawing.Point(3, 195)
+        Mc_anwort5Label.Name = "Mc_anwort5Label"
+        Mc_anwort5Label.Size = New System.Drawing.Size(65, 13)
+        Mc_anwort5Label.TabIndex = 19
+        Mc_anwort5Label.Text = "mc anwort5:"
+        '
+        'PunkteLabel
+        '
+        PunkteLabel.AutoSize = True
+        PunkteLabel.Location = New System.Drawing.Point(30, 488)
+        PunkteLabel.Name = "PunkteLabel"
+        PunkteLabel.Size = New System.Drawing.Size(43, 13)
+        PunkteLabel.TabIndex = 41
+        PunkteLabel.Text = "punkte:"
+        '
+        'ThemenlinkLabel
+        '
+        ThemenlinkLabel.AutoSize = True
+        ThemenlinkLabel.Location = New System.Drawing.Point(30, 517)
+        ThemenlinkLabel.Name = "ThemenlinkLabel"
+        ThemenlinkLabel.Size = New System.Drawing.Size(65, 13)
+        ThemenlinkLabel.TabIndex = 45
+        ThemenlinkLabel.Text = "Themenlink:"
         '
         'Lernkartei2DataSet
         '
@@ -114,7 +223,7 @@ Partial Class frm_Fragen
         Me.Tbl_FragenBindingNavigator.BindingSource = Me.Tbl_FragenBindingSource
         Me.Tbl_FragenBindingNavigator.CountItem = Me.BindingNavigatorCountItem
         Me.Tbl_FragenBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
-        Me.Tbl_FragenBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.Tbl_FragenBindingNavigatorSaveItem})
+        Me.Tbl_FragenBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.Tbl_FragenBindingNavigatorSaveItem, Me.btnFragenFilter, Me.btnFragenFilterLoeschen, Me.ToolStripLabel1})
         Me.Tbl_FragenBindingNavigator.Location = New System.Drawing.Point(0, 0)
         Me.Tbl_FragenBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.Tbl_FragenBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
@@ -122,9 +231,34 @@ Partial Class frm_Fragen
         Me.Tbl_FragenBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.Tbl_FragenBindingNavigator.Name = "Tbl_FragenBindingNavigator"
         Me.Tbl_FragenBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.Tbl_FragenBindingNavigator.Size = New System.Drawing.Size(676, 25)
+        Me.Tbl_FragenBindingNavigator.Size = New System.Drawing.Size(684, 25)
         Me.Tbl_FragenBindingNavigator.TabIndex = 0
         Me.Tbl_FragenBindingNavigator.Text = "BindingNavigator1"
+        '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem.Text = "Neu hinzufügen"
+        '
+        'BindingNavigatorCountItem
+        '
+        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(44, 22)
+        Me.BindingNavigatorCountItem.Text = "von {0}"
+        Me.BindingNavigatorCountItem.ToolTipText = "Die Gesamtanzahl der Elemente."
+        '
+        'BindingNavigatorDeleteItem
+        '
+        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem.Text = "Löschen"
         '
         'BindingNavigatorMoveFirstItem
         '
@@ -158,17 +292,10 @@ Partial Class frm_Fragen
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Aktuelle Position"
         '
-        'BindingNavigatorCountItem
-        '
-        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(44, 15)
-        Me.BindingNavigatorCountItem.Text = "von {0}"
-        Me.BindingNavigatorCountItem.ToolTipText = "Die Gesamtanzahl der Elemente."
-        '
         'BindingNavigatorSeparator1
         '
-        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 6)
+        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
         '
         'BindingNavigatorMoveNextItem
         '
@@ -176,7 +303,7 @@ Partial Class frm_Fragen
         Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
         Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 20)
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveNextItem.Text = "Nächste verschieben"
         '
         'BindingNavigatorMoveLastItem
@@ -185,48 +312,46 @@ Partial Class frm_Fragen
         Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
         Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 20)
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveLastItem.Text = "Letzte verschieben"
         '
         'BindingNavigatorSeparator2
         '
-        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 6)
-        '
-        'BindingNavigatorAddNewItem
-        '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorAddNewItem.Text = "Neu hinzufügen"
-        '
-        'BindingNavigatorDeleteItem
-        '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 20)
-        Me.BindingNavigatorDeleteItem.Text = "Löschen"
+        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
         'Tbl_FragenBindingNavigatorSaveItem
         '
         Me.Tbl_FragenBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.Tbl_FragenBindingNavigatorSaveItem.Image = CType(resources.GetObject("Tbl_FragenBindingNavigatorSaveItem.Image"), System.Drawing.Image)
         Me.Tbl_FragenBindingNavigatorSaveItem.Name = "Tbl_FragenBindingNavigatorSaveItem"
-        Me.Tbl_FragenBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 23)
+        Me.Tbl_FragenBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
         Me.Tbl_FragenBindingNavigatorSaveItem.Text = "Daten speichern"
         '
-        'IDLabel
+        'btnFragenFilter
         '
-        IDLabel.AutoSize = True
-        IDLabel.Location = New System.Drawing.Point(606, 31)
-        IDLabel.Name = "IDLabel"
-        IDLabel.Size = New System.Drawing.Size(21, 13)
-        IDLabel.TabIndex = 1
-        IDLabel.Text = "ID:"
+        Me.btnFragenFilter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnFragenFilter.Image = CType(resources.GetObject("btnFragenFilter.Image"), System.Drawing.Image)
+        Me.btnFragenFilter.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnFragenFilter.Name = "btnFragenFilter"
+        Me.btnFragenFilter.Size = New System.Drawing.Size(23, 22)
+        Me.btnFragenFilter.Text = "Fragen filtern"
+        '
+        'btnFragenFilterLoeschen
+        '
+        Me.btnFragenFilterLoeschen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnFragenFilterLoeschen.Image = CType(resources.GetObject("btnFragenFilterLoeschen.Image"), System.Drawing.Image)
+        Me.btnFragenFilterLoeschen.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnFragenFilterLoeschen.Name = "btnFragenFilterLoeschen"
+        Me.btnFragenFilterLoeschen.Size = New System.Drawing.Size(23, 22)
+        Me.btnFragenFilterLoeschen.Text = "Filter löschen"
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(118, 22)
+        Me.ToolStripLabel1.Tag = "                 "
+        Me.ToolStripLabel1.Text = "                                     "
         '
         'IDTextBox
         '
@@ -236,15 +361,6 @@ Partial Class frm_Fragen
         Me.IDTextBox.Size = New System.Drawing.Size(31, 20)
         Me.IDTextBox.TabIndex = 2
         '
-        'Cat_idLabel
-        '
-        Cat_idLabel.AutoSize = True
-        Cat_idLabel.Location = New System.Drawing.Point(30, 31)
-        Cat_idLabel.Name = "Cat_idLabel"
-        Cat_idLabel.Size = New System.Drawing.Size(36, 13)
-        Cat_idLabel.TabIndex = 3
-        Cat_idLabel.Text = "cat id:"
-        '
         'Cat_idTextBox
         '
         Me.Cat_idTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_FragenBindingSource, "cat_id", True))
@@ -253,32 +369,14 @@ Partial Class frm_Fragen
         Me.Cat_idTextBox.Size = New System.Drawing.Size(29, 20)
         Me.Cat_idTextBox.TabIndex = 4
         '
-        'FrageLabel
-        '
-        FrageLabel.AutoSize = True
-        FrageLabel.Location = New System.Drawing.Point(30, 51)
-        FrageLabel.Name = "FrageLabel"
-        FrageLabel.Size = New System.Drawing.Size(37, 13)
-        FrageLabel.TabIndex = 5
-        FrageLabel.Text = "Frage:"
-        '
         'FrageTextBox
         '
         Me.FrageTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_FragenBindingSource, "frage", True))
-        Me.FrageTextBox.Location = New System.Drawing.Point(114, 48)
+        Me.FrageTextBox.Location = New System.Drawing.Point(114, 69)
         Me.FrageTextBox.Multiline = True
         Me.FrageTextBox.Name = "FrageTextBox"
-        Me.FrageTextBox.Size = New System.Drawing.Size(500, 76)
+        Me.FrageTextBox.Size = New System.Drawing.Size(500, 55)
         Me.FrageTextBox.TabIndex = 6
-        '
-        'AntwortFreiLabel
-        '
-        AntwortFreiLabel.AutoSize = True
-        AntwortFreiLabel.Location = New System.Drawing.Point(30, 133)
-        AntwortFreiLabel.Name = "AntwortFreiLabel"
-        AntwortFreiLabel.Size = New System.Drawing.Size(65, 13)
-        AntwortFreiLabel.TabIndex = 7
-        AntwortFreiLabel.Text = "antwort Frei:"
         '
         'AntwortFreiTextBox
         '
@@ -289,94 +387,49 @@ Partial Class frm_Fragen
         Me.AntwortFreiTextBox.Size = New System.Drawing.Size(500, 105)
         Me.AntwortFreiTextBox.TabIndex = 8
         '
-        'Mc_anwort1Label
-        '
-        Mc_anwort1Label.AutoSize = True
-        Mc_anwort1Label.Location = New System.Drawing.Point(3, 39)
-        Mc_anwort1Label.Name = "Mc_anwort1Label"
-        Mc_anwort1Label.Size = New System.Drawing.Size(65, 13)
-        Mc_anwort1Label.TabIndex = 11
-        Mc_anwort1Label.Text = "mc anwort1:"
-        '
         'Mc_anwort1TextBox
         '
         Me.Mc_anwort1TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_FragenBindingSource, "mc_anwort1", True))
-        Me.Mc_anwort1TextBox.Location = New System.Drawing.Point(213, 42)
+        Me.Mc_anwort1TextBox.Location = New System.Drawing.Point(98, 42)
         Me.Mc_anwort1TextBox.Multiline = True
         Me.Mc_anwort1TextBox.Name = "Mc_anwort1TextBox"
-        Me.Mc_anwort1TextBox.Size = New System.Drawing.Size(368, 33)
+        Me.Mc_anwort1TextBox.Size = New System.Drawing.Size(483, 33)
         Me.Mc_anwort1TextBox.TabIndex = 12
-        '
-        'Mc_anwort2Label
-        '
-        Mc_anwort2Label.AutoSize = True
-        Mc_anwort2Label.Location = New System.Drawing.Point(3, 78)
-        Mc_anwort2Label.Name = "Mc_anwort2Label"
-        Mc_anwort2Label.Size = New System.Drawing.Size(65, 13)
-        Mc_anwort2Label.TabIndex = 13
-        Mc_anwort2Label.Text = "mc anwort2:"
         '
         'Mc_anwort2TextBox
         '
         Me.Mc_anwort2TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_FragenBindingSource, "mc_anwort2", True))
-        Me.Mc_anwort2TextBox.Location = New System.Drawing.Point(213, 81)
+        Me.Mc_anwort2TextBox.Location = New System.Drawing.Point(98, 81)
         Me.Mc_anwort2TextBox.Multiline = True
         Me.Mc_anwort2TextBox.Name = "Mc_anwort2TextBox"
-        Me.Mc_anwort2TextBox.Size = New System.Drawing.Size(368, 33)
+        Me.Mc_anwort2TextBox.Size = New System.Drawing.Size(483, 33)
         Me.Mc_anwort2TextBox.TabIndex = 14
-        '
-        'Mc_anwort3Label
-        '
-        Mc_anwort3Label.AutoSize = True
-        Mc_anwort3Label.Location = New System.Drawing.Point(3, 117)
-        Mc_anwort3Label.Name = "Mc_anwort3Label"
-        Mc_anwort3Label.Size = New System.Drawing.Size(65, 13)
-        Mc_anwort3Label.TabIndex = 15
-        Mc_anwort3Label.Text = "mc anwort3:"
         '
         'Mc_anwort3TextBox
         '
         Me.Mc_anwort3TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_FragenBindingSource, "mc_anwort3", True))
-        Me.Mc_anwort3TextBox.Location = New System.Drawing.Point(213, 120)
+        Me.Mc_anwort3TextBox.Location = New System.Drawing.Point(98, 120)
         Me.Mc_anwort3TextBox.Multiline = True
         Me.Mc_anwort3TextBox.Name = "Mc_anwort3TextBox"
-        Me.Mc_anwort3TextBox.Size = New System.Drawing.Size(368, 33)
+        Me.Mc_anwort3TextBox.Size = New System.Drawing.Size(483, 33)
         Me.Mc_anwort3TextBox.TabIndex = 16
-        '
-        'Mc_anwort4Label
-        '
-        Mc_anwort4Label.AutoSize = True
-        Mc_anwort4Label.Location = New System.Drawing.Point(3, 156)
-        Mc_anwort4Label.Name = "Mc_anwort4Label"
-        Mc_anwort4Label.Size = New System.Drawing.Size(65, 13)
-        Mc_anwort4Label.TabIndex = 17
-        Mc_anwort4Label.Text = "mc anwort4:"
         '
         'Mc_anwort4TextBox
         '
         Me.Mc_anwort4TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_FragenBindingSource, "mc_anwort4", True))
-        Me.Mc_anwort4TextBox.Location = New System.Drawing.Point(213, 159)
+        Me.Mc_anwort4TextBox.Location = New System.Drawing.Point(98, 159)
         Me.Mc_anwort4TextBox.Multiline = True
         Me.Mc_anwort4TextBox.Name = "Mc_anwort4TextBox"
-        Me.Mc_anwort4TextBox.Size = New System.Drawing.Size(368, 33)
+        Me.Mc_anwort4TextBox.Size = New System.Drawing.Size(483, 33)
         Me.Mc_anwort4TextBox.TabIndex = 18
-        '
-        'Mc_anwort5Label
-        '
-        Mc_anwort5Label.AutoSize = True
-        Mc_anwort5Label.Location = New System.Drawing.Point(3, 195)
-        Mc_anwort5Label.Name = "Mc_anwort5Label"
-        Mc_anwort5Label.Size = New System.Drawing.Size(65, 13)
-        Mc_anwort5Label.TabIndex = 19
-        Mc_anwort5Label.Text = "mc anwort5:"
         '
         'Mc_anwort5TextBox
         '
         Me.Mc_anwort5TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_FragenBindingSource, "mc_anwort5", True))
-        Me.Mc_anwort5TextBox.Location = New System.Drawing.Point(213, 198)
+        Me.Mc_anwort5TextBox.Location = New System.Drawing.Point(98, 198)
         Me.Mc_anwort5TextBox.Multiline = True
         Me.Mc_anwort5TextBox.Name = "Mc_anwort5TextBox"
-        Me.Mc_anwort5TextBox.Size = New System.Drawing.Size(368, 33)
+        Me.Mc_anwort5TextBox.Size = New System.Drawing.Size(483, 33)
         Me.Mc_anwort5TextBox.TabIndex = 20
         '
         'Mc_check1CheckBox
@@ -424,15 +477,6 @@ Partial Class frm_Fragen
         Me.Mc_check5CheckBox.TabIndex = 30
         Me.Mc_check5CheckBox.UseVisualStyleBackColor = True
         '
-        'PunkteLabel
-        '
-        PunkteLabel.AutoSize = True
-        PunkteLabel.Location = New System.Drawing.Point(30, 488)
-        PunkteLabel.Name = "PunkteLabel"
-        PunkteLabel.Size = New System.Drawing.Size(43, 13)
-        PunkteLabel.TabIndex = 41
-        PunkteLabel.Text = "punkte:"
-        '
         'PunkteTextBox
         '
         Me.PunkteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_FragenBindingSource, "punkte", True))
@@ -440,15 +484,6 @@ Partial Class frm_Fragen
         Me.PunkteTextBox.Name = "PunkteTextBox"
         Me.PunkteTextBox.Size = New System.Drawing.Size(104, 20)
         Me.PunkteTextBox.TabIndex = 42
-        '
-        'ThemenlinkLabel
-        '
-        ThemenlinkLabel.AutoSize = True
-        ThemenlinkLabel.Location = New System.Drawing.Point(30, 517)
-        ThemenlinkLabel.Name = "ThemenlinkLabel"
-        ThemenlinkLabel.Size = New System.Drawing.Size(65, 13)
-        ThemenlinkLabel.TabIndex = 45
-        ThemenlinkLabel.Text = "Themenlink:"
         '
         'ThemenlinkTextBox
         '
@@ -462,8 +497,8 @@ Partial Class frm_Fragen
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 3
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.42948!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.05547!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77.49604!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.290016!))
         Me.TableLayoutPanel1.Controls.Add(Mc_anwort1Label, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Mc_anwort1TextBox, 1, 1)
@@ -492,11 +527,50 @@ Partial Class frm_Fragen
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(631, 238)
         Me.TableLayoutPanel1.TabIndex = 47
         '
+        'Cat_idComboBox
+        '
+        Me.Cat_idComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.Tbl_FragenBindingSource, "cat_id", True))
+        Me.Cat_idComboBox.DataSource = Me.TblkategorieBindingSource
+        Me.Cat_idComboBox.DisplayMember = "kategorieName"
+        Me.Cat_idComboBox.FormattingEnabled = True
+        Me.Cat_idComboBox.Location = New System.Drawing.Point(99, 27)
+        Me.Cat_idComboBox.Name = "Cat_idComboBox"
+        Me.Cat_idComboBox.Size = New System.Drawing.Size(121, 21)
+        Me.Cat_idComboBox.TabIndex = 48
+        Me.Cat_idComboBox.ValueMember = "ID"
+        '
+        'TblkategorieBindingSource
+        '
+        Me.TblkategorieBindingSource.DataMember = "tbl_kategorie"
+        Me.TblkategorieBindingSource.DataSource = Me.Lernkartei2DataSet
+        '
+        'Tbl_kategorieTableAdapter
+        '
+        Me.Tbl_kategorieTableAdapter.ClearBeforeFill = True
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.DataSource = Me.TblkategorieBindingSource1
+        Me.ComboBox1.DisplayMember = "kategorieName"
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(328, 4)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox1.TabIndex = 49
+        Me.ComboBox1.ValueMember = "ID"
+        '
+        'TblkategorieBindingSource1
+        '
+        Me.TblkategorieBindingSource1.DataMember = "tbl_kategorie"
+        Me.TblkategorieBindingSource1.DataSource = Me.Lernkartei2DataSet
+        '
         'frm_Fragen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(676, 585)
+        Me.ClientSize = New System.Drawing.Size(684, 593)
+        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.Cat_idComboBox)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(IDLabel)
         Me.Controls.Add(Me.IDTextBox)
@@ -520,6 +594,8 @@ Partial Class frm_Fragen
         Me.Tbl_FragenBindingNavigator.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        CType(Me.TblkategorieBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TblkategorieBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -558,5 +634,13 @@ Partial Class frm_Fragen
     Friend WithEvents PunkteTextBox As System.Windows.Forms.TextBox
     Friend WithEvents ThemenlinkTextBox As System.Windows.Forms.TextBox
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents btnFragenFilter As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btnFragenFilterLoeschen As System.Windows.Forms.ToolStripButton
+    Friend WithEvents Cat_idComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents TblkategorieBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Tbl_kategorieTableAdapter As Lernkartei2.lernkartei2DataSetTableAdapters.tbl_kategorieTableAdapter
+    Friend WithEvents ToolStripLabel1 As System.Windows.Forms.ToolStripLabel
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents TblkategorieBindingSource1 As System.Windows.Forms.BindingSource
 
 End Class

@@ -66,15 +66,15 @@ Partial Class frm_Filter
         '
         'txtSuche
         '
-        Me.txtSuche.Location = New System.Drawing.Point(79, 12)
+        Me.txtSuche.Location = New System.Drawing.Point(15, 39)
         Me.txtSuche.Name = "txtSuche"
-        Me.txtSuche.Size = New System.Drawing.Size(176, 20)
+        Me.txtSuche.Size = New System.Drawing.Size(239, 20)
         Me.txtSuche.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(18, 15)
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(55, 13)
         Me.Label1.TabIndex = 1

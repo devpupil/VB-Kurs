@@ -14,16 +14,29 @@
     End Sub
 
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+
+        ' Eigenschaften Filterformulars anpassen
+        ' Labelfeld
+        frm_Filter.Label1.Text = "Bitte geben Sie die gewünschte Kategorie an:"
+        ' Caption
+        frm_Filter.Text = "Kategorien filtern"
+
+
+
         frm_Filter.ShowDialog()
 
         ' Rückgabewert des OK Buttons auswerten
         If frm_Filter.DialogResult = Windows.Forms.DialogResult.OK Then
 
-            ' Where Clause wird zusammengebaut und die tabelle durchsucht
-            Me.Tbl_kategorieBindingSource.Filter = "kategorieName='" & frm_Filter.txtSuche.Text & "'"
+            ' Suchstring auf Variablen schreiben
+            Dim FilterTag1 As String = "kategorieName LIKE '*" & frm_Filter.txtSuche.Text & "*'"
+            Dim FilterTag2 As String = "kategorieBeschreibung LIKE '*" & frm_Filter.txtSuche.Text & "*'"
 
+            ' Where Clause wird zusammengebaut und die tabelle durchsucht, mit Like und Platzhalter als Volltextsuche
+            Me.Tbl_kategorieBindingSource.Filter = FilterTag1 & " OR " & FilterTag2
 
         End If
+        frm_Filter.Dispose()
 
     End Sub
 
