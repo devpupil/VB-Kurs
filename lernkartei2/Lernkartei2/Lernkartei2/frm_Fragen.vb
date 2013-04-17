@@ -43,14 +43,14 @@
         frm_Filter.Dispose()
     End Sub
 
-    Private Sub AntwortFreiTextBox_LostFocus(sender As Object, e As EventArgs) Handles AntwortFreiTextBox.LostFocus
-        ' Das Panel mit den Multichoice Anworten unsichtbar schalten bzw. deaktivieren
-        If AntwortFreiTextBox.Text.Length > 0 Then
-            TableLayoutPanel1.Enabled = False
-        Else
-            TableLayoutPanel1.Enabled = True
-        End If
-    End Sub
+    'Private Sub AntwortFreiTextBox_LostFocus(sender As Object, e As EventArgs) Handles AntwortFreiTextBox.LostFocus
+    '    ' Das Panel mit den Multichoice Anworten unsichtbar schalten bzw. deaktivieren
+    '    If AntwortFreiTextBox.Text.Length > 0 Then
+    '        TableLayoutPanel1.Enabled = False
+    '    Else
+    '        TableLayoutPanel1.Enabled = True
+    '    End If
+    'End Sub
 
    
    
@@ -63,5 +63,13 @@
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         Tbl_FragenBindingSource.Filter = "cat_id=" & ComboBox1.SelectedValue
+    End Sub
+
+    Private Sub AntwortFreiTextBox_TextChanged(sender As Object, e As EventArgs) Handles AntwortFreiTextBox.TextChanged
+        If AntwortFreiTextBox.Text.Length > 0 Then
+            TableLayoutPanel1.Enabled = False
+        Else
+            TableLayoutPanel1.Enabled = True
+        End If
     End Sub
 End Class

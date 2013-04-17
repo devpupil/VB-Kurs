@@ -109,11 +109,13 @@ Public Class MDIMain
 
     Private Sub FragenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FragenToolStripMenuItem.Click
         frm_Fragen.MdiParent = Me
+        frm_Fragen.WindowState = FormWindowState.Maximized
         frm_Fragen.Show()
     End Sub
 
     Private Sub KategoreienToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles KategoreienToolStripMenuItem.Click
         frm_Kategorien.MdiParent = Me
+        frm_Kategorien.WindowState = FormWindowState.Maximized
         frm_Kategorien.Show()
     End Sub
 End Class
