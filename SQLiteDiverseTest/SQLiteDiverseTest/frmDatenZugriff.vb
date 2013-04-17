@@ -7,7 +7,7 @@
 
         If My.Settings.DBPath <> "" Then
             'con.ConnectionString = "Data Source=kunden.db3"
-            con.ConnectionString = My.Settings.DBPath
+            con.ConnectionString = "Data Source=" & My.Settings.DBPath
             cmd.Connection = con
             'cmd.CommandText = "SELECT * FROM tbl_adressen"
             cmd.CommandText = "SELECT tbl_adressen.vorname, tbl_ort.plz, tbl_ort.ort, tbl_adressen.nachname, tbl_adressen.strasse, tbl_adressen.id_ort FROM tbl_ort INNER JOIN tbl_adressen ON tbl_ort.[id] = tbl_adressen.[id_ort]"
@@ -40,7 +40,7 @@
         If My.Settings.DBPath <> "" Then
 
             'Dim connString As String = "Data Source=kunden.db3"
-            Dim connString As String = My.Settings.DBPath
+            Dim connString As String = "Data Source=" & My.Settings.DBPath
             Dim conn As New SQLiteConnection(connString)
 
             Dim strSQL As String = "SELECT * FROM tbl_ort"
@@ -69,7 +69,8 @@
         If My.Settings.DBPath <> "" Then
 
             'con.ConnectionString = "Data Source=kunden.db3"
-            con.ConnectionString = My.Settings.DBPath
+            con.ConnectionString = "Data Source=" & My.Settings.DBPath
+
             cmd.Connection = con
             'cmd.CommandText = "SELECT * FROM tbl_adressen where ort = '" & selOrt & "'"
             cmd.CommandText = "SELECT tbl_adressen.vorname, tbl_ort.plz, tbl_ort.ort, tbl_adressen.nachname, tbl_adressen.strasse, tbl_adressen.id_ort FROM tbl_ort INNER JOIN tbl_adressen ON tbl_ort.[id] = tbl_adressen.[id_ort] where tbl_ort.ort = '" & selOrt & "'"
