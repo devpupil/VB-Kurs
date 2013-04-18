@@ -22,8 +22,16 @@ Partial Class frm_Lernen
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container
+        Me.SuspendLayout()
+        '
+        'frm_Lernen
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(563, 530)
+        Me.Name = "frm_Lernen"
         Me.Text = "frm_Lernen"
+        Me.ResumeLayout(False)
+
     End Sub
 End Class

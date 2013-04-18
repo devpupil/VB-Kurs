@@ -166,6 +166,9 @@
     <EmbeddedResource Include="frm_KategorieWahl.resx">
       <DependentUpon>frm_KategorieWahl.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_Lernen.resx">
+      <DependentUpon>frm_Lernen.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MDIMain.resx">
       <DependentUpon>MDIMain.vb</DependentUpon>
     </EmbeddedResource>
