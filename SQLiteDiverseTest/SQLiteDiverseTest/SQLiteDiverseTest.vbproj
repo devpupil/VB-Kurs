@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{53D144EE-5C99-436A-9021-A15710F97A1F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>SQLiteDiverseTest.frmTestFunktion</StartupObject>
+    <StartupObject>SQLiteDiverseTest.Form1</StartupObject>
     <RootNamespace>SQLiteDiverseTest</RootNamespace>
     <AssemblyName>SQLiteDiverseTest</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -75,10 +75,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmTestFunktion.Designer.vb">
-      <DependentUpon>frmTestFunktion.vb</DependentUpon>
+    <Compile Include="Dialog1.Designer.vb">
+      <DependentUpon>Dialog1.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmTestFunktion.vb" />
+    <Compile Include="Dialog1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmDatenZugriff.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -116,8 +124,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmTestFunktion.resx">
-      <DependentUpon>frmTestFunktion.vb</DependentUpon>
+    <EmbeddedResource Include="Dialog1.resx">
+      <DependentUpon>Dialog1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDatenZugriff.resx">
       <DependentUpon>frmDatenZugriff.vb</DependentUpon>

@@ -25,6 +25,11 @@ Partial Class MDIParent1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MDIParent1))
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Knoten1")
+        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Knoten2")
+        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Knoten3")
+        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Knoten4")
+        Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Knoten0", New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2, TreeNode3, TreeNode4})
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.FileMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -53,6 +58,7 @@ Partial Class MDIParent1
         Me.ToolsMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatenbankToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TabellenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowsMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewWindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CascadeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -78,7 +84,19 @@ Partial Class MDIParent1
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.TabellenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.NeuToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ÖffnenToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.SpeichernToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.DruckenToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.toolStripSeparator = New System.Windows.Forms.ToolStripSeparator()
+        Me.AusschneidenToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.KopierenToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.EinfügenToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.toolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
+        Me.HilfeToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripComboBox1 = New System.Windows.Forms.ToolStripComboBox()
+        Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -283,14 +301,20 @@ Partial Class MDIParent1
         'OptionsToolStripMenuItem
         '
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
         Me.OptionsToolStripMenuItem.Text = "&Optionen"
         '
         'DatenbankToolStripMenuItem
         '
         Me.DatenbankToolStripMenuItem.Name = "DatenbankToolStripMenuItem"
-        Me.DatenbankToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DatenbankToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
         Me.DatenbankToolStripMenuItem.Text = "Datenbank"
+        '
+        'TabellenToolStripMenuItem
+        '
+        Me.TabellenToolStripMenuItem.Name = "TabellenToolStripMenuItem"
+        Me.TabellenToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
+        Me.TabellenToolStripMenuItem.Text = "Tabellen"
         '
         'WindowsMenu
         '
@@ -378,10 +402,13 @@ Partial Class MDIParent1
         '
         'ToolStrip
         '
-        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripButton, Me.OpenToolStripButton, Me.SaveToolStripButton, Me.ToolStripSeparator1, Me.PrintToolStripButton, Me.PrintPreviewToolStripButton, Me.ToolStripSeparator2, Me.HelpToolStripButton})
+        Me.ToolStrip.Dock = System.Windows.Forms.DockStyle.Left
+        Me.ToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripButton, Me.OpenToolStripButton, Me.SaveToolStripButton, Me.ToolStripSeparator1, Me.PrintToolStripButton, Me.PrintPreviewToolStripButton, Me.ToolStripSeparator2, Me.HelpToolStripButton, Me.ToolStripButton1, Me.NeuToolStripButton, Me.ÖffnenToolStripButton, Me.SpeichernToolStripButton, Me.DruckenToolStripButton, Me.toolStripSeparator, Me.AusschneidenToolStripButton, Me.KopierenToolStripButton, Me.EinfügenToolStripButton, Me.toolStripSeparator9, Me.HilfeToolStripButton, Me.ToolStripComboBox1})
         Me.ToolStrip.Location = New System.Drawing.Point(0, 24)
         Me.ToolStrip.Name = "ToolStrip"
-        Me.ToolStrip.Size = New System.Drawing.Size(732, 25)
+        Me.ToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.ToolStrip.Size = New System.Drawing.Size(124, 545)
         Me.ToolStrip.TabIndex = 6
         Me.ToolStrip.Text = "ToolStrip"
         '
@@ -391,7 +418,7 @@ Partial Class MDIParent1
         Me.NewToolStripButton.Image = CType(resources.GetObject("NewToolStripButton.Image"), System.Drawing.Image)
         Me.NewToolStripButton.ImageTransparentColor = System.Drawing.Color.Black
         Me.NewToolStripButton.Name = "NewToolStripButton"
-        Me.NewToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.NewToolStripButton.Size = New System.Drawing.Size(121, 20)
         Me.NewToolStripButton.Text = "Neu"
         '
         'OpenToolStripButton
@@ -400,7 +427,7 @@ Partial Class MDIParent1
         Me.OpenToolStripButton.Image = CType(resources.GetObject("OpenToolStripButton.Image"), System.Drawing.Image)
         Me.OpenToolStripButton.ImageTransparentColor = System.Drawing.Color.Black
         Me.OpenToolStripButton.Name = "OpenToolStripButton"
-        Me.OpenToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.OpenToolStripButton.Size = New System.Drawing.Size(121, 20)
         Me.OpenToolStripButton.Text = "Öffnen"
         '
         'SaveToolStripButton
@@ -409,13 +436,13 @@ Partial Class MDIParent1
         Me.SaveToolStripButton.Image = CType(resources.GetObject("SaveToolStripButton.Image"), System.Drawing.Image)
         Me.SaveToolStripButton.ImageTransparentColor = System.Drawing.Color.Black
         Me.SaveToolStripButton.Name = "SaveToolStripButton"
-        Me.SaveToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.SaveToolStripButton.Size = New System.Drawing.Size(121, 20)
         Me.SaveToolStripButton.Text = "Speichern"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(121, 6)
         '
         'PrintToolStripButton
         '
@@ -423,7 +450,7 @@ Partial Class MDIParent1
         Me.PrintToolStripButton.Image = CType(resources.GetObject("PrintToolStripButton.Image"), System.Drawing.Image)
         Me.PrintToolStripButton.ImageTransparentColor = System.Drawing.Color.Black
         Me.PrintToolStripButton.Name = "PrintToolStripButton"
-        Me.PrintToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.PrintToolStripButton.Size = New System.Drawing.Size(121, 20)
         Me.PrintToolStripButton.Text = "Drucken"
         '
         'PrintPreviewToolStripButton
@@ -432,13 +459,13 @@ Partial Class MDIParent1
         Me.PrintPreviewToolStripButton.Image = CType(resources.GetObject("PrintPreviewToolStripButton.Image"), System.Drawing.Image)
         Me.PrintPreviewToolStripButton.ImageTransparentColor = System.Drawing.Color.Black
         Me.PrintPreviewToolStripButton.Name = "PrintPreviewToolStripButton"
-        Me.PrintPreviewToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.PrintPreviewToolStripButton.Size = New System.Drawing.Size(121, 20)
         Me.PrintPreviewToolStripButton.Text = "Seitenansicht"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(121, 6)
         '
         'HelpToolStripButton
         '
@@ -446,7 +473,7 @@ Partial Class MDIParent1
         Me.HelpToolStripButton.Image = CType(resources.GetObject("HelpToolStripButton.Image"), System.Drawing.Image)
         Me.HelpToolStripButton.ImageTransparentColor = System.Drawing.Color.Black
         Me.HelpToolStripButton.Name = "HelpToolStripButton"
-        Me.HelpToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.HelpToolStripButton.Size = New System.Drawing.Size(121, 20)
         Me.HelpToolStripButton.Text = "Hilfe"
         '
         'StatusStrip
@@ -464,17 +491,126 @@ Partial Class MDIParent1
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
         '
-        'TabellenToolStripMenuItem
+        'ToolStripButton1
         '
-        Me.TabellenToolStripMenuItem.Name = "TabellenToolStripMenuItem"
-        Me.TabellenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.TabellenToolStripMenuItem.Text = "Tabellen"
+        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(121, 20)
+        Me.ToolStripButton1.Text = "ToolStripButton1"
+        '
+        'NeuToolStripButton
+        '
+        Me.NeuToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.NeuToolStripButton.Image = CType(resources.GetObject("NeuToolStripButton.Image"), System.Drawing.Image)
+        Me.NeuToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.NeuToolStripButton.Name = "NeuToolStripButton"
+        Me.NeuToolStripButton.Size = New System.Drawing.Size(121, 20)
+        Me.NeuToolStripButton.Text = "&Neu"
+        '
+        'ÖffnenToolStripButton
+        '
+        Me.ÖffnenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ÖffnenToolStripButton.Image = CType(resources.GetObject("ÖffnenToolStripButton.Image"), System.Drawing.Image)
+        Me.ÖffnenToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ÖffnenToolStripButton.Name = "ÖffnenToolStripButton"
+        Me.ÖffnenToolStripButton.Size = New System.Drawing.Size(121, 20)
+        Me.ÖffnenToolStripButton.Text = "Ö&ffnen"
+        '
+        'SpeichernToolStripButton
+        '
+        Me.SpeichernToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.SpeichernToolStripButton.Image = CType(resources.GetObject("SpeichernToolStripButton.Image"), System.Drawing.Image)
+        Me.SpeichernToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.SpeichernToolStripButton.Name = "SpeichernToolStripButton"
+        Me.SpeichernToolStripButton.Size = New System.Drawing.Size(121, 20)
+        Me.SpeichernToolStripButton.Text = "&Speichern"
+        '
+        'DruckenToolStripButton
+        '
+        Me.DruckenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.DruckenToolStripButton.Image = CType(resources.GetObject("DruckenToolStripButton.Image"), System.Drawing.Image)
+        Me.DruckenToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.DruckenToolStripButton.Name = "DruckenToolStripButton"
+        Me.DruckenToolStripButton.Size = New System.Drawing.Size(121, 20)
+        Me.DruckenToolStripButton.Text = "&Drucken"
+        '
+        'toolStripSeparator
+        '
+        Me.toolStripSeparator.Name = "toolStripSeparator"
+        Me.toolStripSeparator.Size = New System.Drawing.Size(121, 6)
+        '
+        'AusschneidenToolStripButton
+        '
+        Me.AusschneidenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.AusschneidenToolStripButton.Image = CType(resources.GetObject("AusschneidenToolStripButton.Image"), System.Drawing.Image)
+        Me.AusschneidenToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.AusschneidenToolStripButton.Name = "AusschneidenToolStripButton"
+        Me.AusschneidenToolStripButton.Size = New System.Drawing.Size(121, 20)
+        Me.AusschneidenToolStripButton.Text = "&Ausschneiden"
+        '
+        'KopierenToolStripButton
+        '
+        Me.KopierenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.KopierenToolStripButton.Image = CType(resources.GetObject("KopierenToolStripButton.Image"), System.Drawing.Image)
+        Me.KopierenToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.KopierenToolStripButton.Name = "KopierenToolStripButton"
+        Me.KopierenToolStripButton.Size = New System.Drawing.Size(121, 20)
+        Me.KopierenToolStripButton.Text = "&Kopieren"
+        '
+        'EinfügenToolStripButton
+        '
+        Me.EinfügenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.EinfügenToolStripButton.Image = CType(resources.GetObject("EinfügenToolStripButton.Image"), System.Drawing.Image)
+        Me.EinfügenToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.EinfügenToolStripButton.Name = "EinfügenToolStripButton"
+        Me.EinfügenToolStripButton.Size = New System.Drawing.Size(121, 20)
+        Me.EinfügenToolStripButton.Text = "&Einfügen"
+        '
+        'toolStripSeparator9
+        '
+        Me.toolStripSeparator9.Name = "toolStripSeparator9"
+        Me.toolStripSeparator9.Size = New System.Drawing.Size(121, 6)
+        '
+        'HilfeToolStripButton
+        '
+        Me.HilfeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.HilfeToolStripButton.Image = CType(resources.GetObject("HilfeToolStripButton.Image"), System.Drawing.Image)
+        Me.HilfeToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.HilfeToolStripButton.Name = "HilfeToolStripButton"
+        Me.HilfeToolStripButton.Size = New System.Drawing.Size(121, 20)
+        Me.HilfeToolStripButton.Text = "Hi&lfe"
+        '
+        'ToolStripComboBox1
+        '
+        Me.ToolStripComboBox1.Name = "ToolStripComboBox1"
+        Me.ToolStripComboBox1.Size = New System.Drawing.Size(119, 23)
+        '
+        'TreeView1
+        '
+        Me.TreeView1.Location = New System.Drawing.Point(3, 417)
+        Me.TreeView1.Name = "TreeView1"
+        TreeNode1.Name = "Knoten1"
+        TreeNode1.Text = "Knoten1"
+        TreeNode2.Name = "Knoten2"
+        TreeNode2.Text = "Knoten2"
+        TreeNode3.Name = "Knoten3"
+        TreeNode3.Text = "Knoten3"
+        TreeNode4.Name = "Knoten4"
+        TreeNode4.Text = "Knoten4"
+        TreeNode5.Name = "Knoten0"
+        TreeNode5.Text = "Knoten0"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode5})
+        Me.TreeView1.Size = New System.Drawing.Size(121, 97)
+        Me.TreeView1.TabIndex = 9
         '
         'MDIParent1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(732, 591)
+        Me.Controls.Add(Me.TreeView1)
         Me.Controls.Add(Me.ToolStrip)
         Me.Controls.Add(Me.MenuStrip)
         Me.Controls.Add(Me.StatusStrip)
@@ -546,5 +682,18 @@ Partial Class MDIParent1
     Friend WithEvents ToolsMenu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DatenbankToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TabellenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents NeuToolStripButton As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ÖffnenToolStripButton As System.Windows.Forms.ToolStripButton
+    Friend WithEvents SpeichernToolStripButton As System.Windows.Forms.ToolStripButton
+    Friend WithEvents DruckenToolStripButton As System.Windows.Forms.ToolStripButton
+    Friend WithEvents toolStripSeparator As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents AusschneidenToolStripButton As System.Windows.Forms.ToolStripButton
+    Friend WithEvents KopierenToolStripButton As System.Windows.Forms.ToolStripButton
+    Friend WithEvents EinfügenToolStripButton As System.Windows.Forms.ToolStripButton
+    Friend WithEvents toolStripSeparator9 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents HilfeToolStripButton As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripComboBox1 As System.Windows.Forms.ToolStripComboBox
+    Friend WithEvents TreeView1 As System.Windows.Forms.TreeView
 
 End Class
