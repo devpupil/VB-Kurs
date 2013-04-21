@@ -8,7 +8,8 @@ Public Class frm_Lernen
         Dim cmd As New OleDbCommand
 
         ' Die Verbindung aus den System.Settings holen
-        con.ConnectionString = My.Settings.lernkartei2ConnectionString
+        con.ConnectionString = "C:\Users\gwallner\Source\Repos\VB-Kurs\lernkartei2\Daten"
+        'My.Settings.lernkartei2ConnectionString
 
         ' die Verbindung dem Command zuordnen
         cmd.Connection = con
@@ -21,6 +22,9 @@ Public Class frm_Lernen
             con.Open()
 
         Catch ex As Exception
+            If FehlerAnezige(ex) = True Then
+                Me.Close()
+            End If
 
         End Try
 
