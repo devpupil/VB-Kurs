@@ -1,14 +1,18 @@
 ﻿Imports System.Data.OleDb
-Public Class frm_Lernen
+Public Class frm_LernenDataReader
 
     Private Sub frm_Lernen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         ' Für die SQL connection zur Datenbank
         Dim con As New OleDbConnection
         Dim cmd As New OleDbCommand
+        Dim reader As OleDbDataReader
+
+        ' Variable zum Testen
+        Dim Ergebnis As String = ""
 
         ' Die Verbindung aus den System.Settings holen
-        con.ConnectionString = "C:\Users\gwallner\Source\Repos\VB-Kurs\lernkartei2\Daten"
+        con.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\gwallner\Repos\VB-Kurs\lernkartei2\Daten\lernkartei.accdb"
         'My.Settings.lernkartei2ConnectionString
 
         ' die Verbindung dem Command zuordnen
@@ -21,13 +25,20 @@ Public Class frm_Lernen
         Try
             con.Open()
 
+            ' Auslesen der Datenbank über einen Reader
+            reader = cmd.ExecuteReader
+
+            ' auslesen der daten bis der Reader keine Daten mehr findet
+            Do While reader.Read
+                Ergebnis += reader("frage") + vbCr
+            Loop
+            MsgBox(Ergebnis)
+
         Catch ex As Exception
             If FehlerAnezige(ex) = True Then
                 Me.Close()
             End If
 
         End Try
-
-
     End Sub
 End Class

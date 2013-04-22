@@ -35,28 +35,32 @@ Partial Class frmFehler
         Me.lblLinkError = New System.Windows.Forms.LinkLabel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtErrorMessage = New System.Windows.Forms.TextBox()
+        Me.btnPrintError = New System.Windows.Forms.Button()
+        Me.lblLinkError1 = New System.Windows.Forms.LinkLabel()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnCount = 3
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(479, 471)
+        Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.btnPrintError, 1, 0)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(185, 471)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(146, 29)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(440, 29)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'OK_Button
         '
         Me.OK_Button.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.OK_Button.Location = New System.Drawing.Point(3, 3)
+        Me.OK_Button.Location = New System.Drawing.Point(39, 3)
         Me.OK_Button.Name = "OK_Button"
         Me.OK_Button.Size = New System.Drawing.Size(67, 23)
         Me.OK_Button.TabIndex = 0
@@ -66,7 +70,7 @@ Partial Class frmFehler
         '
         Me.Cancel_Button.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Cancel_Button.Location = New System.Drawing.Point(76, 3)
+        Me.Cancel_Button.Location = New System.Drawing.Point(332, 3)
         Me.Cancel_Button.Name = "Cancel_Button"
         Me.Cancel_Button.Size = New System.Drawing.Size(67, 23)
         Me.Cancel_Button.TabIndex = 1
@@ -102,6 +106,7 @@ Partial Class frmFehler
         Me.txtErrorSource.Location = New System.Drawing.Point(41, 75)
         Me.txtErrorSource.Multiline = True
         Me.txtErrorSource.Name = "txtErrorSource"
+        Me.txtErrorSource.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.txtErrorSource.Size = New System.Drawing.Size(562, 37)
         Me.txtErrorSource.TabIndex = 5
         '
@@ -117,7 +122,7 @@ Partial Class frmFehler
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(38, 124)
+        Me.Label4.Location = New System.Drawing.Point(39, 200)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(116, 13)
         Me.Label4.TabIndex = 7
@@ -125,10 +130,11 @@ Partial Class frmFehler
         '
         'txtErrorPrintStackTrace
         '
-        Me.txtErrorPrintStackTrace.Location = New System.Drawing.Point(40, 140)
+        Me.txtErrorPrintStackTrace.Location = New System.Drawing.Point(42, 216)
         Me.txtErrorPrintStackTrace.Multiline = True
         Me.txtErrorPrintStackTrace.Name = "txtErrorPrintStackTrace"
-        Me.txtErrorPrintStackTrace.Size = New System.Drawing.Size(563, 196)
+        Me.txtErrorPrintStackTrace.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.txtErrorPrintStackTrace.Size = New System.Drawing.Size(563, 249)
         Me.txtErrorPrintStackTrace.TabIndex = 8
         '
         'lblLinkError
@@ -142,7 +148,7 @@ Partial Class frmFehler
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(37, 349)
+        Me.Label5.Location = New System.Drawing.Point(39, 115)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(79, 13)
         Me.Label5.TabIndex = 10
@@ -150,11 +156,31 @@ Partial Class frmFehler
         '
         'txtErrorMessage
         '
-        Me.txtErrorMessage.Location = New System.Drawing.Point(44, 374)
+        Me.txtErrorMessage.Location = New System.Drawing.Point(41, 131)
         Me.txtErrorMessage.Multiline = True
         Me.txtErrorMessage.Name = "txtErrorMessage"
-        Me.txtErrorMessage.Size = New System.Drawing.Size(558, 79)
+        Me.txtErrorMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.txtErrorMessage.Size = New System.Drawing.Size(558, 57)
         Me.txtErrorMessage.TabIndex = 11
+        '
+        'btnPrintError
+        '
+        Me.btnPrintError.Location = New System.Drawing.Point(149, 3)
+        Me.btnPrintError.Name = "btnPrintError"
+        Me.btnPrintError.Size = New System.Drawing.Size(136, 23)
+        Me.btnPrintError.TabIndex = 2
+        Me.btnPrintError.Text = "Fehlermeldung drucken"
+        Me.btnPrintError.UseVisualStyleBackColor = True
+        '
+        'lblLinkError1
+        '
+        Me.lblLinkError1.AutoSize = True
+        Me.lblLinkError1.Location = New System.Drawing.Point(318, 18)
+        Me.lblLinkError1.Name = "lblLinkError1"
+        Me.lblLinkError1.Size = New System.Drawing.Size(59, 13)
+        Me.lblLinkError1.TabIndex = 12
+        Me.lblLinkError1.TabStop = True
+        Me.lblLinkError1.Text = "LinkLabel1"
         '
         'frmFehler
         '
@@ -163,6 +189,7 @@ Partial Class frmFehler
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
         Me.ClientSize = New System.Drawing.Size(637, 512)
+        Me.Controls.Add(Me.lblLinkError1)
         Me.Controls.Add(Me.txtErrorMessage)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.lblLinkError)
@@ -199,5 +226,7 @@ Partial Class frmFehler
     Friend WithEvents lblLinkError As System.Windows.Forms.LinkLabel
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents txtErrorMessage As System.Windows.Forms.TextBox
+    Friend WithEvents btnPrintError As System.Windows.Forms.Button
+    Friend WithEvents lblLinkError1 As System.Windows.Forms.LinkLabel
 
 End Class

@@ -16,7 +16,7 @@
                 My.Settings.Save()
 
                 ' Starten des Formulares als eigenständige Anwendung
-                Application.Run(New frm_Lernen)
+                Application.Run(New frmLernen)
             End If
 
         End If

@@ -3,7 +3,7 @@
         frmFehler.txtErrorPrintStackTrace.Text = ex.StackTrace
         frmFehler.txtErrorNumber.Text = ex.HResult.ToString
         frmFehler.txtErrorSource.Text = ex.Source
-        frmFehler.lblLinkError.Text = ex.HelpLink
+        frmFehler.lblLinkError1.Text = ex.HelpLink
         frmFehler.txtErrorMessage.Text = ex.Message
 
         frmFehler.ShowDialog()

@@ -64,6 +64,7 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -94,6 +95,12 @@
     <Compile Include="frmFehler.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmLernen.Designer.vb">
+      <DependentUpon>frmLernen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLernen.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm_Filter.Designer.vb">
       <DependentUpon>frm_Filter.vb</DependentUpon>
     </Compile>
@@ -119,10 +126,10 @@
     <Compile Include="frm_KategorieWahl.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Lernen.Designer.vb">
-      <DependentUpon>frm_Lernen.vb</DependentUpon>
+    <Compile Include="frm_LernenDataReader.Designer.vb">
+      <DependentUpon>frm_LernenDataReader.vb</DependentUpon>
     </Compile>
-    <Compile Include="frm_Lernen.vb">
+    <Compile Include="frm_LernenDataReader.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="lernkartei2DataSet.Designer.vb">
@@ -164,6 +171,9 @@
     <EmbeddedResource Include="frmFehler.resx">
       <DependentUpon>frmFehler.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLernen.resx">
+      <DependentUpon>frmLernen.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_Filter.resx">
       <DependentUpon>frm_Filter.vb</DependentUpon>
     </EmbeddedResource>
@@ -176,8 +186,8 @@
     <EmbeddedResource Include="frm_KategorieWahl.resx">
       <DependentUpon>frm_KategorieWahl.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Lernen.resx">
-      <DependentUpon>frm_Lernen.vb</DependentUpon>
+    <EmbeddedResource Include="frm_LernenDataReader.resx">
+      <DependentUpon>frm_LernenDataReader.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDIMain.resx">
       <DependentUpon>MDIMain.vb</DependentUpon>
