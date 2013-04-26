@@ -44,18 +44,19 @@ Partial Class frmLernen
         Me.Mc_check4CheckBox = New System.Windows.Forms.CheckBox()
         Me.Mc_check5CheckBox = New System.Windows.Forms.CheckBox()
         Me.FrageTextBox = New System.Windows.Forms.TextBox()
-        Me.AntwortFreiTextBox = New System.Windows.Forms.TextBox()
+        Me.prAntwortFreiTextBox = New System.Windows.Forms.TextBox()
         Me.PunkteTextBox = New System.Windows.Forms.TextBox()
         Me.ThemenlinkTextBox = New System.Windows.Forms.TextBox()
         Me.txtID = New System.Windows.Forms.TextBox()
         Me.ZurueckstellenCheckBox = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnErster = New System.Windows.Forms.Button()
         Me.btnZurück = New System.Windows.Forms.Button()
-        Me.btnNächster = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnLetzter = New System.Windows.Forms.Button()
+        Me.btnNächster = New System.Windows.Forms.Button()
         Me.btnRueckNochmal = New System.Windows.Forms.Button()
+        Me.AntwortFreiTextBox = New System.Windows.Forms.TextBox()
         Mc_anwort1Label = New System.Windows.Forms.Label()
         Mc_anwort2Label = New System.Windows.Forms.Label()
         Mc_anwort3Label = New System.Windows.Forms.Label()
@@ -151,6 +152,15 @@ Partial Class frmLernen
         ThemenlinkLabel.Size = New System.Drawing.Size(65, 13)
         ThemenlinkLabel.TabIndex = 54
         ThemenlinkLabel.Text = "Themenlink:"
+        '
+        'ZurueckstellenLabel
+        '
+        ZurueckstellenLabel.AutoSize = True
+        ZurueckstellenLabel.Location = New System.Drawing.Point(221, 615)
+        ZurueckstellenLabel.Name = "ZurueckstellenLabel"
+        ZurueckstellenLabel.Size = New System.Drawing.Size(99, 13)
+        ZurueckstellenLabel.TabIndex = 58
+        ZurueckstellenLabel.Text = "Frage zurückstellen"
         '
         'TableLayoutPanel1
         '
@@ -275,14 +285,14 @@ Partial Class frmLernen
         Me.FrageTextBox.Size = New System.Drawing.Size(500, 55)
         Me.FrageTextBox.TabIndex = 49
         '
-        'AntwortFreiTextBox
+        'prAntwortFreiTextBox
         '
-        Me.AntwortFreiTextBox.Location = New System.Drawing.Point(98, 73)
-        Me.AntwortFreiTextBox.Multiline = True
-        Me.AntwortFreiTextBox.Name = "AntwortFreiTextBox"
-        Me.AntwortFreiTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.AntwortFreiTextBox.Size = New System.Drawing.Size(500, 105)
-        Me.AntwortFreiTextBox.TabIndex = 51
+        Me.prAntwortFreiTextBox.Location = New System.Drawing.Point(98, 73)
+        Me.prAntwortFreiTextBox.Multiline = True
+        Me.prAntwortFreiTextBox.Name = "prAntwortFreiTextBox"
+        Me.prAntwortFreiTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.prAntwortFreiTextBox.Size = New System.Drawing.Size(500, 105)
+        Me.prAntwortFreiTextBox.TabIndex = 51
         '
         'PunkteTextBox
         '
@@ -309,15 +319,6 @@ Partial Class frmLernen
         Me.txtID.Size = New System.Drawing.Size(36, 13)
         Me.txtID.TabIndex = 57
         '
-        'ZurueckstellenLabel
-        '
-        ZurueckstellenLabel.AutoSize = True
-        ZurueckstellenLabel.Location = New System.Drawing.Point(221, 615)
-        ZurueckstellenLabel.Name = "ZurueckstellenLabel"
-        ZurueckstellenLabel.Size = New System.Drawing.Size(99, 13)
-        ZurueckstellenLabel.TabIndex = 58
-        ZurueckstellenLabel.Text = "Frage zurückstellen"
-        '
         'ZurueckstellenCheckBox
         '
         Me.ZurueckstellenCheckBox.Location = New System.Drawing.Point(326, 610)
@@ -341,20 +342,6 @@ Partial Class frmLernen
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(185, 42)
         Me.TableLayoutPanel2.TabIndex = 60
         '
-        'TableLayoutPanel3
-        '
-        Me.TableLayoutPanel3.ColumnCount = 2
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.btnLetzter, 0, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.btnNächster, 0, 0)
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(507, 598)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 1
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(185, 42)
-        Me.TableLayoutPanel3.TabIndex = 61
-        '
         'btnErster
         '
         Me.btnErster.Location = New System.Drawing.Point(3, 3)
@@ -373,14 +360,19 @@ Partial Class frmLernen
         Me.btnZurück.Text = "<< Zurück"
         Me.btnZurück.UseVisualStyleBackColor = True
         '
-        'btnNächster
+        'TableLayoutPanel3
         '
-        Me.btnNächster.Location = New System.Drawing.Point(3, 3)
-        Me.btnNächster.Name = "btnNächster"
-        Me.btnNächster.Size = New System.Drawing.Size(86, 33)
-        Me.btnNächster.TabIndex = 1
-        Me.btnNächster.Text = "Nächster >>"
-        Me.btnNächster.UseVisualStyleBackColor = True
+        Me.TableLayoutPanel3.ColumnCount = 2
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.btnLetzter, 0, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.btnNächster, 0, 0)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(507, 598)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 1
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(185, 42)
+        Me.TableLayoutPanel3.TabIndex = 61
         '
         'btnLetzter
         '
@@ -391,20 +383,37 @@ Partial Class frmLernen
         Me.btnLetzter.Text = "Letzter >|"
         Me.btnLetzter.UseVisualStyleBackColor = True
         '
+        'btnNächster
+        '
+        Me.btnNächster.Location = New System.Drawing.Point(3, 3)
+        Me.btnNächster.Name = "btnNächster"
+        Me.btnNächster.Size = New System.Drawing.Size(86, 33)
+        Me.btnNächster.TabIndex = 1
+        Me.btnNächster.Text = "Nächster >>"
+        Me.btnNächster.UseVisualStyleBackColor = True
+        '
         'btnRueckNochmal
         '
-        Me.btnRueckNochmal.Location = New System.Drawing.Point(346, 602)
+        Me.btnRueckNochmal.Location = New System.Drawing.Point(395, 598)
         Me.btnRueckNochmal.Name = "btnRueckNochmal"
-        Me.btnRueckNochmal.Size = New System.Drawing.Size(95, 32)
+        Me.btnRueckNochmal.Size = New System.Drawing.Size(95, 42)
         Me.btnRueckNochmal.TabIndex = 62
-        Me.btnRueckNochmal.Text = "Anzeigen"
+        Me.btnRueckNochmal.Text = "Zurückgestellte"
         Me.btnRueckNochmal.UseVisualStyleBackColor = True
+        '
+        'AntwortFreiTextBox
+        '
+        Me.AntwortFreiTextBox.Location = New System.Drawing.Point(613, 76)
+        Me.AntwortFreiTextBox.Name = "AntwortFreiTextBox"
+        Me.AntwortFreiTextBox.Size = New System.Drawing.Size(45, 20)
+        Me.AntwortFreiTextBox.TabIndex = 63
         '
         'frmLernen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(704, 652)
+        Me.Controls.Add(Me.AntwortFreiTextBox)
         Me.Controls.Add(Me.btnRueckNochmal)
         Me.Controls.Add(Me.TableLayoutPanel3)
         Me.Controls.Add(ZurueckstellenLabel)
@@ -415,7 +424,7 @@ Partial Class frmLernen
         Me.Controls.Add(FrageLabel)
         Me.Controls.Add(Me.FrageTextBox)
         Me.Controls.Add(AntwortFreiLabel)
-        Me.Controls.Add(Me.AntwortFreiTextBox)
+        Me.Controls.Add(Me.prAntwortFreiTextBox)
         Me.Controls.Add(PunkteLabel)
         Me.Controls.Add(Me.PunkteTextBox)
         Me.Controls.Add(ThemenlinkLabel)
@@ -442,7 +451,7 @@ Partial Class frmLernen
     Friend WithEvents Mc_check4CheckBox As System.Windows.Forms.CheckBox
     Friend WithEvents Mc_check5CheckBox As System.Windows.Forms.CheckBox
     Friend WithEvents FrageTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents AntwortFreiTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents prAntwortFreiTextBox As System.Windows.Forms.TextBox
     Friend WithEvents PunkteTextBox As System.Windows.Forms.TextBox
     Friend WithEvents ThemenlinkTextBox As System.Windows.Forms.TextBox
     Friend WithEvents txtID As System.Windows.Forms.TextBox
@@ -454,4 +463,5 @@ Partial Class frmLernen
     Friend WithEvents btnLetzter As System.Windows.Forms.Button
     Friend WithEvents btnNächster As System.Windows.Forms.Button
     Friend WithEvents btnRueckNochmal As System.Windows.Forms.Button
+    Friend WithEvents AntwortFreiTextBox As System.Windows.Forms.TextBox
 End Class
