@@ -122,6 +122,10 @@ Public Class frmLernen
         bs.EndEdit()
         da.Update(dt)
 
+        ' Fragen auswerten
+        ' Punktezähler aufrufen
+        punktezaehler()
+
         bs.MoveNext()
     End Sub
 
@@ -223,17 +227,20 @@ Public Class frmLernen
         MsgBox(auswerten_mc.ToString() + " Punkte erzielt")
     End Sub
 
-    Private Function auswerten_FA() As Integer
-        Dim punkte As Integer = 0
+    Private Function auswerten_FA() As Array
+        Dim antwort(3) As Integer
+        'Dim punkte As Integer = 0
         Dim i As Integer
         Dim j As Integer
         Dim zaehler As Integer = 0
+        Dim richtigeAntwort As Integer = 0
+        Dim maxPunkte As Integer = 0
 
         ' Die Antworten in Arrays einlesen und gegenseitig auswerten
         ' Schuelerantwort
         Dim prantwort() As String = Split(prAntwortFreiTextBox.Text, " ")
         ' Lehrerantwort
-        Dim antwort() As String = Split(AntwortFreiTextBox.Text, " ")
+        Dim frantwort() As String = Split(AntwortFreiTextBox.Text, " ")
 
         'For i = 0 To UBound(antwort)
         '   MsgBox(antwort(i))
@@ -241,26 +248,37 @@ Public Class frmLernen
 
         For i = 0 To UBound(antwort)
             For j = 0 To UBound(prantwort)
-                If String.Compare(antwort(i), prantwort(j), True) = 0 Then
+                If String.Compare(frantwort(i), prantwort(j), True) = 0 Then
                     zaehler += 1
                 End If
             Next j
         Next i
 
-        Dim richtigeAntworten As Integer = zaehler
+
+        richtigeAntwort = zaehler
 
         'If ((100 / (antwort).Length) * zaehler) >= 75 Then
         '    MsgBox("Der Schüler hat " + zaehler.ToString("#,###0.00") + " Punkte erreicht")
         'End If
 
         If ((100 / (antwort).Length) * zaehler) >= 75 Then
-            punkte = richtigeAntworten
+            'punkte = richtigeAntworten
         End If
 
-        Return punkte
+        Return antwort
     End Function
 
     Private Sub btnAuswertenFrei_Click(sender As Object, e As EventArgs) Handles btnAuswertenFrei.Click
         MsgBox(auswerten_FA())
     End Sub
+
+    Private Sub punktezaehler()
+        ' Auswerten ob freie Frage oder Multiple Choice
+        If AntwortFreiTextBox.Text.Length > 0 Then
+            auswerten_FA()
+        Else
+            auswerten_mc()
+        End If
+    End Sub
+
 End Class
