@@ -30,6 +30,7 @@ Partial Class Form1
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lblButtonTest = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -50,6 +51,7 @@ Partial Class Form1
         Me.TableLayoutPanel1.Controls.Add(Me.Button4, 0, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.Button3, 0, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.Button1, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.lblButtonTest, 0, 1)
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(12, 2)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 7
@@ -101,12 +103,15 @@ Partial Class Form1
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(4, 142)
+        Me.Button3.AutoSize = True
+        Me.Button3.BackColor = System.Drawing.Color.Black
+        Me.Button3.Location = New System.Drawing.Point(1, 139)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(0)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(102, 40)
+        Me.Button3.Size = New System.Drawing.Size(147, 68)
         Me.Button3.TabIndex = 2
         Me.Button3.Text = "Button3"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button3.UseVisualStyleBackColor = False
         '
         'Button1
         '
@@ -131,6 +136,16 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(428, 490)
         Me.Panel1.TabIndex = 1
         '
+        'lblButtonTest
+        '
+        Me.lblButtonTest.AutoSize = True
+        Me.lblButtonTest.BackColor = System.Drawing.Color.Black
+        Me.lblButtonTest.Location = New System.Drawing.Point(4, 70)
+        Me.lblButtonTest.Name = "lblButtonTest"
+        Me.lblButtonTest.Size = New System.Drawing.Size(39, 13)
+        Me.lblButtonTest.TabIndex = 7
+        Me.lblButtonTest.Text = "Label1"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -154,4 +169,5 @@ Partial Class Form1
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents lblButtonTest As System.Windows.Forms.Label
 End Class
