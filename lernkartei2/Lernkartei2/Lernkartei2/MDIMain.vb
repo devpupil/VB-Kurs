@@ -118,4 +118,40 @@ Public Class MDIMain
         frm_Kategorien.WindowState = FormWindowState.Maximized
         frm_Kategorien.Show()
     End Sub
+
+    Private Sub ZurücksetzenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ZurücksetzenToolStripMenuItem.Click
+        Dim dr As DialogResult
+        dr = MessageBox.Show("Wollen sie wirklich die Prüfungsantworten zurücksetzen?", "Achtung", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+
+        ' Falls nein dann wird die Prozedur beendet
+        If dr = Windows.Forms.DialogResult.No Then
+            Exit Sub
+        End If
+
+        ' Datenbankverbindung wird aufgebaut
+        Dim con As New OleDb.OleDbConnection(My.Settings.lernkartei2ConnectionString)
+        ' Command
+        Dim cmd As New OleDb.OleDbCommand
+        ' Die Connection auf den Command legen
+        cmd.Connection = con
+
+        'SQL Befehl zum Update der Prüfungsfragen, mit Access zusammengebaut
+        cmd.CommandText = "UPDATE tbl_Fragen SET tbl_Fragen.pr_antwortFrei = """", tbl_Fragen.pr_mc_check1 = False, tbl_Fragen.pr_mc_check2 = False, tbl_Fragen.pr_mc_check4 = False, tbl_Fragen.pr_mc_check5 = False, tbl_Fragen.zurueckstellen = False;"
+
+        Try
+            'Datenbank öffnen
+            con.Open()
+            ' Ausführen des SQL Befehls und Rückgabe der bearbeiteten Datensätze mit Ausgabe durch MsgBox
+            MsgBox(cmd.ExecuteNonQuery().ToString() + " Datensätze wurden bearbeitet")
+            ' Verbindung schliessen
+            con.Close()
+        Catch ex As Exception
+            If FehlerAnezige(ex) Then
+                MsgBox("Das Programm wird geschlossen")
+                Me.Close()
+            End If
+
+        End Try
+
+    End Sub
 End Class

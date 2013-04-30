@@ -57,6 +57,14 @@ Partial Class frmLernen
         Me.btnNächster = New System.Windows.Forms.Button()
         Me.btnRueckNochmal = New System.Windows.Forms.Button()
         Me.AntwortFreiTextBox = New System.Windows.Forms.TextBox()
+        Me.tlpPrMcAntworten = New System.Windows.Forms.TableLayoutPanel()
+        Me.pr_mc_checkbox1 = New System.Windows.Forms.CheckBox()
+        Me.pr_mc_checkbox2 = New System.Windows.Forms.CheckBox()
+        Me.pr_mc_checkbox3 = New System.Windows.Forms.CheckBox()
+        Me.pr_mc_checkbox4 = New System.Windows.Forms.CheckBox()
+        Me.pr_mc_checkbox5 = New System.Windows.Forms.CheckBox()
+        Me.btnAuswerten = New System.Windows.Forms.Button()
+        Me.btnAuswertenFrei = New System.Windows.Forms.Button()
         Mc_anwort1Label = New System.Windows.Forms.Label()
         Mc_anwort2Label = New System.Windows.Forms.Label()
         Mc_anwort3Label = New System.Windows.Forms.Label()
@@ -70,6 +78,7 @@ Partial Class frmLernen
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
+        Me.tlpPrMcAntworten.SuspendLayout()
         Me.SuspendLayout()
         '
         'Mc_anwort1Label
@@ -166,8 +175,8 @@ Partial Class frmLernen
         '
         Me.TableLayoutPanel1.ColumnCount = 3
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.05547!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77.49604!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.290016!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.11111!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.968254!))
         Me.TableLayoutPanel1.Controls.Add(Mc_anwort1Label, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Mc_anwort1TextBox, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Mc_check1CheckBox, 2, 1)
@@ -192,86 +201,86 @@ Partial Class frmLernen
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(631, 238)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(603, 238)
         Me.TableLayoutPanel1.TabIndex = 56
         '
         'Mc_anwort1TextBox
         '
-        Me.Mc_anwort1TextBox.Location = New System.Drawing.Point(98, 42)
+        Me.Mc_anwort1TextBox.Location = New System.Drawing.Point(93, 42)
         Me.Mc_anwort1TextBox.Multiline = True
         Me.Mc_anwort1TextBox.Name = "Mc_anwort1TextBox"
-        Me.Mc_anwort1TextBox.Size = New System.Drawing.Size(483, 33)
+        Me.Mc_anwort1TextBox.Size = New System.Drawing.Size(482, 33)
         Me.Mc_anwort1TextBox.TabIndex = 12
         '
         'Mc_check1CheckBox
         '
-        Me.Mc_check1CheckBox.Location = New System.Drawing.Point(587, 42)
+        Me.Mc_check1CheckBox.Location = New System.Drawing.Point(581, 42)
         Me.Mc_check1CheckBox.Name = "Mc_check1CheckBox"
-        Me.Mc_check1CheckBox.Size = New System.Drawing.Size(41, 24)
+        Me.Mc_check1CheckBox.Size = New System.Drawing.Size(19, 24)
         Me.Mc_check1CheckBox.TabIndex = 22
         Me.Mc_check1CheckBox.UseVisualStyleBackColor = True
         '
         'Mc_anwort2TextBox
         '
-        Me.Mc_anwort2TextBox.Location = New System.Drawing.Point(98, 81)
+        Me.Mc_anwort2TextBox.Location = New System.Drawing.Point(93, 81)
         Me.Mc_anwort2TextBox.Multiline = True
         Me.Mc_anwort2TextBox.Name = "Mc_anwort2TextBox"
-        Me.Mc_anwort2TextBox.Size = New System.Drawing.Size(483, 33)
+        Me.Mc_anwort2TextBox.Size = New System.Drawing.Size(482, 33)
         Me.Mc_anwort2TextBox.TabIndex = 14
         '
         'Mc_anwort3TextBox
         '
-        Me.Mc_anwort3TextBox.Location = New System.Drawing.Point(98, 120)
+        Me.Mc_anwort3TextBox.Location = New System.Drawing.Point(93, 120)
         Me.Mc_anwort3TextBox.Multiline = True
         Me.Mc_anwort3TextBox.Name = "Mc_anwort3TextBox"
-        Me.Mc_anwort3TextBox.Size = New System.Drawing.Size(483, 33)
+        Me.Mc_anwort3TextBox.Size = New System.Drawing.Size(482, 33)
         Me.Mc_anwort3TextBox.TabIndex = 16
         '
         'Mc_anwort5TextBox
         '
-        Me.Mc_anwort5TextBox.Location = New System.Drawing.Point(98, 198)
+        Me.Mc_anwort5TextBox.Location = New System.Drawing.Point(93, 198)
         Me.Mc_anwort5TextBox.Multiline = True
         Me.Mc_anwort5TextBox.Name = "Mc_anwort5TextBox"
-        Me.Mc_anwort5TextBox.Size = New System.Drawing.Size(483, 33)
+        Me.Mc_anwort5TextBox.Size = New System.Drawing.Size(482, 33)
         Me.Mc_anwort5TextBox.TabIndex = 20
         '
         'Mc_anwort4TextBox
         '
-        Me.Mc_anwort4TextBox.Location = New System.Drawing.Point(98, 159)
+        Me.Mc_anwort4TextBox.Location = New System.Drawing.Point(93, 159)
         Me.Mc_anwort4TextBox.Multiline = True
         Me.Mc_anwort4TextBox.Name = "Mc_anwort4TextBox"
-        Me.Mc_anwort4TextBox.Size = New System.Drawing.Size(483, 33)
+        Me.Mc_anwort4TextBox.Size = New System.Drawing.Size(482, 33)
         Me.Mc_anwort4TextBox.TabIndex = 18
         '
         'Mc_check2CheckBox
         '
-        Me.Mc_check2CheckBox.Location = New System.Drawing.Point(587, 81)
+        Me.Mc_check2CheckBox.Location = New System.Drawing.Point(581, 81)
         Me.Mc_check2CheckBox.Name = "Mc_check2CheckBox"
-        Me.Mc_check2CheckBox.Size = New System.Drawing.Size(41, 24)
+        Me.Mc_check2CheckBox.Size = New System.Drawing.Size(19, 24)
         Me.Mc_check2CheckBox.TabIndex = 24
         Me.Mc_check2CheckBox.UseVisualStyleBackColor = True
         '
         'Mc_check3CheckBox
         '
-        Me.Mc_check3CheckBox.Location = New System.Drawing.Point(587, 120)
+        Me.Mc_check3CheckBox.Location = New System.Drawing.Point(581, 120)
         Me.Mc_check3CheckBox.Name = "Mc_check3CheckBox"
-        Me.Mc_check3CheckBox.Size = New System.Drawing.Size(41, 24)
+        Me.Mc_check3CheckBox.Size = New System.Drawing.Size(19, 24)
         Me.Mc_check3CheckBox.TabIndex = 26
         Me.Mc_check3CheckBox.UseVisualStyleBackColor = True
         '
         'Mc_check4CheckBox
         '
-        Me.Mc_check4CheckBox.Location = New System.Drawing.Point(587, 159)
+        Me.Mc_check4CheckBox.Location = New System.Drawing.Point(581, 159)
         Me.Mc_check4CheckBox.Name = "Mc_check4CheckBox"
-        Me.Mc_check4CheckBox.Size = New System.Drawing.Size(41, 24)
+        Me.Mc_check4CheckBox.Size = New System.Drawing.Size(19, 24)
         Me.Mc_check4CheckBox.TabIndex = 28
         Me.Mc_check4CheckBox.UseVisualStyleBackColor = True
         '
         'Mc_check5CheckBox
         '
-        Me.Mc_check5CheckBox.Location = New System.Drawing.Point(587, 198)
+        Me.Mc_check5CheckBox.Location = New System.Drawing.Point(581, 198)
         Me.Mc_check5CheckBox.Name = "Mc_check5CheckBox"
-        Me.Mc_check5CheckBox.Size = New System.Drawing.Size(41, 24)
+        Me.Mc_check5CheckBox.Size = New System.Drawing.Size(19, 24)
         Me.Mc_check5CheckBox.TabIndex = 30
         Me.Mc_check5CheckBox.UseVisualStyleBackColor = True
         '
@@ -404,15 +413,107 @@ Partial Class frmLernen
         'AntwortFreiTextBox
         '
         Me.AntwortFreiTextBox.Location = New System.Drawing.Point(613, 76)
+        Me.AntwortFreiTextBox.Multiline = True
         Me.AntwortFreiTextBox.Name = "AntwortFreiTextBox"
-        Me.AntwortFreiTextBox.Size = New System.Drawing.Size(45, 20)
+        Me.AntwortFreiTextBox.Size = New System.Drawing.Size(79, 91)
         Me.AntwortFreiTextBox.TabIndex = 63
+        '
+        'tlpPrMcAntworten
+        '
+        Me.tlpPrMcAntworten.ColumnCount = 1
+        Me.tlpPrMcAntworten.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlpPrMcAntworten.Controls.Add(Me.pr_mc_checkbox5, 0, 4)
+        Me.tlpPrMcAntworten.Controls.Add(Me.pr_mc_checkbox4, 0, 3)
+        Me.tlpPrMcAntworten.Controls.Add(Me.pr_mc_checkbox3, 0, 2)
+        Me.tlpPrMcAntworten.Controls.Add(Me.pr_mc_checkbox2, 0, 1)
+        Me.tlpPrMcAntworten.Controls.Add(Me.pr_mc_checkbox1, 0, 0)
+        Me.tlpPrMcAntworten.Location = New System.Drawing.Point(632, 228)
+        Me.tlpPrMcAntworten.Name = "tlpPrMcAntworten"
+        Me.tlpPrMcAntworten.RowCount = 5
+        Me.tlpPrMcAntworten.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.tlpPrMcAntworten.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.tlpPrMcAntworten.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.tlpPrMcAntworten.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.tlpPrMcAntworten.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.tlpPrMcAntworten.Size = New System.Drawing.Size(26, 194)
+        Me.tlpPrMcAntworten.TabIndex = 64
+        '
+        'pr_mc_checkbox1
+        '
+        Me.pr_mc_checkbox1.AutoSize = True
+        Me.pr_mc_checkbox1.Location = New System.Drawing.Point(3, 3)
+        Me.pr_mc_checkbox1.Name = "pr_mc_checkbox1"
+        Me.pr_mc_checkbox1.Size = New System.Drawing.Size(20, 17)
+        Me.pr_mc_checkbox1.TabIndex = 0
+        Me.pr_mc_checkbox1.Text = "CheckBox1"
+        Me.pr_mc_checkbox1.UseVisualStyleBackColor = True
+        '
+        'pr_mc_checkbox2
+        '
+        Me.pr_mc_checkbox2.AutoSize = True
+        Me.pr_mc_checkbox2.Location = New System.Drawing.Point(3, 41)
+        Me.pr_mc_checkbox2.Name = "pr_mc_checkbox2"
+        Me.pr_mc_checkbox2.Size = New System.Drawing.Size(20, 17)
+        Me.pr_mc_checkbox2.TabIndex = 1
+        Me.pr_mc_checkbox2.Text = "CheckBox2"
+        Me.pr_mc_checkbox2.UseVisualStyleBackColor = True
+        '
+        'pr_mc_checkbox3
+        '
+        Me.pr_mc_checkbox3.AutoSize = True
+        Me.pr_mc_checkbox3.Location = New System.Drawing.Point(3, 79)
+        Me.pr_mc_checkbox3.Name = "pr_mc_checkbox3"
+        Me.pr_mc_checkbox3.Size = New System.Drawing.Size(20, 17)
+        Me.pr_mc_checkbox3.TabIndex = 2
+        Me.pr_mc_checkbox3.Text = "CheckBox3"
+        Me.pr_mc_checkbox3.UseVisualStyleBackColor = True
+        '
+        'pr_mc_checkbox4
+        '
+        Me.pr_mc_checkbox4.AutoSize = True
+        Me.pr_mc_checkbox4.Location = New System.Drawing.Point(3, 117)
+        Me.pr_mc_checkbox4.Name = "pr_mc_checkbox4"
+        Me.pr_mc_checkbox4.Size = New System.Drawing.Size(20, 17)
+        Me.pr_mc_checkbox4.TabIndex = 3
+        Me.pr_mc_checkbox4.Text = "CheckBox4"
+        Me.pr_mc_checkbox4.UseVisualStyleBackColor = True
+        '
+        'pr_mc_checkbox5
+        '
+        Me.pr_mc_checkbox5.AutoSize = True
+        Me.pr_mc_checkbox5.Location = New System.Drawing.Point(3, 155)
+        Me.pr_mc_checkbox5.Name = "pr_mc_checkbox5"
+        Me.pr_mc_checkbox5.Size = New System.Drawing.Size(20, 17)
+        Me.pr_mc_checkbox5.TabIndex = 4
+        Me.pr_mc_checkbox5.Text = "CheckBox5"
+        Me.pr_mc_checkbox5.UseVisualStyleBackColor = True
+        '
+        'btnAuswerten
+        '
+        Me.btnAuswerten.Location = New System.Drawing.Point(599, 548)
+        Me.btnAuswerten.Name = "btnAuswerten"
+        Me.btnAuswerten.Size = New System.Drawing.Size(88, 31)
+        Me.btnAuswerten.TabIndex = 65
+        Me.btnAuswerten.Text = "Auswerten"
+        Me.btnAuswerten.UseVisualStyleBackColor = True
+        '
+        'btnAuswertenFrei
+        '
+        Me.btnAuswertenFrei.Location = New System.Drawing.Point(491, 548)
+        Me.btnAuswertenFrei.Name = "btnAuswertenFrei"
+        Me.btnAuswertenFrei.Size = New System.Drawing.Size(90, 31)
+        Me.btnAuswertenFrei.TabIndex = 66
+        Me.btnAuswertenFrei.Text = "AuswertenFrei"
+        Me.btnAuswertenFrei.UseVisualStyleBackColor = True
         '
         'frmLernen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(704, 652)
+        Me.Controls.Add(Me.btnAuswertenFrei)
+        Me.Controls.Add(Me.btnAuswerten)
+        Me.Controls.Add(Me.tlpPrMcAntworten)
         Me.Controls.Add(Me.AntwortFreiTextBox)
         Me.Controls.Add(Me.btnRueckNochmal)
         Me.Controls.Add(Me.TableLayoutPanel3)
@@ -435,6 +536,8 @@ Partial Class frmLernen
         Me.TableLayoutPanel1.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
+        Me.tlpPrMcAntworten.ResumeLayout(False)
+        Me.tlpPrMcAntworten.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -464,4 +567,12 @@ Partial Class frmLernen
     Friend WithEvents btnNächster As System.Windows.Forms.Button
     Friend WithEvents btnRueckNochmal As System.Windows.Forms.Button
     Friend WithEvents AntwortFreiTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents tlpPrMcAntworten As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents pr_mc_checkbox5 As System.Windows.Forms.CheckBox
+    Friend WithEvents pr_mc_checkbox4 As System.Windows.Forms.CheckBox
+    Friend WithEvents pr_mc_checkbox3 As System.Windows.Forms.CheckBox
+    Friend WithEvents pr_mc_checkbox2 As System.Windows.Forms.CheckBox
+    Friend WithEvents pr_mc_checkbox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents btnAuswerten As System.Windows.Forms.Button
+    Friend WithEvents btnAuswertenFrei As System.Windows.Forms.Button
 End Class

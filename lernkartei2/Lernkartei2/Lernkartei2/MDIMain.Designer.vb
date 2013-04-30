@@ -47,6 +47,9 @@ Partial Class MDIMain
         Me.PasteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.SelectAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DatenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FragenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.KategoreienToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -77,9 +80,7 @@ Partial Class MDIMain
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.DatenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.FragenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.KategoreienToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ZurücksetzenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -248,6 +249,27 @@ Partial Class MDIMain
         Me.SelectAllToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
         Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
         Me.SelectAllToolStripMenuItem.Text = "&Alle auswählen"
+        '
+        'DatenToolStripMenuItem
+        '
+        Me.DatenToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FragenToolStripMenuItem, Me.KategoreienToolStripMenuItem, Me.ZurücksetzenToolStripMenuItem})
+        Me.DatenToolStripMenuItem.Name = "DatenToolStripMenuItem"
+        Me.DatenToolStripMenuItem.Size = New System.Drawing.Size(50, 20)
+        Me.DatenToolStripMenuItem.Text = "Daten"
+        '
+        'FragenToolStripMenuItem
+        '
+        Me.FragenToolStripMenuItem.Image = CType(resources.GetObject("FragenToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.FragenToolStripMenuItem.Name = "FragenToolStripMenuItem"
+        Me.FragenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.FragenToolStripMenuItem.Text = "Fragen"
+        '
+        'KategoreienToolStripMenuItem
+        '
+        Me.KategoreienToolStripMenuItem.Image = CType(resources.GetObject("KategoreienToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.KategoreienToolStripMenuItem.Name = "KategoreienToolStripMenuItem"
+        Me.KategoreienToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.KategoreienToolStripMenuItem.Text = "Kategorieen"
         '
         'ViewMenu
         '
@@ -459,26 +481,11 @@ Partial Class MDIMain
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
         '
-        'DatenToolStripMenuItem
+        'ZurücksetzenToolStripMenuItem
         '
-        Me.DatenToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FragenToolStripMenuItem, Me.KategoreienToolStripMenuItem})
-        Me.DatenToolStripMenuItem.Name = "DatenToolStripMenuItem"
-        Me.DatenToolStripMenuItem.Size = New System.Drawing.Size(50, 20)
-        Me.DatenToolStripMenuItem.Text = "Daten"
-        '
-        'FragenToolStripMenuItem
-        '
-        Me.FragenToolStripMenuItem.Image = CType(resources.GetObject("FragenToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.FragenToolStripMenuItem.Name = "FragenToolStripMenuItem"
-        Me.FragenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.FragenToolStripMenuItem.Text = "Fragen"
-        '
-        'KategoreienToolStripMenuItem
-        '
-        Me.KategoreienToolStripMenuItem.Image = CType(resources.GetObject("KategoreienToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.KategoreienToolStripMenuItem.Name = "KategoreienToolStripMenuItem"
-        Me.KategoreienToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.KategoreienToolStripMenuItem.Text = "Kategorieen"
+        Me.ZurücksetzenToolStripMenuItem.Name = "ZurücksetzenToolStripMenuItem"
+        Me.ZurücksetzenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ZurücksetzenToolStripMenuItem.Text = "Zurücksetzen"
         '
         'MDIMain
         '
@@ -557,5 +564,6 @@ Partial Class MDIMain
     Friend WithEvents DatenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FragenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents KategoreienToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ZurücksetzenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

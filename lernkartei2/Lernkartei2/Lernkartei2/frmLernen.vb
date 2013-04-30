@@ -8,6 +8,8 @@ Public Class frmLernen
     Private WithEvents bs As New BindingSource
     Private Schalter As Boolean = False
 
+   
+
     Private Sub frmLernen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
 
@@ -53,26 +55,36 @@ Public Class frmLernen
 
             ' Multiple Choice
             Mc_anwort1TextBox.DataBindings.Add("text", bs, "mc_anwort1")
-            Mc_check1CheckBox.DataBindings.Add("Checked", bs, "pr_mc_check1")
+            Mc_check1CheckBox.DataBindings.Add("Checked", bs, "mc_check1")
 
             Mc_anwort2TextBox.DataBindings.Add("text", bs, "mc_anwort2")
-            Mc_check2CheckBox.DataBindings.Add("Checked", bs, "pr_mc_check2")
+            Mc_check2CheckBox.DataBindings.Add("Checked", bs, "mc_check2")
 
             Mc_anwort3TextBox.DataBindings.Add("text", bs, "mc_anwort3")
-            Mc_check3CheckBox.DataBindings.Add("Checked", bs, "pr_mc_check3")
+            Mc_check3CheckBox.DataBindings.Add("Checked", bs, "mc_check3")
 
             Mc_anwort4TextBox.DataBindings.Add("text", bs, "mc_anwort4")
-            Mc_check4CheckBox.DataBindings.Add("Checked", bs, "pr_mc_check4")
+            Mc_check4CheckBox.DataBindings.Add("Checked", bs, "mc_check4")
 
             Mc_anwort5TextBox.DataBindings.Add("text", bs, "mc_anwort5")
-            Mc_check5CheckBox.DataBindings.Add("Checked", bs, "pr_mc_check5")
+            Mc_check5CheckBox.DataBindings.Add("Checked", bs, "mc_check5")
 
             ' Zurückstellen der Frage
             ZurueckstellenCheckBox.DataBindings.Add("Checked", bs, "zurueckstellen")
 
+            ' Anbinden der Lehrer Antworten
+            pr_mc_checkbox1.DataBindings.Add("Checked", bs, "pr_mc_check1")
+            pr_mc_checkbox2.DataBindings.Add("Checked", bs, "pr_mc_check2")
+            pr_mc_checkbox3.DataBindings.Add("Checked", bs, "pr_mc_check3")
+            pr_mc_checkbox4.DataBindings.Add("Checked", bs, "pr_mc_check4")
+            pr_mc_checkbox5.DataBindings.Add("Checked", bs, "pr_mc_check5")
+
             ' Liest alle Datensätze in das Formular ein, man kann zählen wieviele es gibt
             bs.MoveLast()
             bs.MoveFirst()
+
+            ' Tooltip
+
 
         Catch ex As Exception
             ' Aufruf unserer Fehlerroutine
@@ -156,5 +168,99 @@ Public Class frmLernen
             prAntwortFreiTextBox.Visible = False
         End If
 
+    End Sub
+    Private Function auswerten_mc() As Integer
+        ' Punktezähler
+        Dim punkte As Integer = 0
+
+        ' Abfragen
+        ' Beide nicht angehackt, dann keine Punkte
+        ' Eins nicht angehackt, dann keine Punkte
+        ' Richtig angehackt, dann ein Punkt
+        ' jedes falsch angehackte dann - ein Punkt
+
+        If pr_mc_checkbox1.Checked = True And Mc_check1CheckBox.Checked = True Then
+            punkte += 1
+        ElseIf pr_mc_checkbox1.Checked = False And Mc_check1CheckBox.Checked = True Then
+            punkte -= 1
+        End If
+
+        If pr_mc_checkbox2.Checked = True And Mc_check2CheckBox.Checked = True Then
+            punkte += 1
+        ElseIf pr_mc_checkbox2.Checked = False And Mc_check2CheckBox.Checked = True Then
+            punkte -= 1
+        End If
+
+        If pr_mc_checkbox3.Checked = True And Mc_check3CheckBox.Checked = True Then
+            punkte += 1
+        ElseIf pr_mc_checkbox3.Checked = False And Mc_check3CheckBox.Checked = True Then
+            punkte -= 1
+        End If
+
+        If pr_mc_checkbox4.Checked = True And Mc_check4CheckBox.Checked = True Then
+            punkte += 1
+        ElseIf pr_mc_checkbox4.Checked = False And Mc_check4CheckBox.Checked = True Then
+            punkte -= 1
+        End If
+
+        If pr_mc_checkbox5.Checked = True And Mc_check5CheckBox.Checked = True Then
+            punkte += 1
+        ElseIf pr_mc_checkbox5.Checked = False And Mc_check5CheckBox.Checked = True Then
+            punkte -= 1
+        End If
+
+        ' Wenn die Punkte im Minus sind dann 0 ausgeben
+        ' Punkte Gesamt < 1 dann = punkte
+        If punkte < 0 Then
+            punkte = 0
+        End If
+
+        'Rückgabe
+        Return punkte
+    End Function
+
+    Private Sub btnAuswerten_Click(sender As Object, e As EventArgs) Handles btnAuswerten.Click
+        MsgBox(auswerten_mc.ToString() + " Punkte erzielt")
+    End Sub
+
+    Private Function auswerten_FA() As Integer
+        Dim punkte As Integer = 0
+        Dim i As Integer
+        Dim j As Integer
+        Dim zaehler As Integer = 0
+
+        ' Die Antworten in Arrays einlesen und gegenseitig auswerten
+        ' Schuelerantwort
+        Dim prantwort() As String = Split(prAntwortFreiTextBox.Text, " ")
+        ' Lehrerantwort
+        Dim antwort() As String = Split(AntwortFreiTextBox.Text, " ")
+
+        'For i = 0 To UBound(antwort)
+        '   MsgBox(antwort(i))
+        'Next
+
+        For i = 0 To UBound(antwort)
+            For j = 0 To UBound(prantwort)
+                If String.Compare(antwort(i), prantwort(j), True) = 0 Then
+                    zaehler += 1
+                End If
+            Next j
+        Next i
+
+        Dim richtigeAntworten As Integer = zaehler
+
+        'If ((100 / (antwort).Length) * zaehler) >= 75 Then
+        '    MsgBox("Der Schüler hat " + zaehler.ToString("#,###0.00") + " Punkte erreicht")
+        'End If
+
+        If ((100 / (antwort).Length) * zaehler) >= 75 Then
+            punkte = richtigeAntworten
+        End If
+
+        Return punkte
+    End Function
+
+    Private Sub btnAuswertenFrei_Click(sender As Object, e As EventArgs) Handles btnAuswertenFrei.Click
+        MsgBox(auswerten_FA())
     End Sub
 End Class
