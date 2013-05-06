@@ -22,6 +22,7 @@ Partial Class frmLernen
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim Mc_anwort1Label As System.Windows.Forms.Label
         Dim Mc_anwort2Label As System.Windows.Forms.Label
         Dim Mc_anwort3Label As System.Windows.Forms.Label
@@ -58,13 +59,21 @@ Partial Class frmLernen
         Me.btnRueckNochmal = New System.Windows.Forms.Button()
         Me.AntwortFreiTextBox = New System.Windows.Forms.TextBox()
         Me.tlpPrMcAntworten = New System.Windows.Forms.TableLayoutPanel()
-        Me.pr_mc_checkbox1 = New System.Windows.Forms.CheckBox()
-        Me.pr_mc_checkbox2 = New System.Windows.Forms.CheckBox()
-        Me.pr_mc_checkbox3 = New System.Windows.Forms.CheckBox()
-        Me.pr_mc_checkbox4 = New System.Windows.Forms.CheckBox()
         Me.pr_mc_checkbox5 = New System.Windows.Forms.CheckBox()
+        Me.pr_mc_checkbox4 = New System.Windows.Forms.CheckBox()
+        Me.pr_mc_checkbox3 = New System.Windows.Forms.CheckBox()
+        Me.pr_mc_checkbox2 = New System.Windows.Forms.CheckBox()
+        Me.pr_mc_checkbox1 = New System.Windows.Forms.CheckBox()
         Me.btnAuswerten = New System.Windows.Forms.Button()
         Me.btnAuswertenFrei = New System.Windows.Forms.Button()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.lblRestzeit = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblTimeDate = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblProgress = New System.Windows.Forms.ToolStripProgressBar()
+        Me.lblNum = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblCaps = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Mc_anwort1Label = New System.Windows.Forms.Label()
         Mc_anwort2Label = New System.Windows.Forms.Label()
         Mc_anwort3Label = New System.Windows.Forms.Label()
@@ -79,6 +88,7 @@ Partial Class frmLernen
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.tlpPrMcAntworten.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Mc_anwort1Label
@@ -438,35 +448,15 @@ Partial Class frmLernen
         Me.tlpPrMcAntworten.Size = New System.Drawing.Size(26, 194)
         Me.tlpPrMcAntworten.TabIndex = 64
         '
-        'pr_mc_checkbox1
+        'pr_mc_checkbox5
         '
-        Me.pr_mc_checkbox1.AutoSize = True
-        Me.pr_mc_checkbox1.Location = New System.Drawing.Point(3, 3)
-        Me.pr_mc_checkbox1.Name = "pr_mc_checkbox1"
-        Me.pr_mc_checkbox1.Size = New System.Drawing.Size(20, 17)
-        Me.pr_mc_checkbox1.TabIndex = 0
-        Me.pr_mc_checkbox1.Text = "CheckBox1"
-        Me.pr_mc_checkbox1.UseVisualStyleBackColor = True
-        '
-        'pr_mc_checkbox2
-        '
-        Me.pr_mc_checkbox2.AutoSize = True
-        Me.pr_mc_checkbox2.Location = New System.Drawing.Point(3, 41)
-        Me.pr_mc_checkbox2.Name = "pr_mc_checkbox2"
-        Me.pr_mc_checkbox2.Size = New System.Drawing.Size(20, 17)
-        Me.pr_mc_checkbox2.TabIndex = 1
-        Me.pr_mc_checkbox2.Text = "CheckBox2"
-        Me.pr_mc_checkbox2.UseVisualStyleBackColor = True
-        '
-        'pr_mc_checkbox3
-        '
-        Me.pr_mc_checkbox3.AutoSize = True
-        Me.pr_mc_checkbox3.Location = New System.Drawing.Point(3, 79)
-        Me.pr_mc_checkbox3.Name = "pr_mc_checkbox3"
-        Me.pr_mc_checkbox3.Size = New System.Drawing.Size(20, 17)
-        Me.pr_mc_checkbox3.TabIndex = 2
-        Me.pr_mc_checkbox3.Text = "CheckBox3"
-        Me.pr_mc_checkbox3.UseVisualStyleBackColor = True
+        Me.pr_mc_checkbox5.AutoSize = True
+        Me.pr_mc_checkbox5.Location = New System.Drawing.Point(3, 155)
+        Me.pr_mc_checkbox5.Name = "pr_mc_checkbox5"
+        Me.pr_mc_checkbox5.Size = New System.Drawing.Size(20, 17)
+        Me.pr_mc_checkbox5.TabIndex = 4
+        Me.pr_mc_checkbox5.Text = "CheckBox5"
+        Me.pr_mc_checkbox5.UseVisualStyleBackColor = True
         '
         'pr_mc_checkbox4
         '
@@ -478,15 +468,35 @@ Partial Class frmLernen
         Me.pr_mc_checkbox4.Text = "CheckBox4"
         Me.pr_mc_checkbox4.UseVisualStyleBackColor = True
         '
-        'pr_mc_checkbox5
+        'pr_mc_checkbox3
         '
-        Me.pr_mc_checkbox5.AutoSize = True
-        Me.pr_mc_checkbox5.Location = New System.Drawing.Point(3, 155)
-        Me.pr_mc_checkbox5.Name = "pr_mc_checkbox5"
-        Me.pr_mc_checkbox5.Size = New System.Drawing.Size(20, 17)
-        Me.pr_mc_checkbox5.TabIndex = 4
-        Me.pr_mc_checkbox5.Text = "CheckBox5"
-        Me.pr_mc_checkbox5.UseVisualStyleBackColor = True
+        Me.pr_mc_checkbox3.AutoSize = True
+        Me.pr_mc_checkbox3.Location = New System.Drawing.Point(3, 79)
+        Me.pr_mc_checkbox3.Name = "pr_mc_checkbox3"
+        Me.pr_mc_checkbox3.Size = New System.Drawing.Size(20, 17)
+        Me.pr_mc_checkbox3.TabIndex = 2
+        Me.pr_mc_checkbox3.Text = "CheckBox3"
+        Me.pr_mc_checkbox3.UseVisualStyleBackColor = True
+        '
+        'pr_mc_checkbox2
+        '
+        Me.pr_mc_checkbox2.AutoSize = True
+        Me.pr_mc_checkbox2.Location = New System.Drawing.Point(3, 41)
+        Me.pr_mc_checkbox2.Name = "pr_mc_checkbox2"
+        Me.pr_mc_checkbox2.Size = New System.Drawing.Size(20, 17)
+        Me.pr_mc_checkbox2.TabIndex = 1
+        Me.pr_mc_checkbox2.Text = "CheckBox2"
+        Me.pr_mc_checkbox2.UseVisualStyleBackColor = True
+        '
+        'pr_mc_checkbox1
+        '
+        Me.pr_mc_checkbox1.AutoSize = True
+        Me.pr_mc_checkbox1.Location = New System.Drawing.Point(3, 3)
+        Me.pr_mc_checkbox1.Name = "pr_mc_checkbox1"
+        Me.pr_mc_checkbox1.Size = New System.Drawing.Size(20, 17)
+        Me.pr_mc_checkbox1.TabIndex = 0
+        Me.pr_mc_checkbox1.Text = "CheckBox1"
+        Me.pr_mc_checkbox1.UseVisualStyleBackColor = True
         '
         'btnAuswerten
         '
@@ -506,11 +516,59 @@ Partial Class frmLernen
         Me.btnAuswertenFrei.Text = "AuswertenFrei"
         Me.btnAuswertenFrei.UseVisualStyleBackColor = True
         '
+        'Timer1
+        '
+        Me.Timer1.Interval = 1000
+        '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblRestzeit, Me.lblTimeDate, Me.lblProgress, Me.lblNum, Me.lblCaps})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 629)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(704, 23)
+        Me.StatusStrip1.TabIndex = 67
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'lblRestzeit
+        '
+        Me.lblRestzeit.Name = "lblRestzeit"
+        Me.lblRestzeit.Size = New System.Drawing.Size(49, 18)
+        Me.lblRestzeit.Text = "00:00:00"
+        '
+        'lblTimeDate
+        '
+        Me.lblTimeDate.Name = "lblTimeDate"
+        Me.lblTimeDate.Size = New System.Drawing.Size(72, 18)
+        Me.lblTimeDate.Text = "Datum : Zeit"
+        '
+        'lblProgress
+        '
+        Me.lblProgress.Name = "lblProgress"
+        Me.lblProgress.Size = New System.Drawing.Size(426, 17)
+        '
+        'lblNum
+        '
+        Me.lblNum.Name = "lblNum"
+        Me.lblNum.Size = New System.Drawing.Size(56, 18)
+        Me.lblNum.Text = "Numlock"
+        '
+        'lblCaps
+        '
+        Me.lblCaps.Name = "lblCaps"
+        Me.lblCaps.Size = New System.Drawing.Size(55, 18)
+        Me.lblCaps.Text = "Capslock"
+        '
+        'Timer2
+        '
+        Me.Timer2.Enabled = True
+        Me.Timer2.Interval = 1000
+        '
         'frmLernen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(704, 652)
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.btnAuswertenFrei)
         Me.Controls.Add(Me.btnAuswerten)
         Me.Controls.Add(Me.tlpPrMcAntworten)
@@ -538,6 +596,8 @@ Partial Class frmLernen
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.tlpPrMcAntworten.ResumeLayout(False)
         Me.tlpPrMcAntworten.PerformLayout()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -575,4 +635,12 @@ Partial Class frmLernen
     Friend WithEvents pr_mc_checkbox1 As System.Windows.Forms.CheckBox
     Friend WithEvents btnAuswerten As System.Windows.Forms.Button
     Friend WithEvents btnAuswertenFrei As System.Windows.Forms.Button
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
+    Friend WithEvents lblRestzeit As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents lblTimeDate As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents Timer2 As System.Windows.Forms.Timer
+    Friend WithEvents lblNum As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents lblCaps As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents lblProgress As System.Windows.Forms.ToolStripProgressBar
 End Class

@@ -7,6 +7,8 @@ Public Class frmLernen
     ' Den Bindingsource bs mit weiteren Eigenschaften erweitern
     Private WithEvents bs As New BindingSource
     Private Schalter As Boolean = False
+    Private Lernzeit As Integer = 30
+    Private Gesamtzeit As Integer = Lernzeit
 
    
 
@@ -84,6 +86,9 @@ Public Class frmLernen
             bs.MoveFirst()
 
             ' Tooltip
+
+            ' Timer
+            Timer1.Start()
 
 
         Catch ex As Exception
@@ -279,6 +284,63 @@ Public Class frmLernen
         Else
             auswerten_mc()
         End If
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        ' Timer wird beim Form_load gestartet
+
+        Dim txtMinuten As Integer = 0
+        Dim txtSekunden As Integer = 0
+
+        ' Der Timer läuft rückwärts, pro Durchlauf wird 1 abgezogen, bei Interval 1000 ist das 1 Sekunde
+        Lernzeit -= 1
+
+        ' Rote und fette Ausgabe wenn nur noch 10 % der Gesamtzeit vorhanden
+        If Lernzeit <= ((Gesamtzeit / 100) * 10) Then
+            lblRestzeit.ForeColor = Color.Red
+            lblRestzeit.Font = New Font(lblRestzeit.Font, FontStyle.Bold)
+        End If
+
+        ' Debug Ausgabe zum Testen
+        'Debug.Print (Lernzeit)
+
+        ' Formatierte Ausgabe durch Funktion IntToDateStr
+        lblRestzeit.Text = IntToDateStr(Lernzeit)
+
+        ' Progressbar 
+        'Dim percent As Integer = CInt(((CDbl(lblProgress.Value) / CDbl(lblProgress.Maximum)) * 100))
+
+
+        'lblProgress.Value -= 1
+
+        ' Beenden des Timers wenn die 0 erreicht ist.
+        If Lernzeit = 0 Then
+            Timer1.Stop()
+            MessageBox.Show("Die Zeit ist abgelaufen:", "Achtung", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            ' me.close()
+        End If
+
+    End Sub
+
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        lblTimeDate.Text = FormatDateTime(Now, DateFormat.ShortDate) & " " & FormatDateTime(Now, DateFormat.ShortTime)
+
+        ' Numlock aktiviert oder nicht
+        If My.Computer.Keyboard.NumLock = True Then
+            lblNum.Text = "Numlock ON"
+        Else
+            lblNum.Text = "Numlock Off"
+        End If
+
+        ' Capslock testen
+        If My.Computer.Keyboard.CapsLock = True Then
+            lblCaps.Text = "Capslock ON"
+        Else
+            lblCaps.Text = "Capslock Off"
+        End If
+
+
+
     End Sub
 
 End Class
