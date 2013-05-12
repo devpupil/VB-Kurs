@@ -72,4 +72,39 @@
             TableLayoutPanel1.Enabled = True
         End If
     End Sub
+
+    Private Sub btnBildHolen_Click(sender As Object, e As EventArgs) Handles btnBildHolen.Click
+        'Variable für Dateiinformationen
+        Dim information As System.IO.FileInfo
+
+        'Filter fuer die Dateiauswahl auf Bilder stellen
+        BildHolen.Filter = "Bilder (*.jpg) |*.jpg|*.png|*.bmp|All Files|*.*"
+
+        If BildHolen.ShowDialog = Windows.Forms.DialogResult.OK Then
+            'Bildnamen in der Datenbank speichern
+            BildTextBox.Text = BildHolen.SafeFileName
+
+            'Prüfen ob wir eine Datei mit dem selblen Namen schon gespeichert haben
+            If IO.File.Exists(My.Settings.BilderPfad & "\" & BildHolen.SafeFileName) Then
+                MessageBox.Show("Die Datei exisiert bereits!", "Achtung", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            Else
+                'Kopieren des Bildes
+                FileCopy(BildHolen.FileName, My.Settings.BilderPfad & "\" & BildHolen.SafeFileName)
+
+                ' Datei in einer Picturebox darstellen, dafür muss sichergestellt werden, dass die Datei auch ein Bild ist.
+                ' Auslesen der Dateiinformationen
+                information = My.Computer.FileSystem.GetFileInfo(My.Settings.BilderPfad & "\" & BildHolen.SafeFileName)
+
+                ' Filtern nach Dateiendung und Anzeigen der Datei in der Picturebox
+                Select Case LCase(information.Extension)
+                    Case ".jpg", ".png", ".bmp"
+                        pictBox.Image = New Bitmap(My.Settings.BilderPfad & "\" & BildHolen.SafeFileName)
+                End Select
+                ' Warum ??
+                BildHolen.Dispose()
+            End If
+        End If
+    End Sub
+
+   
 End Class

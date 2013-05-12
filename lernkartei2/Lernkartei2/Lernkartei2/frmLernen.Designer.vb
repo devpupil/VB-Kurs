@@ -545,6 +545,8 @@ Partial Class frmLernen
         '
         Me.lblProgress.Name = "lblProgress"
         Me.lblProgress.Size = New System.Drawing.Size(426, 17)
+        Me.lblProgress.Step = 1
+        Me.lblProgress.Style = System.Windows.Forms.ProgressBarStyle.Marquee
         '
         'lblNum
         '

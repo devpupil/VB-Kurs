@@ -154,4 +154,10 @@ Public Class MDIMain
         End Try
 
     End Sub
+
+    Private Sub OptionsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OptionsToolStripMenuItem.Click
+        frmOption.MdiParent = Me
+        frmOption.Show()
+        frmOption.WindowState = FormWindowState.Maximized
+    End Sub
 End Class

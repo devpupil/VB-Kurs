@@ -34,6 +34,7 @@ Partial Class frm_Fragen
         Dim Mc_anwort5Label As System.Windows.Forms.Label
         Dim PunkteLabel As System.Windows.Forms.Label
         Dim ThemenlinkLabel As System.Windows.Forms.Label
+        Dim BildLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_Fragen))
         Me.Lernkartei2DataSet = New Lernkartei2.lernkartei2DataSet()
         Me.Tbl_FragenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -76,6 +77,10 @@ Partial Class frm_Fragen
         Me.TblkategorieBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Tbl_kategorieTableAdapter = New Lernkartei2.lernkartei2DataSetTableAdapters.tbl_kategorieTableAdapter()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.BildTextBox = New System.Windows.Forms.TextBox()
+        Me.btnBildHolen = New System.Windows.Forms.Button()
+        Me.BildHolen = New System.Windows.Forms.OpenFileDialog()
+        Me.pictBox = New System.Windows.Forms.PictureBox()
         Me.TblkategorieBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         IDLabel = New System.Windows.Forms.Label()
         Cat_idLabel = New System.Windows.Forms.Label()
@@ -88,12 +93,14 @@ Partial Class frm_Fragen
         Mc_anwort5Label = New System.Windows.Forms.Label()
         PunkteLabel = New System.Windows.Forms.Label()
         ThemenlinkLabel = New System.Windows.Forms.Label()
+        BildLabel = New System.Windows.Forms.Label()
         CType(Me.Lernkartei2DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tbl_FragenBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tbl_FragenBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tbl_FragenBindingNavigator.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.TblkategorieBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pictBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblkategorieBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -195,6 +202,15 @@ Partial Class frm_Fragen
         ThemenlinkLabel.Size = New System.Drawing.Size(65, 13)
         ThemenlinkLabel.TabIndex = 45
         ThemenlinkLabel.Text = "Themenlink:"
+        '
+        'BildLabel
+        '
+        BildLabel.AutoSize = True
+        BildLabel.Location = New System.Drawing.Point(372, 72)
+        BildLabel.Name = "BildLabel"
+        BildLabel.Size = New System.Drawing.Size(27, 13)
+        BildLabel.TabIndex = 49
+        BildLabel.Text = "Bild:"
         '
         'Lernkartei2DataSet
         '
@@ -375,7 +391,7 @@ Partial Class frm_Fragen
         Me.FrageTextBox.Location = New System.Drawing.Point(114, 69)
         Me.FrageTextBox.Multiline = True
         Me.FrageTextBox.Name = "FrageTextBox"
-        Me.FrageTextBox.Size = New System.Drawing.Size(500, 55)
+        Me.FrageTextBox.Size = New System.Drawing.Size(232, 55)
         Me.FrageTextBox.TabIndex = 6
         '
         'AntwortFreiTextBox
@@ -384,7 +400,7 @@ Partial Class frm_Fragen
         Me.AntwortFreiTextBox.Location = New System.Drawing.Point(114, 130)
         Me.AntwortFreiTextBox.Multiline = True
         Me.AntwortFreiTextBox.Name = "AntwortFreiTextBox"
-        Me.AntwortFreiTextBox.Size = New System.Drawing.Size(500, 105)
+        Me.AntwortFreiTextBox.Size = New System.Drawing.Size(232, 105)
         Me.AntwortFreiTextBox.TabIndex = 8
         '
         'Mc_anwort1TextBox
@@ -491,7 +507,7 @@ Partial Class frm_Fragen
         Me.ThemenlinkTextBox.Location = New System.Drawing.Point(114, 514)
         Me.ThemenlinkTextBox.Multiline = True
         Me.ThemenlinkTextBox.Name = "ThemenlinkTextBox"
-        Me.ThemenlinkTextBox.Size = New System.Drawing.Size(500, 59)
+        Me.ThemenlinkTextBox.Size = New System.Drawing.Size(500, 29)
         Me.ThemenlinkTextBox.TabIndex = 46
         '
         'TableLayoutPanel1
@@ -559,6 +575,36 @@ Partial Class frm_Fragen
         Me.ComboBox1.TabIndex = 49
         Me.ComboBox1.ValueMember = "ID"
         '
+        'BildTextBox
+        '
+        Me.BildTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_FragenBindingSource, "Bil", True))
+        Me.BildTextBox.Location = New System.Drawing.Point(405, 69)
+        Me.BildTextBox.Name = "BildTextBox"
+        Me.BildTextBox.Size = New System.Drawing.Size(180, 20)
+        Me.BildTextBox.TabIndex = 50
+        '
+        'btnBildHolen
+        '
+        Me.btnBildHolen.Location = New System.Drawing.Point(599, 64)
+        Me.btnBildHolen.Name = "btnBildHolen"
+        Me.btnBildHolen.Size = New System.Drawing.Size(73, 28)
+        Me.btnBildHolen.TabIndex = 51
+        Me.btnBildHolen.Text = "Bild holen"
+        Me.btnBildHolen.UseVisualStyleBackColor = True
+        '
+        'BildHolen
+        '
+        Me.BildHolen.FileName = "OpenFileDialog1"
+        '
+        'pictBox
+        '
+        Me.pictBox.Location = New System.Drawing.Point(405, 95)
+        Me.pictBox.Name = "pictBox"
+        Me.pictBox.Size = New System.Drawing.Size(196, 139)
+        Me.pictBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pictBox.TabIndex = 52
+        Me.pictBox.TabStop = False
+        '
         'TblkategorieBindingSource1
         '
         Me.TblkategorieBindingSource1.DataMember = "tbl_kategorie"
@@ -568,7 +614,11 @@ Partial Class frm_Fragen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(684, 593)
+        Me.ClientSize = New System.Drawing.Size(684, 563)
+        Me.Controls.Add(Me.pictBox)
+        Me.Controls.Add(Me.btnBildHolen)
+        Me.Controls.Add(BildLabel)
+        Me.Controls.Add(Me.BildTextBox)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Cat_idComboBox)
         Me.Controls.Add(Me.TableLayoutPanel1)
@@ -595,6 +645,7 @@ Partial Class frm_Fragen
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         CType(Me.TblkategorieBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pictBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblkategorieBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -641,6 +692,10 @@ Partial Class frm_Fragen
     Friend WithEvents Tbl_kategorieTableAdapter As Lernkartei2.lernkartei2DataSetTableAdapters.tbl_kategorieTableAdapter
     Friend WithEvents ToolStripLabel1 As System.Windows.Forms.ToolStripLabel
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents BildTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents btnBildHolen As System.Windows.Forms.Button
+    Friend WithEvents BildHolen As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents pictBox As System.Windows.Forms.PictureBox
     Friend WithEvents TblkategorieBindingSource1 As System.Windows.Forms.BindingSource
 
 End Class

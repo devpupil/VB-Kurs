@@ -136,6 +136,18 @@ Namespace My
                 Me("KatWahl") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property BilderPfad() As String
+            Get
+                Return CType(Me("BilderPfad"),String)
+            End Get
+            Set
+                Me("BilderPfad") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

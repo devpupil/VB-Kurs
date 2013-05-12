@@ -399,6 +399,8 @@ Partial Public Class lernkartei2DataSet
         
         Private columnThemenlink As Global.System.Data.DataColumn
         
+        Private columnBild As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -619,6 +621,14 @@ Partial Public Class lernkartei2DataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property BildColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBild
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -677,9 +687,10 @@ Partial Public Class lernkartei2DataSet
                     ByVal pr_mc_check5 As Boolean,  _
                     ByVal punkte As Byte,  _
                     ByVal zurueckstellen As Boolean,  _
-                    ByVal Themenlink As String) As tbl_FragenRow
+                    ByVal Themenlink As String,  _
+                    ByVal Bild As String) As tbl_FragenRow
             Dim rowtbl_FragenRow As tbl_FragenRow = CType(Me.NewRow,tbl_FragenRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, cat_id, frage, antwortFrei, pr_antwortFrei, mc_anwort1, mc_anwort2, mc_anwort3, mc_anwort4, mc_anwort5, mc_check1, mc_check2, mc_check3, mc_check4, mc_check5, pr_mc_check1, pr_mc_check2, pr_mc_check3, pr_mc_check4, pr_mc_check5, punkte, zurueckstellen, Themenlink}
+            Dim columnValuesArray() As Object = New Object() {Nothing, cat_id, frage, antwortFrei, pr_antwortFrei, mc_anwort1, mc_anwort2, mc_anwort3, mc_anwort4, mc_anwort5, mc_check1, mc_check2, mc_check3, mc_check4, mc_check5, pr_mc_check1, pr_mc_check2, pr_mc_check3, pr_mc_check4, pr_mc_check5, punkte, zurueckstellen, Themenlink, Bild}
             rowtbl_FragenRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowtbl_FragenRow)
             Return rowtbl_FragenRow
@@ -731,6 +742,7 @@ Partial Public Class lernkartei2DataSet
             Me.columnpunkte = MyBase.Columns("punkte")
             Me.columnzurueckstellen = MyBase.Columns("zurueckstellen")
             Me.columnThemenlink = MyBase.Columns("Themenlink")
+            Me.columnBild = MyBase.Columns("Bild")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -782,6 +794,8 @@ Partial Public Class lernkartei2DataSet
             MyBase.Columns.Add(Me.columnzurueckstellen)
             Me.columnThemenlink = New Global.System.Data.DataColumn("Themenlink", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnThemenlink)
+            Me.columnBild = New Global.System.Data.DataColumn("Bild", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBild)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
@@ -797,6 +811,7 @@ Partial Public Class lernkartei2DataSet
             Me.columnmc_anwort4.MaxLength = 255
             Me.columnmc_anwort5.MaxLength = 255
             Me.columnThemenlink.MaxLength = 255
+            Me.columnBild.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1856,6 +1871,21 @@ Partial Public Class lernkartei2DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Bild() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabletbl_Fragen.BildColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("Der Wert für Spalte Bild in Tabelle tbl_Fragen ist DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletbl_Fragen.BildColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function Iscat_idNull() As Boolean
             Return Me.IsNull(Me.tabletbl_Fragen.cat_idColumn)
         End Function
@@ -2116,6 +2146,18 @@ Partial Public Class lernkartei2DataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetThemenlinkNull()
             Me(Me.tabletbl_Fragen.ThemenlinkColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsBildNull() As Boolean
+            Return Me.IsNull(Me.tabletbl_Fragen.BildColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetBildNull()
+            Me(Me.tabletbl_Fragen.BildColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -2558,6 +2600,7 @@ Namespace lernkartei2DataSetTableAdapters
             tableMapping.ColumnMappings.Add("punkte", "punkte")
             tableMapping.ColumnMappings.Add("zurueckstellen", "zurueckstellen")
             tableMapping.ColumnMappings.Add("Themenlink", "Themenlink")
+            tableMapping.ColumnMappings.Add("Bild", "Bild")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -2576,7 +2619,7 @@ Namespace lernkartei2DataSetTableAdapters
                 "(? = 1 AND `pr_mc_check5` IS NULL) OR (`pr_mc_check5` = ?)) AND ((? = 1 AND `pun"& _ 
                 "kte` IS NULL) OR (`punkte` = ?)) AND ((? = 1 AND `zurueckstellen` IS NULL) OR (`"& _ 
                 "zurueckstellen` = ?)) AND ((? = 1 AND `Themenlink` IS NULL) OR (`Themenlink` = ?"& _ 
-                ")))"
+                ")) AND ((? = 1 AND `Bild` IS NULL) OR (`Bild` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_cat_id", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cat_id", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -2617,14 +2660,16 @@ Namespace lernkartei2DataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_zurueckstellen", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "zurueckstellen", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Themenlink", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Themenlink", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Themenlink", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Themenlink", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Bild", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Bild", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Bild", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Bild", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `tbl_Fragen` (`cat_id`, `frage`, `antwortFrei`, `pr_antwortFrei`, `mc"& _ 
                 "_anwort1`, `mc_anwort2`, `mc_anwort3`, `mc_anwort4`, `mc_anwort5`, `mc_check1`, "& _ 
                 "`mc_check2`, `mc_check3`, `mc_check4`, `mc_check5`, `pr_mc_check1`, `pr_mc_check"& _ 
                 "2`, `pr_mc_check3`, `pr_mc_check4`, `pr_mc_check5`, `punkte`, `zurueckstellen`, "& _ 
-                "`Themenlink`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?"& _ 
-                ", ?, ?)"
+                "`Themenlink`, `Bild`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"& _ 
+                " ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("cat_id", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cat_id", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("frage", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "frage", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -2648,6 +2693,7 @@ Namespace lernkartei2DataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("punkte", Global.System.Data.OleDb.OleDbType.UnsignedTinyInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "punkte", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("zurueckstellen", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "zurueckstellen", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Themenlink", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Themenlink", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Bild", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Bild", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `tbl_Fragen` SET `cat_id` = ?, `frage` = ?, `antwortFrei` = ?, `pr_antwort"& _ 
@@ -2655,21 +2701,22 @@ Namespace lernkartei2DataSetTableAdapters
                 "?, `mc_anwort5` = ?, `mc_check1` = ?, `mc_check2` = ?, `mc_check3` = ?, `mc_chec"& _ 
                 "k4` = ?, `mc_check5` = ?, `pr_mc_check1` = ?, `pr_mc_check2` = ?, `pr_mc_check3`"& _ 
                 " = ?, `pr_mc_check4` = ?, `pr_mc_check5` = ?, `punkte` = ?, `zurueckstellen` = ?"& _ 
-                ", `Themenlink` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `cat_id` IS NULL) OR (`cat_"& _ 
-                "id` = ?)) AND ((? = 1 AND `mc_anwort1` IS NULL) OR (`mc_anwort1` = ?)) AND ((? ="& _ 
-                " 1 AND `mc_anwort2` IS NULL) OR (`mc_anwort2` = ?)) AND ((? = 1 AND `mc_anwort3`"& _ 
-                " IS NULL) OR (`mc_anwort3` = ?)) AND ((? = 1 AND `mc_anwort4` IS NULL) OR (`mc_a"& _ 
-                "nwort4` = ?)) AND ((? = 1 AND `mc_anwort5` IS NULL) OR (`mc_anwort5` = ?)) AND ("& _ 
-                "(? = 1 AND `mc_check1` IS NULL) OR (`mc_check1` = ?)) AND ((? = 1 AND `mc_check2"& _ 
-                "` IS NULL) OR (`mc_check2` = ?)) AND ((? = 1 AND `mc_check3` IS NULL) OR (`mc_ch"& _ 
-                "eck3` = ?)) AND ((? = 1 AND `mc_check4` IS NULL) OR (`mc_check4` = ?)) AND ((? ="& _ 
-                " 1 AND `mc_check5` IS NULL) OR (`mc_check5` = ?)) AND ((? = 1 AND `pr_mc_check1`"& _ 
-                " IS NULL) OR (`pr_mc_check1` = ?)) AND ((? = 1 AND `pr_mc_check2` IS NULL) OR (`"& _ 
-                "pr_mc_check2` = ?)) AND ((? = 1 AND `pr_mc_check3` IS NULL) OR (`pr_mc_check3` ="& _ 
-                " ?)) AND ((? = 1 AND `pr_mc_check4` IS NULL) OR (`pr_mc_check4` = ?)) AND ((? = "& _ 
-                "1 AND `pr_mc_check5` IS NULL) OR (`pr_mc_check5` = ?)) AND ((? = 1 AND `punkte` "& _ 
-                "IS NULL) OR (`punkte` = ?)) AND ((? = 1 AND `zurueckstellen` IS NULL) OR (`zurue"& _ 
-                "ckstellen` = ?)) AND ((? = 1 AND `Themenlink` IS NULL) OR (`Themenlink` = ?)))"
+                ", `Themenlink` = ?, `Bild` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `cat_id` IS NUL"& _ 
+                "L) OR (`cat_id` = ?)) AND ((? = 1 AND `mc_anwort1` IS NULL) OR (`mc_anwort1` = ?"& _ 
+                ")) AND ((? = 1 AND `mc_anwort2` IS NULL) OR (`mc_anwort2` = ?)) AND ((? = 1 AND "& _ 
+                "`mc_anwort3` IS NULL) OR (`mc_anwort3` = ?)) AND ((? = 1 AND `mc_anwort4` IS NUL"& _ 
+                "L) OR (`mc_anwort4` = ?)) AND ((? = 1 AND `mc_anwort5` IS NULL) OR (`mc_anwort5`"& _ 
+                " = ?)) AND ((? = 1 AND `mc_check1` IS NULL) OR (`mc_check1` = ?)) AND ((? = 1 AN"& _ 
+                "D `mc_check2` IS NULL) OR (`mc_check2` = ?)) AND ((? = 1 AND `mc_check3` IS NULL"& _ 
+                ") OR (`mc_check3` = ?)) AND ((? = 1 AND `mc_check4` IS NULL) OR (`mc_check4` = ?"& _ 
+                ")) AND ((? = 1 AND `mc_check5` IS NULL) OR (`mc_check5` = ?)) AND ((? = 1 AND `p"& _ 
+                "r_mc_check1` IS NULL) OR (`pr_mc_check1` = ?)) AND ((? = 1 AND `pr_mc_check2` IS"& _ 
+                " NULL) OR (`pr_mc_check2` = ?)) AND ((? = 1 AND `pr_mc_check3` IS NULL) OR (`pr_"& _ 
+                "mc_check3` = ?)) AND ((? = 1 AND `pr_mc_check4` IS NULL) OR (`pr_mc_check4` = ?)"& _ 
+                ") AND ((? = 1 AND `pr_mc_check5` IS NULL) OR (`pr_mc_check5` = ?)) AND ((? = 1 A"& _ 
+                "ND `punkte` IS NULL) OR (`punkte` = ?)) AND ((? = 1 AND `zurueckstellen` IS NULL"& _ 
+                ") OR (`zurueckstellen` = ?)) AND ((? = 1 AND `Themenlink` IS NULL) OR (`Themenli"& _ 
+                "nk` = ?)) AND ((? = 1 AND `Bild` IS NULL) OR (`Bild` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("cat_id", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cat_id", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("frage", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "frage", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -2693,6 +2740,7 @@ Namespace lernkartei2DataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("punkte", Global.System.Data.OleDb.OleDbType.UnsignedTinyInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "punkte", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("zurueckstellen", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "zurueckstellen", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Themenlink", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Themenlink", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Bild", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Bild", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_cat_id", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cat_id", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_cat_id", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cat_id", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -2732,6 +2780,8 @@ Namespace lernkartei2DataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_zurueckstellen", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "zurueckstellen", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Themenlink", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Themenlink", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Themenlink", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Themenlink", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Bild", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Bild", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Bild", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Bild", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2750,7 +2800,7 @@ Namespace lernkartei2DataSetTableAdapters
             Me._commandCollection(0).CommandText = "SELECT ID, cat_id, frage, antwortFrei, pr_antwortFrei, mc_anwort1, mc_anwort2, mc"& _ 
                 "_anwort3, mc_anwort4, mc_anwort5, mc_check1, mc_check2, mc_check3, mc_check4, mc"& _ 
                 "_check5, pr_mc_check1, pr_mc_check2, pr_mc_check3, pr_mc_check4, pr_mc_check5, p"& _ 
-                "unkte, zurueckstellen, Themenlink FROM tbl_Fragen"
+                "unkte, zurueckstellen, Themenlink, Bild FROM tbl_Fragen"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -2830,7 +2880,8 @@ Namespace lernkartei2DataSetTableAdapters
                     ByVal Original_pr_mc_check5 As Boolean,  _
                     ByVal Original_punkte As Global.System.Nullable(Of Byte),  _
                     ByVal Original_zurueckstellen As Boolean,  _
-                    ByVal Original_Themenlink As String) As Integer
+                    ByVal Original_Themenlink As String,  _
+                    ByVal Original_Bild As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
             If (Original_cat_id.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -2910,6 +2961,13 @@ Namespace lernkartei2DataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(37).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(38).Value = CType(Original_Themenlink,String)
             End If
+            If (Original_Bild Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(40).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(40).Value = CType(Original_Bild,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -2951,7 +3009,8 @@ Namespace lernkartei2DataSetTableAdapters
                     ByVal pr_mc_check5 As Boolean,  _
                     ByVal punkte As Global.System.Nullable(Of Byte),  _
                     ByVal zurueckstellen As Boolean,  _
-                    ByVal Themenlink As String) As Integer
+                    ByVal Themenlink As String,  _
+                    ByVal Bild As String) As Integer
             If (cat_id.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(cat_id.Value,Integer)
             Else
@@ -3018,6 +3077,11 @@ Namespace lernkartei2DataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(21).Value = CType(Themenlink,String)
             End If
+            If (Bild Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(22).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(22).Value = CType(Bild,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -3060,6 +3124,7 @@ Namespace lernkartei2DataSetTableAdapters
                     ByVal punkte As Global.System.Nullable(Of Byte),  _
                     ByVal zurueckstellen As Boolean,  _
                     ByVal Themenlink As String,  _
+                    ByVal Bild As String,  _
                     ByVal Original_ID As Integer,  _
                     ByVal Original_cat_id As Global.System.Nullable(Of Integer),  _
                     ByVal Original_mc_anwort1 As String,  _
@@ -3079,7 +3144,8 @@ Namespace lernkartei2DataSetTableAdapters
                     ByVal Original_pr_mc_check5 As Boolean,  _
                     ByVal Original_punkte As Global.System.Nullable(Of Byte),  _
                     ByVal Original_zurueckstellen As Boolean,  _
-                    ByVal Original_Themenlink As String) As Integer
+                    ByVal Original_Themenlink As String,  _
+                    ByVal Original_Bild As String) As Integer
             If (cat_id.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(cat_id.Value,Integer)
             Else
@@ -3146,84 +3212,96 @@ Namespace lernkartei2DataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Themenlink,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_ID,Integer)
-            If (Original_cat_id.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_cat_id.Value,Integer)
+            If (Bild Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Bild,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_ID,Integer)
+            If (Original_cat_id.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_cat_id.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
             End If
             If (Original_mc_anwort1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_mc_anwort1,String)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_mc_anwort1,String)
             End If
             If (Original_mc_anwort2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_mc_anwort2,String)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_mc_anwort2,String)
             End If
             If (Original_mc_anwort3 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_mc_anwort3,String)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_mc_anwort3,String)
             End If
             If (Original_mc_anwort4 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_mc_anwort4,String)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_mc_anwort4,String)
             End If
             If (Original_mc_anwort5 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_mc_anwort5,String)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_mc_anwort5,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_mc_check1,Boolean)
-            Me.Adapter.UpdateCommand.Parameters(37).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Original_mc_check2,Boolean)
-            Me.Adapter.UpdateCommand.Parameters(39).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(40).Value = CType(Original_mc_check3,Boolean)
-            Me.Adapter.UpdateCommand.Parameters(41).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Original_mc_check4,Boolean)
-            Me.Adapter.UpdateCommand.Parameters(43).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(44).Value = CType(Original_mc_check5,Boolean)
-            Me.Adapter.UpdateCommand.Parameters(45).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(46).Value = CType(Original_pr_mc_check1,Boolean)
-            Me.Adapter.UpdateCommand.Parameters(47).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(48).Value = CType(Original_pr_mc_check2,Boolean)
-            Me.Adapter.UpdateCommand.Parameters(49).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(50).Value = CType(Original_pr_mc_check3,Boolean)
-            Me.Adapter.UpdateCommand.Parameters(51).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(52).Value = CType(Original_pr_mc_check4,Boolean)
-            Me.Adapter.UpdateCommand.Parameters(53).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(54).Value = CType(Original_pr_mc_check5,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_mc_check1,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_mc_check2,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_mc_check3,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_mc_check4,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_mc_check5,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_pr_mc_check1,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_pr_mc_check2,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(50).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_pr_mc_check3,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(52).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(53).Value = CType(Original_pr_mc_check4,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(54).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(55).Value = CType(Original_pr_mc_check5,Boolean)
             If (Original_punkte.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Original_punkte.Value,Byte)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_punkte.Value,Byte)
             Else
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(57).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(58).Value = CType(Original_zurueckstellen,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(58).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Original_zurueckstellen,Boolean)
             If (Original_Themenlink Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(60).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(Original_Themenlink,String)
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_Themenlink,String)
+            End If
+            If (Original_Bild Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(63).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(Original_Bild,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _

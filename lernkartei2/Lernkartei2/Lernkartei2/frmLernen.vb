@@ -295,23 +295,24 @@ Public Class frmLernen
         ' Der Timer läuft rückwärts, pro Durchlauf wird 1 abgezogen, bei Interval 1000 ist das 1 Sekunde
         Lernzeit -= 1
 
+        ' Progressbar in Abhängigkeit von der lernzei
+        lblProgress.Maximum = 1000
+        lblProgress.Minimum = 0
+        lblProgress.Value = ((1000 / Gesamtzeit) * Lernzeit)
+
         ' Rote und fette Ausgabe wenn nur noch 10 % der Gesamtzeit vorhanden
         If Lernzeit <= ((Gesamtzeit / 100) * 10) Then
             lblRestzeit.ForeColor = Color.Red
             lblRestzeit.Font = New Font(lblRestzeit.Font, FontStyle.Bold)
+            'Umschalten von Blau auf Rot der Progressbar, wenn nur noch 10% Zeit übrig
+            lblProgress.ForeColor = Color.Red
         End If
 
-        ' Debug Ausgabe zum Testen
+        'Debug Ausgabe zum Testen
         'Debug.Print (Lernzeit)
 
         ' Formatierte Ausgabe durch Funktion IntToDateStr
         lblRestzeit.Text = IntToDateStr(Lernzeit)
-
-        ' Progressbar 
-        'Dim percent As Integer = CInt(((CDbl(lblProgress.Value) / CDbl(lblProgress.Maximum)) * 100))
-
-
-        'lblProgress.Value -= 1
 
         ' Beenden des Timers wenn die 0 erreicht ist.
         If Lernzeit = 0 Then
@@ -343,4 +344,5 @@ Public Class frmLernen
 
     End Sub
 
+    
 End Class

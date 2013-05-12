@@ -50,6 +50,7 @@ Partial Class MDIMain
         Me.DatenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FragenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.KategoreienToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ZurücksetzenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -80,7 +81,6 @@ Partial Class MDIMain
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.ZurücksetzenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -261,15 +261,21 @@ Partial Class MDIMain
         '
         Me.FragenToolStripMenuItem.Image = CType(resources.GetObject("FragenToolStripMenuItem.Image"), System.Drawing.Image)
         Me.FragenToolStripMenuItem.Name = "FragenToolStripMenuItem"
-        Me.FragenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.FragenToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
         Me.FragenToolStripMenuItem.Text = "Fragen"
         '
         'KategoreienToolStripMenuItem
         '
         Me.KategoreienToolStripMenuItem.Image = CType(resources.GetObject("KategoreienToolStripMenuItem.Image"), System.Drawing.Image)
         Me.KategoreienToolStripMenuItem.Name = "KategoreienToolStripMenuItem"
-        Me.KategoreienToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.KategoreienToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
         Me.KategoreienToolStripMenuItem.Text = "Kategorieen"
+        '
+        'ZurücksetzenToolStripMenuItem
+        '
+        Me.ZurücksetzenToolStripMenuItem.Name = "ZurücksetzenToolStripMenuItem"
+        Me.ZurücksetzenToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.ZurücksetzenToolStripMenuItem.Text = "Zurücksetzen"
         '
         'ViewMenu
         '
@@ -306,7 +312,7 @@ Partial Class MDIMain
         'OptionsToolStripMenuItem
         '
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.OptionsToolStripMenuItem.Text = "&Optionen"
         '
         'WindowsMenu
@@ -480,12 +486,6 @@ Partial Class MDIMain
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
-        '
-        'ZurücksetzenToolStripMenuItem
-        '
-        Me.ZurücksetzenToolStripMenuItem.Name = "ZurücksetzenToolStripMenuItem"
-        Me.ZurücksetzenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ZurücksetzenToolStripMenuItem.Text = "Zurücksetzen"
         '
         'MDIMain
         '
